@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gusman Shoes | Mayorista de calzados en Argentina</title>
+  <meta name="description" content="Distribuidor mayorista de calzados: zapatillas, ojotas, sandalias, botas. Envíos a todo el país. Gusman Shoes, la confianza del revendedor.">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gusman Shoes - Mayorista de calzados">
+  <meta property="og:description" content="Calzados para niñas, niños y adultos. Stock permanente. Pedidos por WhatsApp.">
+  <meta property="og:image" content="https://ejemplo.com/og-gusman.jpg">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Schema.org mejorado -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WholesaleStore",
+    "name": "Gusman Shoes",
+    "description": "Mayorista de calzados con amplia trayectoria en Argentina.",
+    "url": "https://www.gusmanshoes.com.ar",
+    "telephone": "+54-9-3757-326174",
+    "email": "ventas@gusmanshoes.com.ar",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Buenos Aires",
+      "addressRegion": "CABA",
+      "addressCountry": "AR"
+    },
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/gusmanshoes",
+      "https://www.facebook.com/gusmanshoes"
+    ]
+  }
+  </script>
+  <!-- Fonte Inter (Google) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    /* RESET Y PROPORCIÓN DE COLORES: 60% blanco, 30% negro/cinza, 10% CTA */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #FFFFFF;
+      color: #111111;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    h1, h2, h3 {
+      color: #111111;
+    }
+    .bg-light-gray {
+      background-color: #F5F5F5;
+    }
+    .border-light-gray {
+      border-color: #E5E5E5;
+    }
+    /* CTA principal: laranja */
+    .btn-cta {
+      background-color: #FF6B00;
+      color: white;
+      transition: background-color 0.2s;
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn-cta:hover {
+      background-color: #E85A00;
+    }
+    /* CTA secundario: verde */
+    .btn-green {
+      background-color: #22C55E;
+      color: white;
+      transition: background-color 0.2s;
+      padding: 14px 36px;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn-green:hover {
+      background-color: #16A34A;
+    }
+    /* cookie bar */
+    .cookie-bar {
+      background: #111111;
+      color: #eee;
+      padding: 12px 0;
+      font-size: 0.875rem;
+      border-bottom: 1px solid #333;
+    }
+    .cookie-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .cookie-content a {
+      color: #FF8C42;
+      text-decoration: none;
+    }
+    .btn-cookie {
+      background: transparent;
+      border: 1px solid #aaa;
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-cookie:hover {
+      background: #FF6B00;
+      border-color: #FF6B00;
+    }
+
+    /* HEADER */
+    .main-header {
+      background: #FFFFFF;
+      border-bottom: 1px solid #E5E5E5;
+      padding: 16px 0;
+    }
+    .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #111;
+    }
+    .logo span {
+      background: #111;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      margin-left: 8px;
+    }
+    .contact-header a {
+      color: #111;
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid #111;
+      padding: 8px 20px;
+      border-radius: 40px;
+      transition: 0.2s;
+    }
+    .contact-header a:hover {
+      background: #111;
+      color: white;
+    }
+
+    /* HERO COM IMAGEM DE FUNDO FIXA */
+    .hero {
+      position: relative;
+      background-color: #F5F5F5; /* fallback */
+      padding: 80px 0;
+      /* Imagem de fundo fixa (exemplo Unsplash - trocar pela URL desejada) */
+      background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* overlay escuro para contraste */
+      z-index: 1;
+    }
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-content {
+      color: white;
+    }
+    .hero-content h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: white;
+    }
+    .hero-content .highlight {
+      color: #FF6B00;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 32px;
+      border-left: 4px solid #FF6B00;
+      padding-left: 20px;
+    }
+    .hero-badge {
+      background: #22C55E;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-stats {
+      background: white;
+      padding: 32px;
+      border-radius: 24px;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+      border: 1px solid #E5E5E5;
+    }
+    .stats-numbers {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #111;
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      color: #555;
+      font-weight: 600;
+    }
+    .disponibilidad {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #F5F5F5;
+      padding: 16px;
+      border-radius: 60px;
+      justify-content: center;
+      font-weight: 700;
+      border: 1px solid #E5E5E5;
+    }
+    .dot-verde {
+      width: 12px;
+      height: 12px;
+      background: #4ADE80;
+      border-radius: 50%;
+    }
+
+    /* TRUST BANNER (30% negro) */
+    .trust-banner {
+      background: #111111;
+      color: white;
+      padding: 32px 0;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+    .trust-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FF8C42;
+    }
+
+    /* CATEGORIAS - CARDS CON IMAGEN (placeholder) Y BOTÓN WHATSAPP */
+    .categorias {
+      padding: 80px 0;
+      background: white;
+    }
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .section-sub {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 48px;
+    }
+    .categoria-grupo {
+      margin-bottom: 64px;
+    }
+    .grupo-titulo {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 28px;
+      padding-bottom: 12px;
+      border-bottom: 4px solid #FF6B00;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .grupo-titulo .badge {
+      background: #111;
+      color: white;
+      padding: 6px 24px;
+      border-radius: 40px;
+      font-size: 1rem;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 28px;
+    }
+    .card-producto {
+      background: #F5F5F5;
+      border-radius: 20px;
+      padding: 20px 12px 16px;
+      border: 1px solid #E5E5E5;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .card-producto:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+      border-color: #FF6B00;
+    }
+    /* espacio para imagen - placeholder gráfico */
+    .card-img {
+      width: 100%;
+      height: 120px;
+      background: #ddd;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 0.8rem;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"/><line x1="2" y1="20" x2="22" y2="20"/></svg>');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 40px 40px;
+    }
+    .card-title {
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+      color: #111;
+    }
+    .btn-wa {
+      background-color: #22C55E;
+      color: white;
+      border: none;
+      padding: 10px 0;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      width: 100%;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .btn-wa:hover {
+      background-color: #16A34A;
+    }
+    .btn-wa::before {
+      content: "📱 ";
+      font-size: 1rem;
+    }
+
+    /* BENEFICIOS (con emojis) */
+    .beneficios {
+      background: #F5F5F5;
+      padding: 60px 0;
+    }
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+    .beneficio-item i {
+      font-size: 2.4rem;
+      font-style: normal;
+      background: #FF6B00;
+      color: white;
+      width: 80px;
+      height: 80px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 80px;
+      margin-bottom: 20px;
+    }
+    .beneficio-item h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+    .beneficio-item p {
+      color: #333;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #111111;
+      color: #ccc;
+      padding: 60px 0 30px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-col h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      border-left: 4px solid #FF6B00;
+      padding-left: 12px;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col li, .footer-col a {
+      color: #aaa;
+      text-decoration: none;
+      margin-bottom: 10px;
+      display: block;
+      font-size: 0.9rem;
+    }
+    .footer-col a:hover {
+      color: #FF8C42;
+    }
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #777;
+    }
+    .footer-bottom a {
+      color: #FF8C42;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Cookie bar -->
+  <div class="cookie-bar">
+    <div class="container cookie-content">
+      <p>Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestras <a href="#">Políticas de Privacidad</a> y <a href="#">Términos</a>.</p>
+      <button class="btn-cookie">Aceptar</button>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <div class="container header-flex">
+      <div class="logo">
+        <h1>GUSMAN<span>SHOES</span></h1>
+      </div>
+      <div class="contact-header">
+        <a href="#">📞 +54 9 3757 326174</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECCIÓN 1: HERO COM IMAGEM DE FUNDO FIXA -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="hero-badge">MAYORISTA DE CALZADO · 15 AÑOS</span>
+          <h2>La mejor <span class="highlight">selección</span> para revendedores</h2>
+          <p>Zapatillas, ojotas, sandalias, botas y más. Stock permanente y envíos a todo el país.</p>
+          <div class="hero-buttons">
+            <a href="#ninas" class="btn-cta">Línea niñas</a>
+            <a href="#ninos" class="btn-green">Línea niños</a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stats-numbers">
+            <div class="stat-item"><span class="stat-value">+800</span> <span class="stat-label">clientes mayoristas</span></div>
+            <div class="stat-item"><span class="stat-value">15</span> <span class="stat-label">años</span></div>
+            <div class="stat-item"><span class="stat-value">24/7</span> <span class="stat-label">pedidos online</span></div>
+          </div>
+          <div class="disponibilidad">
+            <span class="dot-verde"></span> <strong>Stock disponible / Envío en 24/48hs</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: TRUST BANNER -->
+  <div class="trust-banner">
+    <div class="container trust-grid">
+      <div class="trust-item"><div class="trust-value">4.8★</div><div>342 reseñas verificadas</div></div>
+      <div class="trust-item"><div class="trust-value">+500</div><div>modelos en catálogo</div></div>
+      <div class="trust-item"><div class="trust-value">15</div><div>años de experiencia</div></div>
+      <div class="trust-item"><div class="trust-value">48h</div><div>entrega promedio</div></div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 3: CATEGORIAS -->
+  <section class="categorias">
+    <div class="container">
+      <h2 class="section-title" id="ninas">Categorías con stock mayorista</h2>
+      <div class="section-sub">Hacé tu pedido directamente por WhatsApp — cada producto tiene su enlace directo.</div>
+      
+      <!-- NIÑA -->
+      <div class="categoria-grupo">
+        <div class="grupo-titulo">
+          Línea Niña <span class="badge">7 modelos</span>
+        </div>
+        <div class="card-grid">
+          <div class="card-producto"><div class="card-img" title="Zapatillas niña"></div><div class="card-title">Zapatillas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20-%20Ni%C3%B1a%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Ojotas niña"></div><div class="card-title">Ojotas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojotas%20-%20Ni%C3%B1a%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Sandalias niña"></div><div class="card-title">Sandalias</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Sandalias%20-%20Ni%C3%B1a%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Zapatillas de danza niña"></div><div class="card-title">Zapatillas de danza</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20de%20danza%20-%20Ni%C3%B1a%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Mocasín niña"></div><div class="card-title">Mocasín</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Mocas%C3%ADn%20-%20Ni%C3%B1a%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Clog niña"></div><div class="card-title">Clog</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Clog%20-%20Ni%C3%B1a%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Botas niña"></div><div class="card-title">Botas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20-%20Ni%C3%B1a%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+        </div>
+      </div>
+
+      <!-- NIÑO -->
+      <div class="categoria-grupo" id="ninos">
+        <div class="grupo-titulo">
+          Línea Niño <span class="badge">7 modelos</span>
+        </div>
+        <div class="card-grid">
+          <div class="card-producto"><div class="card-img" title="Zapatillas niño"></div><div class="card-title">Zapatillas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20-%20Ni%C3%B1o%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Ojotas niño"></div><div class="card-title">Ojotas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojotas%20-%20Ni%C3%B1o%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Papete niño"></div><div class="card-title">Papete</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Papete%20-%20Ni%C3%B1o%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Botines niño"></div><div class="card-title">Botines</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botines%20-%20Ni%C3%B1o%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Botas niño"></div><div class="card-title">Botas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20-%20Ni%C3%B1o%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Zapato/Sapatênis niño"></div><div class="card-title">Zapato/Sapatênis</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapato%20Sapat%C3%AAnis%20-%20Ni%C3%B1o%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Clog niño"></div><div class="card-title">Clog</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Clog%20-%20Ni%C3%B1o%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
+        </div>
+      </div>
+
+      <!-- ADULTOS -->
+      <div class="categoria-grupo">
+        <div class="grupo-titulo">
+          Línea Adultos <span class="badge">+10 modelos</span>
+        </div>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));">
+          <div class="card-producto"><div class="card-img" title="Tacos / Scarpin"></div><div class="card-title">Tacos / Scarpin</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Tacos%20Scarpin%20-%20Mujer%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Zapatillas mujer"></div><div class="card-title">Zapatillas mujer</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20mujer%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Botas mujer"></div><div class="card-title">Botas mujer</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20mujer%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Zapatos hombre"></div><div class="card-title">Zapatos hombre</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatos%20hombre%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Botas hombre"></div><div class="card-title">Botas hombre</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20hombre%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Ojotas adulto"></div><div class="card-title">Ojotas adulto</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojotas%20adulto%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: BENEFICIOS -->
+  <section class="beneficios">
+    <div class="container">
+      <h2 class="section-title">Por qué los revendedores confían en Gusman Shoes</h2>
+      <div class="beneficios-grid">
+        <div class="beneficio-item"><i>📦</i><h3>Stock garantizado</h3><p>Más de 500 pares en depósito, reposición semanal.</p></div>
+        <div class="beneficio-item"><i>⚖️</i><h3>Precio mayorista real</h3><p>Escala de descuentos por volumen sin letra chica.</p></div>
+        <div class="beneficio-item"><i>🚛</i><h3>Logística propia</h3><p>Entregas en CABA y GBA en 24hs; interior en 48/72hs.</p></div>
+        <div class="beneficio-item"><i>🛡️</i><h3>Garantía y cambios</h3><p>Política clara, respaldo y servicio post-venta.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h4>Gusman Shoes</h4>
+        <ul>
+          <li><a href="#">Sobre la empresa</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Términos y condiciones</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Medios de pago</a></li>
+          <li><a href="#">Formas de envío</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li>📞 +54 9 3757 326174</li>
+          <li>📧 ventas@gusmanshoes.com.ar</li>
+          <li>📍 Buenos Aires, Argentina</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Gusman Shoes. Todos los derechos reservados.</p>
+      <p><a href="#">Privacidad</a> | <a href="#">Cookies</a> | <a href="#">Términos</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.btn-cookie')?.addEventListener('click', function() {
+      this.closest('.cookie-bar').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
