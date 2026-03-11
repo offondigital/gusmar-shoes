@@ -140,7 +140,7 @@
       border-color: #FF6B00;
     }
 
-    /* HEADER CON MENÚ SANDWICH */
+    /* HEADER CON MENÚ SANDWICH Y SUBMENU */
     .main-header {
       background: #FFFFFF;
       border-bottom: 1px solid #E5E5E5;
@@ -175,16 +175,61 @@
     }
     .nav-list {
       display: flex;
-      gap: 20px;
+      gap: 16px;
       list-style: none;
+      align-items: center;
+    }
+    .nav-list > li {
+      position: relative;
     }
     .nav-list a {
       text-decoration: none;
       color: #111;
       font-weight: 600;
       transition: color 0.2s;
+      padding: 8px 0;
+      font-size: 0.95rem;
+      white-space: nowrap;
     }
     .nav-list a:hover {
+      color: #FF6B00;
+    }
+    /* Submenu Adultos */
+    .has-submenu {
+      position: relative;
+    }
+    .submenu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border: 1px solid #E5E5E5;
+      border-radius: 12px;
+      padding: 12px 0;
+      min-width: 180px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.2s;
+      z-index: 100;
+    }
+    .has-submenu:hover .submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .submenu li {
+      list-style: none;
+    }
+    .submenu a {
+      display: block;
+      padding: 10px 20px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .submenu a:hover {
+      background: #F5F5F5;
       color: #FF6B00;
     }
     .nav-whatsapp a {
@@ -228,6 +273,7 @@
       z-index: 999;
       transform: translateX(-100%);
       transition: transform 0.3s ease;
+      overflow-y: auto;
     }
     .mobile-menu.active {
       transform: translateX(0);
@@ -236,14 +282,26 @@
       list-style: none;
       margin-bottom: 32px;
     }
-    .mobile-list li {
-      margin-bottom: 24px;
+    .mobile-list > li {
+      margin-bottom: 20px;
     }
     .mobile-list a {
       text-decoration: none;
       color: #111;
       font-size: 1.4rem;
       font-weight: 700;
+    }
+    .mobile-submenu {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+    .mobile-submenu li {
+      margin-bottom: 12px;
+    }
+    .mobile-submenu a {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #555;
     }
     .mobile-whatsapp a {
       display: inline-block;
@@ -382,29 +440,16 @@
       color: #FF8C42;
     }
 
-    /* CATEGORIAS */
-    .categorias {
-      padding: 80px 0;
+    /* SECCIONES DESTACADAS */
+    .destacadas {
+      padding: 60px 0;
       background: white;
     }
-    .section-title {
-      font-size: 2.4rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .section-sub {
-      text-align: center;
-      font-size: 1.2rem;
-      color: #555;
-      max-width: 700px;
-      margin: 0 auto 48px;
-    }
-    .categoria-grupo {
+    .destacada-grupo {
       margin-bottom: 64px;
       scroll-margin-top: 100px;
     }
-    .grupo-titulo {
+    .destacada-titulo {
       font-size: 2rem;
       font-weight: 800;
       margin-bottom: 28px;
@@ -414,13 +459,14 @@
       align-items: center;
       justify-content: space-between;
     }
-    .grupo-titulo .badge {
+    .destacada-titulo .badge {
       background: #111;
       color: white;
       padding: 6px 24px;
       border-radius: 40px;
       font-size: 1rem;
     }
+    /* Reaproveitamos o card-grid e card-producto */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
@@ -482,9 +528,49 @@
       font-size: 1rem;
     }
 
+    /* CATEGORIAS */
+    .categorias {
+      padding: 80px 0;
+      background: #F5F5F5;
+    }
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .section-sub {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 48px;
+    }
+    .categoria-grupo {
+      margin-bottom: 64px;
+      scroll-margin-top: 100px;
+    }
+    .grupo-titulo {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 28px;
+      padding-bottom: 12px;
+      border-bottom: 4px solid #FF6B00;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .grupo-titulo .badge {
+      background: #111;
+      color: white;
+      padding: 6px 24px;
+      border-radius: 40px;
+      font-size: 1rem;
+    }
+
     /* BENEFICIOS */
     .beneficios {
-      background: #F5F5F5;
+      background: white;
       padding: 60px 0;
     }
     .beneficios-grid {
@@ -607,19 +693,29 @@
     </div>
   </div>
 
-  <!-- HEADER CON MENÚ SANDWICH -->
+  <!-- HEADER CON MENÚ SANDWICH Y SUBMENU -->
   <header class="main-header">
     <div class="container header-flex">
       <div class="logo">
         <h1>GUSMAN<span>SHOES</span></h1>
       </div>
       
-      <!-- Menú desktop -->
+      <!-- Menú desktop - TODO EN ESPAÑOL -->
       <nav class="nav-menu">
         <ul class="nav-list">
+          <li><a href="#destacados">Destacados</a></li>
+          <li><a href="#mas-vendidos">Más Vendidos</a></li>
+          <li><a href="#lanzamientos">Lanzamientos</a></li>
+          <li><a href="#promociones">Promociones</a></li>
           <li><a href="#ninas">Niñas</a></li>
           <li><a href="#ninos">Niños</a></li>
-          <li><a href="#adultos">Adultos</a></li>
+          <li class="has-submenu">
+            <a href="#adultos">Adultos</a>
+            <ul class="submenu">
+              <li><a href="#mujeres">Mujeres</a></li>
+              <li><a href="#hombres">Hombres</a></li>
+            </ul>
+          </li>
           <li><a href="#beneficios">Beneficios</a></li>
         </ul>
         <div class="nav-whatsapp">
@@ -635,12 +731,22 @@
       </div>
     </div>
 
-    <!-- Menú mobile -->
+    <!-- Menú mobile - TODO EN ESPAÑOL -->
     <div class="mobile-menu" id="mobileMenu">
       <ul class="mobile-list">
+        <li><a href="#destacados" onclick="closeMenu()">Destacados</a></li>
+        <li><a href="#mas-vendidos" onclick="closeMenu()">Más Vendidos</a></li>
+        <li><a href="#lanzamientos" onclick="closeMenu()">Lanzamientos</a></li>
+        <li><a href="#promociones" onclick="closeMenu()">Promociones</a></li>
         <li><a href="#ninas" onclick="closeMenu()">Niñas</a></li>
         <li><a href="#ninos" onclick="closeMenu()">Niños</a></li>
-        <li><a href="#adultos" onclick="closeMenu()">Adultos</a></li>
+        <li>
+          <a href="#adultos" onclick="closeMenu()">Adultos</a>
+          <ul class="mobile-submenu">
+            <li><a href="#mujeres" onclick="closeMenu()">Mujeres</a></li>
+            <li><a href="#hombres" onclick="closeMenu()">Hombres</a></li>
+          </ul>
+        </li>
         <li><a href="#beneficios" onclick="closeMenu()">Beneficios</a></li>
       </ul>
       <div class="mobile-whatsapp">
@@ -686,7 +792,64 @@
     </div>
   </div>
 
-  <!-- CATEGORIAS -->
+  <!-- SECCIONES DESTACADAS - TODAS EN ESPAÑOL -->
+  <section class="destacadas">
+    <div class="container">
+      <!-- Destacados -->
+      <div class="destacada-grupo" id="destacados">
+        <div class="destacada-titulo">
+          ⭐ Destacados <span class="badge">Lo más nuevo</span>
+        </div>
+        <div class="card-grid">
+          <div class="card-producto"><div class="card-img" title="Zapatillas destacadas"></div><div class="card-title">Zapatillas Urbanas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20Urbanas%20-%20Destacados" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Botas destacadas"></div><div class="card-title">Botas de Moda</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20de%20Moda%20-%20Destacados" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Ojotas destacadas"></div><div class="card-title">Ojotas Premium</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojotas%20Premium%20-%20Destacados" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Sandalias destacadas"></div><div class="card-title">Sandalias Elegantes</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Sandalias%20Elegantes%20-%20Destacados" target="_blank" class="btn-wa">Pedir lote</a></div>
+        </div>
+      </div>
+
+      <!-- Más Vendidos -->
+      <div class="destacada-grupo" id="mas-vendidos">
+        <div class="destacada-titulo">
+          🔥 Más Vendidos <span class="badge">Los más elegidos</span>
+        </div>
+        <div class="card-grid">
+          <div class="card-producto"><div class="card-img" title="Zapatillas más vendidas"></div><div class="card-title">Zapatillas Clásicas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20Cl%C3%A1sicas%20-%20M%C3%A1s%20Vendidos" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Botas más vendidas"></div><div class="card-title">Botas Texanas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20Texanas%20-%20M%C3%A1s%20Vendidos" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Ojotas más vendidas"></div><div class="card-title">Ojotas Tradicionales</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojotas%20Tradicionales%20-%20M%C3%A1s%20Vendidos" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Zapatos más vendidos"></div><div class="card-title">Zapatos de Cuero</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatos%20de%20Cuero%20-%20M%C3%A1s%20Vendidos" target="_blank" class="btn-wa">Pedir lote</a></div>
+        </div>
+      </div>
+
+      <!-- Lanzamientos -->
+      <div class="destacada-grupo" id="lanzamientos">
+        <div class="destacada-titulo">
+          🆕 Lanzamientos <span class="badge">Nueva colección</span>
+        </div>
+        <div class="card-grid">
+          <div class="card-producto"><div class="card-img" title="Lanzamiento zapatillas"></div><div class="card-title">Zapatillas Runner</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20Runner%20-%20Lanzamientos" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Lanzamiento sandalias"></div><div class="card-title">Sandalias Verano</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Sandalias%20Verano%20-%20Lanzamientos" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Lanzamiento botas"></div><div class="card-title">Botas de Invierno</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20de%20Invierno%20-%20Lanzamientos" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Lanzamiento mocasines"></div><div class="card-title">Mocasines Modernos</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Mocasines%20Modernos%20-%20Lanzamientos" target="_blank" class="btn-wa">Pedir lote</a></div>
+        </div>
+      </div>
+
+      <!-- Promociones -->
+      <div class="destacada-grupo" id="promociones">
+        <div class="destacada-titulo">
+          🏷️ Promociones <span class="badge">Ofertas especiales</span>
+        </div>
+        <div class="card-grid">
+          <div class="card-producto"><div class="card-img" title="Promoción zapatillas"></div><div class="card-title">Zapatillas Oferta</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20Oferta%20-%20Promociones" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Promoción botas"></div><div class="card-title">Botas Liquidación</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20Liquidaci%C3%B3n%20-%20Promociones" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Promoción ojotas"></div><div class="card-title">Ojotas 2x1</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojotas%202x1%20-%20Promociones" target="_blank" class="btn-wa">Pedir lote</a></div>
+          <div class="card-producto"><div class="card-img" title="Promoción sandalias"></div><div class="card-title">Sandalias Descuento</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Sandalias%20Descuento%20-%20Promociones" target="_blank" class="btn-wa">Pedir lote</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIAS (Niñas, Niños, Mujeres, Hombres) -->
   <section class="categorias">
     <div class="container">
       <h2 class="section-title">Categorías con stock mayorista</h2>
@@ -724,18 +887,33 @@
         </div>
       </div>
 
-      <!-- ADULTOS -->
-      <div class="categoria-grupo" id="adultos">
+      <!-- ADULTOS - MUJERES -->
+      <div class="categoria-grupo" id="mujeres">
         <div class="grupo-titulo">
-          Línea Adultos <span class="badge">+10 modelos</span>
+          Mujeres <span class="badge">6 modelos</span>
         </div>
-        <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));">
+        <div class="card-grid">
           <div class="card-producto"><div class="card-img" title="Tacos / Scarpin"></div><div class="card-title">Tacos / Scarpin</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Tacos%20Scarpin%20-%20Mujer%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
-          <div class="card-producto"><div class="card-img" title="Zapatillas mujer"></div><div class="card-title">Zapatillas mujer</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20mujer%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
-          <div class="card-producto"><div class="card-img" title="Botas mujer"></div><div class="card-title">Botas mujer</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20mujer%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
-          <div class="card-producto"><div class="card-img" title="Zapatos hombre"></div><div class="card-title">Zapatos hombre</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatos%20hombre%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
-          <div class="card-producto"><div class="card-img" title="Botas hombre"></div><div class="card-title">Botas hombre</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20hombre%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
-          <div class="card-producto"><div class="card-img" title="Ojotas adulto"></div><div class="card-title">Ojotas adulto</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojotas%20adulto%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Zapatillas mujer"></div><div class="card-title">Zapatillas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20mujer%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Botas mujer"></div><div class="card-title">Botas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20mujer%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Sandalias mujer"></div><div class="card-title">Sandalias</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Sandalias%20mujer%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Ojotas mujer"></div><div class="card-title">Ojotas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojotas%20mujer%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Zapatillas de danza"></div><div class="card-title">Zapatillas de danza</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20danza%20mujer%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+        </div>
+      </div>
+
+      <!-- ADULTOS - HOMBRES -->
+      <div class="categoria-grupo" id="hombres">
+        <div class="grupo-titulo">
+          Hombres <span class="badge">6 modelos</span>
+        </div>
+        <div class="card-grid">
+          <div class="card-producto"><div class="card-img" title="Zapatos hombre"></div><div class="card-title">Zapatos</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatos%20hombre%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Zapatillas hombre"></div><div class="card-title">Zapatillas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20hombre%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Botas hombre"></div><div class="card-title">Botas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20hombre%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Ojotas hombre"></div><div class="card-title">Ojotas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojotas%20hombre%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Botines hombre"></div><div class="card-title">Botines</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botines%20hombre%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
+          <div class="card-producto"><div class="card-img" title="Mocasines hombre"></div><div class="card-title">Mocasines</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Mocasines%20hombre%20(por%20mayor)" target="_blank" class="btn-wa">Consultar</a></div>
         </div>
       </div>
     </div>
