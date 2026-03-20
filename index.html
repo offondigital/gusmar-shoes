@@ -6,9 +6,7 @@
   <title>Gusman Shoes | Mayorista de calzados en Argentina</title>
   <meta name="description" content="Distribuidor mayorista de calzados: zapatillas, ojotas, sandalias, botas. Envíos a todo el país. Gusman Shoes, la confianza del revendedor.">
   
-  <!-- ============================================ -->
   <!-- FAVICON - Coloca aquí la URL de tu favicon -->
-  <!-- ============================================ -->
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -21,8 +19,6 @@
   <meta property="og:title" content="Gusman Shoes - Mayorista de calzados">
   <meta property="og:description" content="Calzados para niñas, niños y adultos. Stock permanente. Pedidos por WhatsApp.">
   <meta property="og:image" content="https://ejemplo.com/og-gusman.jpg">
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
   
   <!-- Schema.org -->
   <script type="application/ld+json">
@@ -55,10 +51,12 @@
     ]
   }
   </script>
+  
   <!-- Fonte Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  
   <style>
     /* RESET Y PROPORCIÓN DE COLORES */
     * {
@@ -404,9 +402,6 @@
       position: relative;
       background-color: #F5F5F5;
       padding: 60px 0;
-      /* ============================================ */
-      /* HERO BACKGROUND IMAGE - Coloca aquí la URL de tu imagen de fondo */
-      /* ============================================ */
       background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
       background-attachment: scroll;
       background-position: center;
@@ -578,69 +573,61 @@
       }
     }
 
-    /* SECCIONES DESTACADAS */
-    .destacadas {
+    /* SECCIONES DE CARRUSEL - CARDS EN SLIDE */
+    .carrusel-section {
       padding: 40px 0;
       background: white;
+      overflow: hidden;
     }
     @media (min-width: 768px) {
-      .destacadas {
+      .carrusel-section {
         padding: 60px 0;
       }
     }
-    .destacada-grupo {
-      margin-bottom: 48px;
-      scroll-margin-top: 80px;
+    .carrusel-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
     }
-    .destacada-titulo {
-      font-size: 1.6rem;
-      font-weight: 800;
-      margin-bottom: 24px;
-      padding-bottom: 10px;
-      border-bottom: 4px solid #FF6B00;
+    .carrusel-track {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
+      transition: transform 1.5s ease-in-out;
+      will-change: transform;
+    }
+    .carrusel-slide {
+      flex: 0 0 100%;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 16px;
     }
     @media (min-width: 768px) {
-      .destacada-titulo {
-        font-size: 2rem;
-      }
-    }
-    .destacada-titulo .badge {
-      background: #111;
-      color: white;
-      padding: 4px 16px;
-      border-radius: 40px;
-      font-size: 0.9rem;
-    }
-    
-    /* Grid responsivo de cards */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: 16px;
-      margin: 0 auto;
-    }
-    @media (min-width: 480px) {
-      .card-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
-    }
-    @media (min-width: 768px) {
-      .card-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .carrusel-slide {
+        flex: 0 0 100%;
         gap: 24px;
       }
     }
-    @media (min-width: 1024px) {
-      .card-grid {
-        grid-template-columns: repeat(4, 1fr);
+    .carrusel-card {
+      flex: 1;
+      min-width: 0;
+    }
+    /* Responsive para cards dentro del slide */
+    @media (max-width: 640px) {
+      .carrusel-slide {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .carrusel-card {
+        width: 100%;
       }
     }
+    @media (min-width: 641px) and (max-width: 1024px) {
+      .carrusel-slide {
+        gap: 20px;
+      }
+    }
+    
+    /* Estilo de los cards */
     .card-producto {
       background: #F5F5F5;
       border-radius: 20px;
@@ -658,11 +645,6 @@
       box-shadow: 0 12px 20px rgba(0,0,0,0.08);
       border-color: #FF6B00;
     }
-    /* ============================================ */
-    /* IMAGEN DE LOS CARDS - Estilo base para todas las imágenes */
-    /* Para cambiar la imagen de cada card, agrega style="background-image: url('tu-imagen.jpg')" */
-    /* en cada div con clase "card-img" dentro del HTML */
-    /* ============================================ */
     .card-img {
       width: 100%;
       aspect-ratio: 1/1;
@@ -673,7 +655,6 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      /* Imagen por defecto (placeholder) */
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"/><line x1="2" y1="20" x2="22" y2="20"/></svg>');
     }
     .card-title {
@@ -709,8 +690,49 @@
       content: "📱 ";
       font-size: 0.9rem;
     }
+    
+    /* Controles de navegación del carrusel */
+    .carrusel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .carrusel-btn {
+      background: #111;
+      color: white;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background 0.2s;
+    }
+    .carrusel-btn:hover {
+      background: #FF6B00;
+    }
+    .indicadores {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .indicador {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ccc;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .indicador.active {
+      background: #FF6B00;
+      width: 24px;
+      border-radius: 10px;
+    }
 
-    /* CATÁLOGO */
+    /* CATÁLOGO DE PRODUCTOS - Secciones individuales */
     .categorias {
       padding: 40px 0;
       background: #F5F5F5;
@@ -738,29 +760,6 @@
       max-width: 700px;
       margin: 0 auto 32px;
       padding: 0 16px;
-    }
-    .categoria-grupo {
-      margin-bottom: 48px;
-      scroll-margin-top: 80px;
-    }
-    .grupo-titulo {
-      font-size: 1.6rem;
-      font-weight: 800;
-      margin-bottom: 24px;
-      padding-bottom: 10px;
-      border-bottom: 4px solid #FF6B00;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .grupo-titulo .badge {
-      background: #111;
-      color: white;
-      padding: 4px 16px;
-      border-radius: 40px;
-      font-size: 0.9rem;
     }
 
     /* BENEFICIOS Y SECCIONES */
@@ -918,18 +917,19 @@
       <div class="logo">
         <h1>GUSMAN<span>SHOES</span></h1>
       </div>
-      
-      <!-- Menú desktop -->
       <nav class="nav-menu">
         <ul class="nav-list">
           <li><a href="#inicio">Inicio</a></li>
           <li class="has-submenu">
             <a href="#catalogo">Catálogo</a>
             <ul class="submenu">
-              <li><a href="#zapatillas-mayorista">Zapatillas</a></li>
-              <li><a href="#sandalias-mayorista">Sandalias</a></li>
-              <li><a href="#botas-mayorista">Botas</a></li>
-              <li><a href="#calzado-femenino-mayorista">Calzado femenino</a></li>
+              <li><a href="#botas-masculinas">Botas Masculinas</a></li>
+              <li><a href="#ojotas">Ojotas</a></li>
+              <li><a href="#tenis-botita">Tenis Botita</a></li>
+              <li><a href="#zapatillas-casual">Zapatillas Casual</a></li>
+              <li><a href="#zapatillas-deportivas">Zapatillas Deportivas</a></li>
+              <li><a href="#zapatillas-infantiles">Zapatillas Infantiles</a></li>
+              <li><a href="#zapatillas-running">Zapatillas Running</a></li>
             </ul>
           </li>
           <li><a href="#como-comprar">Cómo comprar</a></li>
@@ -942,26 +942,25 @@
           <a href="https://wa.me/5493757326174" target="_blank">📱 +54 9 3757 326174</a>
         </div>
       </nav>
-
-      <!-- Hamburguesa -->
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </div>
-
-    <!-- Menú mobile -->
     <div class="mobile-menu" id="mobileMenu">
       <ul class="mobile-list">
         <li><a href="#inicio" onclick="closeMenu()">Inicio</a></li>
         <li>
           <a href="#catalogo" onclick="closeMenu()">Catálogo</a>
           <ul class="mobile-submenu">
-            <li><a href="#zapatillas-mayorista" onclick="closeMenu()">Zapatillas al por mayor</a></li>
-            <li><a href="#sandalias-mayorista" onclick="closeMenu()">Sandalias al por mayor</a></li>
-            <li><a href="#botas-mayorista" onclick="closeMenu()">Botas al por mayor</a></li>
-            <li><a href="#calzado-femenino-mayorista" onclick="closeMenu()">Calzado femenino</a></li>
+            <li><a href="#botas-masculinas" onclick="closeMenu()">Botas Masculinas</a></li>
+            <li><a href="#ojotas" onclick="closeMenu()">Ojotas</a></li>
+            <li><a href="#tenis-botita" onclick="closeMenu()">Tenis Botita</a></li>
+            <li><a href="#zapatillas-casual" onclick="closeMenu()">Zapatillas Casual</a></li>
+            <li><a href="#zapatillas-deportivas" onclick="closeMenu()">Zapatillas Deportivas</a></li>
+            <li><a href="#zapatillas-infantiles" onclick="closeMenu()">Zapatillas Infantiles</a></li>
+            <li><a href="#zapatillas-running" onclick="closeMenu()">Zapatillas Running</a></li>
           </ul>
         </li>
         <li><a href="#como-comprar" onclick="closeMenu()">Cómo comprar</a></li>
@@ -985,8 +984,8 @@
           <h2>La mejor <span class="highlight">selección</span> para revendedores</h2>
           <p>Zapatillas, ojotas, sandalias, botas y más. Stock permanente y envíos a todo el país.</p>
           <div class="hero-buttons">
-            <a href="#calzado-femenino-mayorista" class="btn-cta">Línea femenina</a>
-            <a href="#zapatillas-mayorista" class="btn-green">Línea zapatillas</a>
+            <a href="#zapatillas-running" class="btn-cta">Zapatillas Running</a>
+            <a href="#botas-masculinas" class="btn-green">Botas Masculinas</a>
           </div>
         </div>
         <div class="hero-stats">
@@ -1013,90 +1012,162 @@
     </div>
   </div>
 
-  <!-- CATÁLOGO - Todos los cards con espacio para imágenes personalizadas -->
-  <section class="categorias" id="catalogo">
+  <!-- CATÁLOGO DE PRODUCTOS EN CARRUSEL -->
+  <div class="carrusel-section" id="catalogo">
     <div class="container">
       <h2 class="section-title">Catálogo de productos</h2>
       <div class="section-sub">Hacé tu pedido directamente por WhatsApp — cada producto tiene su enlace directo.</div>
-      
-      <!-- Zapatillas al por mayor -->
-      <div class="categoria-grupo" id="zapatillas-mayorista">
-        <div class="grupo-titulo">
-          Zapatillas al por mayor <span class="badge">8 modelos</span>
-        </div>
-        <div class="card-grid">
-          <!-- ============================================ -->
-          <!-- Para cambiar la imagen de cada card, reemplaza la URL en style="background-image: url('TU_IMAGEN.jpg')" -->
-          <!-- Ejemplo: style="background-image: url('https://tusitio.com/imagen-zapatilla-running.jpg')" -->
-          <!-- ============================================ -->
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Zapatillas Running</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20Running%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Zapatillas Casual</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20Casual%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556906781-9a412961c28c?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Zapatillas Deportivas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20Deportivas%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Zapatillas Infantiles</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Zapatillas%20Infantiles%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-        </div>
-      </div>
+    </div>
+  </div>
 
-      <!-- Sandalias al por mayor -->
-      <div class="categoria-grupo" id="sandalias-mayorista">
-        <div class="grupo-titulo">
-          Sandalias al por mayor <span class="badge">6 modelos</span>
+  <!-- 1. BOTAS MASCULINAS - 4 cards -->
+  <div class="carrusel-section" id="botas-masculinas" style="background: #F5F5F5;">
+    <div class="container">
+      <h2 class="section-title">Botas Masculinas</h2>
+      <div class="carrusel-container" id="carrusel-botas">
+        <div class="carrusel-track" id="track-botas">
+          <!-- Slide 1 (4 cards) -->
+          <div class="carrusel-slide">
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Bota+1'); background-size: cover;"></div><div class="card-title">Bota Cuero Negra</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Bota%20Cuero%20Negra%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Bota+2'); background-size: cover;"></div><div class="card-title">Bota Marrón</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Bota%20Marr%C3%B3n%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Bota+3'); background-size: cover;"></div><div class="card-title">Bota Campera</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Bota%20Campera%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Bota+4'); background-size: cover;"></div><div class="card-title">Bota Texana</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Bota%20Texana%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+          </div>
         </div>
-        <div class="card-grid">
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Sandalias Femeninas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Sandalias%20Femeninas%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Sandalias Masculinas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Sandalias%20Masculinas%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1515347619252-60a4bf4ddd4f?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Sandalias Infantiles</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Sandalias%20Infantiles%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Ojotas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojotas%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-        </div>
-      </div>
-
-      <!-- Botas al por mayor -->
-      <div class="categoria-grupo" id="botas-mayorista">
-        <div class="grupo-titulo">
-          Botas al por mayor <span class="badge">5 modelos</span>
-        </div>
-        <div class="card-grid">
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1542843136-2fa8b2fa71b3?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Botas Femeninas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20Femeninas%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1600054904350-1d493f5f9a5f?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Botas Masculinas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20Masculinas%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Botas Infantiles</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20Infantiles%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1600054904350-1d493f5f9a5f?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Botas de Cuero</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botas%20de%20Cuero%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-        </div>
-      </div>
-
-      <!-- Calzado femenino al por mayor -->
-      <div class="categoria-grupo" id="calzado-femenino-mayorista">
-        <div class="grupo-titulo">
-          Calzado femenino al por mayor <span class="badge">10 modelos</span>
-        </div>
-        <div class="card-grid">
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Tacos / Scarpin</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Tacos%20Scarpin%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1560343090-f0409e92791a?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Bailarinas</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Bailarinas%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Mocasines</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Mocasines%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-          <div class="card-producto"><div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=200&h=200&fit=crop'); background-size: cover;"></div><div class="card-title">Tamaños</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Tama%C3%B1os%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div>
-        </div>
+        <div class="carrusel-controls"><button class="carrusel-btn prev" data-carrusel="botas">❮</button><button class="carrusel-btn next" data-carrusel="botas">❯</button></div>
+        <div class="indicadores" id="indicadores-botas"></div>
       </div>
     </div>
-  </section>
+  </div>
+
+  <!-- 2. OJOTAS - 5 cards -->
+  <div class="carrusel-section" id="ojotas" style="background: white;">
+    <div class="container">
+      <h2 class="section-title">Ojotas</h2>
+      <div class="carrusel-container" id="carrusel-ojotas">
+        <div class="carrusel-track" id="track-ojotas">
+          <div class="carrusel-slide">
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Ojota+1'); background-size: cover;"></div><div class="card-title">Ojota Negra</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojota%20Negra%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Ojota+2'); background-size: cover;"></div><div class="card-title">Ojota Blanca</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojota%20Blanca%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Ojota+3'); background-size: cover;"></div><div class="card-title">Ojota Marrón</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojota%20Marr%C3%B3n%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Ojota+4'); background-size: cover;"></div><div class="card-title">Ojota Azul</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojota%20Azul%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Ojota+5'); background-size: cover;"></div><div class="card-title">Ojota Verde</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Ojota%20Verde%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+          </div>
+        </div>
+        <div class="carrusel-controls"><button class="carrusel-btn prev" data-carrusel="ojotas">❮</button><button class="carrusel-btn next" data-carrusel="ojotas">❯</button></div>
+        <div class="indicadores" id="indicadores-ojotas"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. TENIS BOTITA - 6 cards -->
+  <div class="carrusel-section" id="tenis-botita" style="background: #F5F5F5;">
+    <div class="container">
+      <h2 class="section-title">Tenis Botita</h2>
+      <div class="carrusel-container" id="carrusel-botita">
+        <div class="carrusel-track" id="track-botita">
+          <div class="carrusel-slide">
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Botita+1'); background-size: cover;"></div><div class="card-title">Botita Negra</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botita%20Negra%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Botita+2'); background-size: cover;"></div><div class="card-title">Botita Blanca</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botita%20Blanca%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Botita+3'); background-size: cover;"></div><div class="card-title">Botita Marrón</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botita%20Marr%C3%B3n%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Botita+4'); background-size: cover;"></div><div class="card-title">Botita Beige</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botita%20Beige%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Botita+5'); background-size: cover;"></div><div class="card-title">Botita Gris</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botita%20Gris%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Botita+6'); background-size: cover;"></div><div class="card-title">Botita Mostaza</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Botita%20Mostaza%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+          </div>
+        </div>
+        <div class="carrusel-controls"><button class="carrusel-btn prev" data-carrusel="botita">❮</button><button class="carrusel-btn next" data-carrusel="botita">❯</button></div>
+        <div class="indicadores" id="indicadores-botita"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. ZAPATILLAS CASUAL - 4 cards -->
+  <div class="carrusel-section" id="zapatillas-casual" style="background: white;">
+    <div class="container">
+      <h2 class="section-title">Zapatillas Casual</h2>
+      <div class="carrusel-container" id="carrusel-casual">
+        <div class="carrusel-track" id="track-casual">
+          <div class="carrusel-slide">
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Casual+1'); background-size: cover;"></div><div class="card-title">Casual Blanca</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Casual%20Blanca%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Casual+2'); background-size: cover;"></div><div class="card-title">Casual Negra</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Casual%20Negra%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Casual+3'); background-size: cover;"></div><div class="card-title">Casual Gris</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Casual%20Gris%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Casual+4'); background-size: cover;"></div><div class="card-title">Casual Azul</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Casual%20Azul%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+          </div>
+        </div>
+        <div class="carrusel-controls"><button class="carrusel-btn prev" data-carrusel="casual">❮</button><button class="carrusel-btn next" data-carrusel="casual">❯</button></div>
+        <div class="indicadores" id="indicadores-casual"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. ZAPATILLAS DEPORTIVAS - 5 cards -->
+  <div class="carrusel-section" id="zapatillas-deportivas" style="background: #F5F5F5;">
+    <div class="container">
+      <h2 class="section-title">Zapatillas Deportivas</h2>
+      <div class="carrusel-container" id="carrusel-deportivas">
+        <div class="carrusel-track" id="track-deportivas">
+          <div class="carrusel-slide">
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Deportiva+1'); background-size: cover;"></div><div class="card-title">Deportiva Negro</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Deportiva%20Negro%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Deportiva+2'); background-size: cover;"></div><div class="card-title">Deportiva Blanco</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Deportiva%20Blanco%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Deportiva+3'); background-size: cover;"></div><div class="card-title">Deportiva Rojo</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Deportiva%20Rojo%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Deportiva+4'); background-size: cover;"></div><div class="card-title">Deportiva Azul</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Deportiva%20Azul%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Deportiva+5'); background-size: cover;"></div><div class="card-title">Deportiva Gris</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Deportiva%20Gris%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+          </div>
+        </div>
+        <div class="carrusel-controls"><button class="carrusel-btn prev" data-carrusel="deportivas">❮</button><button class="carrusel-btn next" data-carrusel="deportivas">❯</button></div>
+        <div class="indicadores" id="indicadores-deportivas"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. ZAPATILLAS INFANTILES - 5 cards -->
+  <div class="carrusel-section" id="zapatillas-infantiles" style="background: white;">
+    <div class="container">
+      <h2 class="section-title">Zapatillas Infantiles</h2>
+      <div class="carrusel-container" id="carrusel-infantiles">
+        <div class="carrusel-track" id="track-infantiles">
+          <div class="carrusel-slide">
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Infantil+1'); background-size: cover;"></div><div class="card-title">Infantil Rosa</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Infantil%20Rosa%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Infantil+2'); background-size: cover;"></div><div class="card-title">Infantil Azul</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Infantil%20Azul%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Infantil+3'); background-size: cover;"></div><div class="card-title">Infantil Rojo</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Infantil%20Rojo%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Infantil+4'); background-size: cover;"></div><div class="card-title">Infantil Amarillo</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Infantil%20Amarillo%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Infantil+5'); background-size: cover;"></div><div class="card-title">Infantil Verde</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Infantil%20Verde%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+          </div>
+        </div>
+        <div class="carrusel-controls"><button class="carrusel-btn prev" data-carrusel="infantiles">❮</button><button class="carrusel-btn next" data-carrusel="infantiles">❯</button></div>
+        <div class="indicadores" id="indicadores-infantiles"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. ZAPATILLAS RUNNING - 5 cards -->
+  <div class="carrusel-section" id="zapatillas-running" style="background: #F5F5F5;">
+    <div class="container">
+      <h2 class="section-title">Zapatillas Running</h2>
+      <div class="carrusel-container" id="carrusel-running">
+        <div class="carrusel-track" id="track-running">
+          <div class="carrusel-slide">
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Running+1'); background-size: cover;"></div><div class="card-title">Running Negro</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Running%20Negro%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Running+2'); background-size: cover;"></div><div class="card-title">Running Blanco</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Running%20Blanco%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Running+3'); background-size: cover;"></div><div class="card-title">Running Azul</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Running%20Azul%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Running+4'); background-size: cover;"></div><div class="card-title">Running Rojo</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Running%20Rojo%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+            <div class="carrusel-card"><div class="card-producto"><div class="card-img" style="background-image: url('https://via.placeholder.com/200x200?text=Running+5'); background-size: cover;"></div><div class="card-title">Running Gris</div><a href="https://wa.me/5493757326174?text=Hola%2C%20quiero%20comprar%20Running%20Gris%20(por%20mayor)" target="_blank" class="btn-wa">Pedir lote</a></div></div>
+          </div>
+        </div>
+        <div class="carrusel-controls"><button class="carrusel-btn prev" data-carrusel="running">❮</button><button class="carrusel-btn next" data-carrusel="running">❯</button></div>
+        <div class="indicadores" id="indicadores-running"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- Cómo comprar -->
   <section class="beneficios" id="como-comprar" style="background: white;">
     <div class="container">
       <h2 class="section-title">Cómo comprar</h2>
       <div class="pasos-grid">
-        <div>
-          <div style="background: #FF6B00; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 20px; font-weight: 800;">1</div>
-          <h3 style="margin-bottom: 10px;">Elegí tus productos</h3>
-          <p style="color: #555;">Navegá por nuestro catálogo y seleccioná los modelos que te interesan.</p>
-        </div>
-        <div>
-          <div style="background: #FF6B00; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 20px; font-weight: 800;">2</div>
-          <h3 style="margin-bottom: 10px;">Contactanos por WhatsApp</h3>
-          <p style="color: #555;">Hacé tu pedido a través de WhatsApp con el número de cada producto.</p>
-        </div>
-        <div>
-          <div style="background: #FF6B00; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 20px; font-weight: 800;">3</div>
-          <h3 style="margin-bottom: 10px;">Recibí tu pedido</h3>
-          <p style="color: #555;">Coordinamos el envío a todo el país. Recibí en 24/48hs.</p>
-        </div>
+        <div><div style="background: #FF6B00; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 20px; font-weight: 800;">1</div><h3>Elegí tus productos</h3><p style="color: #555;">Navegá por nuestro catálogo y seleccioná los modelos que te interesan.</p></div>
+        <div><div style="background: #FF6B00; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 20px; font-weight: 800;">2</div><h3>Contactanos por WhatsApp</h3><p style="color: #555;">Hacé tu pedido a través de WhatsApp con el número de cada producto.</p></div>
+        <div><div style="background: #FF6B00; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 20px; font-weight: 800;">3</div><h3>Recibí tu pedido</h3><p style="color: #555;">Coordinamos el envío a todo el país. Recibí en 24/48hs.</p></div>
       </div>
     </div>
   </section>
@@ -1109,13 +1180,7 @@
         <p style="font-size: 1.1rem; margin-bottom: 30px;">Trabajamos con revendedores de todo el país. Ofrecemos los mejores precios y condiciones exclusivas.</p>
         <div style="background: white; padding: 25px; border-radius: 16px;">
           <h3 style="margin-bottom: 20px;">Ventajas para revendedores</h3>
-          <ul style="list-style: none; text-align: left;">
-            <li style="margin-bottom: 8px;">✓ Precios mayoristas desde 1 unidad</li>
-            <li style="margin-bottom: 8px;">✓ Catálogo con más de 500 modelos</li>
-            <li style="margin-bottom: 8px;">✓ Envíos a todo el país</li>
-            <li style="margin-bottom: 8px;">✓ Atención personalizada</li>
-            <li style="margin-bottom: 8px;">✓ Nuevos ingresos semanales</li>
-          </ul>
+          <ul style="list-style: none; text-align: left;"><li>✓ Precios mayoristas desde 1 unidad</li><li>✓ Catálogo con más de 500 modelos</li><li>✓ Envíos a todo el país</li><li>✓ Atención personalizada</li><li>✓ Nuevos ingresos semanales</li></ul>
           <a href="https://wa.me/5493757326174" target="_blank" class="btn-green" style="margin-top: 20px;">Quiero ser revendedor</a>
         </div>
       </div>
@@ -1127,8 +1192,7 @@
     <div class="container">
       <h2 class="section-title">Sobre nosotros</h2>
       <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <p style="font-size: 1.1rem; color: #333; margin-bottom: 20px;">Somos una empresa familiar con más de 15 años de trayectoria en el mercado mayorista de calzados. Trabajamos directamente con fábricas para ofrecer la mejor relación precio-calidad a revendedores de todo el país.</p>
-        <p style="font-size: 1.1rem; color: #333;">Nuestro compromiso es con la calidad, la variedad y la satisfacción de nuestros clientes.</p>
+        <p style="font-size: 1.1rem; color: #333;">Somos una empresa familiar con más de 15 años de trayectoria en el mercado mayorista de calzados. Trabajamos directamente con fábricas para ofrecer la mejor relación precio-calidad a revendedores de todo el país. Nuestro compromiso es con la calidad, la variedad y la satisfacción de nuestros clientes.</p>
       </div>
     </div>
   </section>
@@ -1138,21 +1202,9 @@
     <div class="container">
       <h2 class="section-title">Blog</h2>
       <div class="blog-grid">
-        <div class="blog-card">
-          <h3 style="margin-bottom: 10px;">Tendencias de moda</h3>
-          <p style="color: #555; margin-bottom: 15px;">Lo que viene en calzados para esta temporada.</p>
-          <a href="#" style="color: #FF6B00; text-decoration: none; font-weight: 600;">Leer más →</a>
-        </div>
-        <div class="blog-card">
-          <h3 style="margin-bottom: 10px;">Consejos para revendedores</h3>
-          <p style="color: #555; margin-bottom: 15px;">Cómo aumentar tus ventas mayoristas.</p>
-          <a href="#" style="color: #FF6B00; text-decoration: none; font-weight: 600;">Leer más →</a>
-        </div>
-        <div class="blog-card">
-          <h3 style="margin-bottom: 10px;">Guía de talles</h3>
-          <p style="color: #555; margin-bottom: 15px;">Todo lo que necesitas saber para elegir el talle correcto.</p>
-          <a href="#" style="color: #FF6B00; text-decoration: none; font-weight: 600;">Leer más →</a>
-        </div>
+        <div class="blog-card"><h3>Tendencias de moda</h3><p>Lo que viene en calzados para esta temporada.</p><a href="#" style="color: #FF6B00; text-decoration: none; font-weight: 600;">Leer más →</a></div>
+        <div class="blog-card"><h3>Consejos para revendedores</h3><p>Cómo aumentar tus ventas mayoristas.</p><a href="#" style="color: #FF6B00; text-decoration: none; font-weight: 600;">Leer más →</a></div>
+        <div class="blog-card"><h3>Guía de talles</h3><p>Todo lo que necesitas saber para elegir el talle correcto.</p><a href="#" style="color: #FF6B00; text-decoration: none; font-weight: 600;">Leer más →</a></div>
       </div>
     </div>
   </section>
@@ -1162,9 +1214,9 @@
     <div class="container">
       <h2 class="section-title">Contacto</h2>
       <div style="max-width: 600px; margin: 0 auto; text-align: center;">
-        <p style="font-size: 1.1rem; margin-bottom: 15px;">📞 +54 9 3757 326174</p>
-        <p style="font-size: 1.1rem; margin-bottom: 15px;">📧 ventas@gusmanshoes.com.ar</p>
-        <p style="font-size: 1.1rem; margin-bottom: 15px;">📍 Buenos Aires, Argentina</p>
+        <p style="font-size: 1.1rem;">📞 +54 9 3757 326174</p>
+        <p style="font-size: 1.1rem;">📧 ventas@gusmanshoes.com.ar</p>
+        <p style="font-size: 1.1rem;">📍 Buenos Aires, Argentina</p>
         <p style="font-size: 0.9rem; color: #555;">Lunes a Viernes 9:00 a 18:00 hs</p>
       </div>
     </div>
@@ -1173,70 +1225,77 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-grid">
-      <div class="footer-col">
-        <h4>Gusman Shoes</h4>
-        <ul>
-          <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
-          <li><a href="#">Política de privacidad</a></li>
-          <li><a href="#">Términos y condiciones</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Ayuda</h4>
-        <ul>
-          <li><a href="#como-comprar">Cómo comprar</a></li>
-          <li><a href="#ser-revendedor">Ser revendedor</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contacto</h4>
-        <ul>
-          <li>📞 +54 9 3757 326174</li>
-          <li>📧 ventas@gusmanshoes.com.ar</li>
-          <li>📍 Buenos Aires</li>
-        </ul>
-      </div>
+      <div class="footer-col"><h4>Gusman Shoes</h4><ul><li><a href="#sobre-nosotros">Sobre nosotros</a></li><li><a href="#">Política de privacidad</a></li><li><a href="#">Términos y condiciones</a></li></ul></div>
+      <div class="footer-col"><h4>Ayuda</h4><ul><li><a href="#como-comprar">Cómo comprar</a></li><li><a href="#ser-revendedor">Ser revendedor</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+      <div class="footer-col"><h4>Contacto</h4><ul><li>📞 +54 9 3757 326174</li><li>📧 ventas@gusmanshoes.com.ar</li><li>📍 Buenos Aires</li></ul></div>
     </div>
-    <div class="container footer-bottom">
-      <p>© 2026 Gusman Shoes. Todos los derechos reservados.</p>
-      <p><a href="#">Privacidad</a> | <a href="#">Cookies</a> | <a href="#">Términos</a></p>
-    </div>
+    <div class="container footer-bottom"><p>© 2026 Gusman Shoes. Todos los derechos reservados.</p><p><a href="#">Privacidad</a> | <a href="#">Cookies</a> | <a href="#">Términos</a></p></div>
   </footer>
 
   <script>
     // Cookie
-    document.querySelector('.btn-cookie')?.addEventListener('click', function() {
-      this.closest('.cookie-bar').style.display = 'none';
-    });
+    document.querySelector('.btn-cookie')?.addEventListener('click', function() { this.closest('.cookie-bar').style.display = 'none'; });
 
     // Menú hamburguesa
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-
-    function toggleMenu() {
-      mobileMenu.classList.toggle('active');
-      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
-    }
-
-    function closeMenu() {
-      mobileMenu.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-
+    function toggleMenu() { mobileMenu.classList.toggle('active'); document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto'; }
+    function closeMenu() { mobileMenu.classList.remove('active'); document.body.style.overflow = 'auto'; }
     hamburger.addEventListener('click', toggleMenu);
+    document.querySelectorAll('.mobile-list a, .mobile-whatsapp a').forEach(link => link.addEventListener('click', closeMenu));
+    window.addEventListener('resize', function() { if (window.innerWidth > 1023) closeMenu(); });
 
-    // Cerrar menú al hacer clic en un enlace
-    document.querySelectorAll('.mobile-list a, .mobile-whatsapp a').forEach(link => {
-      link.addEventListener('click', closeMenu);
-    });
+    // Función para inicializar carruseles con autoplay de 1.5s
+    function initCarrusel(id, totalSlides) {
+      let currentIndex = 0;
+      const track = document.getElementById(`track-${id}`);
+      const prevBtn = document.querySelector(`button[data-carrusel="${id}"].prev`);
+      const nextBtn = document.querySelector(`button[data-carrusel="${id}"].next`);
+      const indicadoresContainer = document.getElementById(`indicadores-${id}`);
+      let autoInterval;
 
-    // Cerrar menú al cambiar tamaño de ventana
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 1023) {
-        closeMenu();
+      function updateCarrusel() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        if (indicadoresContainer) {
+          const indicadores = indicadoresContainer.querySelectorAll('.indicador');
+          indicadores.forEach((ind, i) => {
+            if (i === currentIndex) ind.classList.add('active');
+            else ind.classList.remove('active');
+          });
+        }
       }
-    });
+
+      function nextSlide() { currentIndex = (currentIndex + 1) % totalSlides; updateCarrusel(); }
+      function prevSlide() { currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; updateCarrusel(); }
+      function startAuto() { autoInterval = setInterval(nextSlide, 1500); }
+      function stopAuto() { clearInterval(autoInterval); }
+
+      if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); prevSlide(); startAuto(); });
+      if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); nextSlide(); startAuto(); });
+
+      if (indicadoresContainer) {
+        for (let i = 0; i < totalSlides; i++) {
+          const dot = document.createElement('div');
+          dot.classList.add('indicador');
+          if (i === 0) dot.classList.add('active');
+          dot.addEventListener('click', () => { stopAuto(); currentIndex = i; updateCarrusel(); startAuto(); });
+          indicadoresContainer.appendChild(dot);
+        }
+      }
+
+      startAuto();
+      track?.addEventListener('mouseenter', stopAuto);
+      track?.addEventListener('mouseleave', startAuto);
+    }
+
+    // Inicializar todos los carruseles con sus respectivos totales de slides
+    initCarrusel('botas', 1);
+    initCarrusel('ojotas', 1);
+    initCarrusel('botita', 1);
+    initCarrusel('casual', 1);
+    initCarrusel('deportivas', 1);
+    initCarrusel('infantiles', 1);
+    initCarrusel('running', 1);
   </script>
 </body>
 </html>
