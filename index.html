@@ -1,26 +1,54 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A maior loja de calçados do Brasil. Tênis, sapatos, sandálias e botas com frete grátis e parcelamento em até 12x.">
-    <title>GusmarShoes | Especialista em Calçados</title>
+    <meta name="description" content="Gusmar Shoes - Tu tienda de calzado con atención personalizada por WhatsApp. Zapatos, zapatillas, sandalias y botas para toda la familia.">
+    <meta name="keywords" content="zapatos online, zapatillas deportivas, sandalias mujer, botas hombre, calzado infantil, calzado de moda, atención WhatsApp">
+    <meta name="author" content="Gusmar Shoes">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gusmarshoes.es">
+    <meta property="og:title" content="Gusmar Shoes | Calzado con Atención Personalizada">
+    <meta property="og:description" content="Descubre nuestra colección de calzado. Atención personalizada vía WhatsApp.">
+    <meta property="og:image" content="https://gusmarshoes.es/images/og-image.jpg">
+    
+    <title>Gusmar Shoes | Calzado con Atención Personalizada</title>
     
     <!-- Schema.org -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "ShoeShoes",
-        "name": "GusmarShoes",
-        "description": "Loja especializada em calçados masculinos, femininos e infantis",
-        "url": "https://GusmarShoes.com.br",
-        "telephone": "+55-11-99999-9999",
+        "@type": "ShoeStore",
+        "name": "Gusmar Shoes",
+        "description": "Tienda especializada en calzado masculino, femenino e infantil con atención personalizada",
+        "url": "https://gusmarshoes.es",
+        "telephone": "+34-912-345-678",
+        "email": "hola@gusmarshoes.es",
         "address": {
             "@type": "PostalAddress",
-            "addressCountry": "BR",
-            "addressLocality": "São Paulo",
-            "addressRegion": "SP"
-        }
+            "streetAddress": "Calle Mayor 123",
+            "addressLocality": "Madrid",
+            "addressRegion": "Madrid",
+            "postalCode": "28013",
+            "addressCountry": "ES"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "20:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Saturday"],
+                "opens": "10:00",
+                "closes": "14:00"
+            }
+        ]
     }
     </script>
     
@@ -30,1124 +58,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
-    <style>
-        :root {
-            --primary: #0f172a;
-            --secondary: #1e293b;
-            --accent: #dc2626;
-            --accent-hover: #b91c1c;
-            --success: #16a34a;
-            --warning: #f59e0b;
-            --background: #f8fafc;
-            --surface: #ffffff;
-            --text-primary: #0f172a;
-            --text-secondary: #64748b;
-            --border: #e2e8f0;
-            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--background);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-        
-        /* Header */
-        .top-bar {
-            background: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 0.5rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
-        header {
-            background: var(--surface);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
-        }
-        
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-shrink: 0;
-        }
-        
-        .logo span {
-            color: var(--accent);
-        }
-        
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--accent);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-        
-        /* Search Bar */
-        .search-container {
-            flex: 1;
-            max-width: 600px;
-            position: relative;
-        }
-        
-        .search-bar {
-            width: 100%;
-            padding: 0.75rem 1rem 0.75rem 3rem;
-            border: 2px solid var(--border);
-            border-radius: 50px;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-        }
-        
-        .search-bar:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-        
-        .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-secondary);
-        }
-        
-        /* Header Icons */
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .action-btn {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.25rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--text-primary);
-            font-size: 0.75rem;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-        
-        .action-btn:hover {
-            color: var(--accent);
-        }
-        
-        .action-btn .material-icons {
-            font-size: 1.5rem;
-        }
-        
-        .cart-badge {
-            position: absolute;
-            top: -5px;
-            right: 5px;
-            background: var(--accent);
-            color: white;
-            font-size: 0.65rem;
-            font-weight: 700;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Navigation Categories */
-        .nav-categories {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            position: relative;
-        }
-        
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        .category-menu {
-            display: flex;
-            list-style: none;
-            gap: 0;
-        }
-        
-        .category-item {
-            position: relative;
-        }
-        
-        .category-link {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-            padding: 1rem 1.25rem;
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            border-bottom: 3px solid transparent;
-        }
-        
-        .category-link:hover {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-            background: rgba(220, 38, 38, 0.05);
-        }
-        
-        .category-link .material-icons {
-            font-size: 1.1rem;
-        }
-        
-        /* Mega Menu */
-        .mega-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: var(--surface);
-            box-shadow: var(--shadow-lg);
-            padding: 2rem;
-            z-index: 999;
-            min-width: 600px;
-            border-radius: 0 0 16px 16px;
-        }
-        
-        .category-item:hover .mega-menu {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-        
-        .mega-column h4 {
-            color: var(--accent);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border);
-        }
-        
-        .mega-list {
-            list-style: none;
-        }
-        
-        .mega-list li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .mega-list a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-        }
-        
-        .mega-list a:hover {
-            color: var(--accent);
-            padding-left: 0.5rem;
-        }
-        
-        /* Mobile Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            cursor: pointer;
-            padding: 0.5rem;
-            background: none;
-            border: none;
-        }
-        
-        .hamburger span {
-            width: 24px;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 3px;
-            transition: all 0.3s;
-        }
-        
-        .mobile-menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 998;
-        }
-        
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 85%;
-            max-width: 400px;
-            background: var(--surface);
-            z-index: 999;
-            overflow-y: auto;
-            transform: translateX(-100%);
-            transition: transform 0.3s;
-        }
-        
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-        
-        .mobile-menu-header {
-            background: var(--primary);
-            color: white;
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .mobile-menu-close {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-        
-        .mobile-category {
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .mobile-category-header {
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        
-        .mobile-subcategories {
-            display: none;
-            background: var(--background);
-            padding: 0.5rem 1.5rem 1rem;
-        }
-        
-        .mobile-subcategories.active {
-            display: block;
-        }
-        
-        .mobile-subcategories a {
-            display: block;
-            padding: 0.5rem 0;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 4rem 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '👟';
-            position: absolute;
-            right: -5%;
-            top: 50%;
-            transform: translateY(-50%) rotate(-15deg);
-            font-size: 400px;
-            opacity: 0.05;
-        }
-        
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero-text h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero-text p {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-        
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
-        }
-        
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            border: 2px solid white;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s;
-        }
-        
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
-        
-        .hero-image {
-            position: relative;
-        }
-        
-        .hero-shoe {
-            width: 100%;
-            max-width: 600px;
-            transform: rotate(-10deg);
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: rotate(-10deg) translateY(0); }
-            50% { transform: rotate(-10deg) translateY(-20px); }
-        }
-        
-        /* Category Quick Links */
-        .quick-categories {
-            max-width: 1400px;
-            margin: -3rem auto 0;
-            padding: 0 1.5rem;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 1rem;
-        }
-        
-        .quick-card {
-            background: var(--surface);
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: var(--shadow-lg);
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-        
-        .quick-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-        
-        .quick-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--background);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.75rem;
-        }
-        
-        .quick-card h3 {
-            font-size: 0.9rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .quick-card p {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-        
-        /* Products Section */
-        .section {
-            max-width: 1400px;
-            margin: 4rem auto;
-            padding: 0 1.5rem;
-        }
-        
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-        
-        .section-title {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-        
-        .view-all {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-        
-        /* Product Grid */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        
-        .product-card {
-            background: var(--surface);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .product-badges {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            z-index: 2;
-        }
-        
-        .badge {
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        
-        .badge-discount {
-            background: var(--accent);
-            color: white;
-        }
-        
-        .badge-new {
-            background: var(--success);
-            color: white;
-        }
-        
-        .badge-limited {
-            background: var(--warning);
-            color: var(--primary);
-        }
-        
-        .product-image-container {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            aspect-ratio: 1;
-        }
-        
-        .product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .product-card:hover .product-image {
-            transform: scale(1.05);
-        }
-        
-        .product-actions {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            opacity: 0;
-            transform: translateX(20px);
-            transition: all 0.3s;
-        }
-        
-        .product-card:hover .product-actions {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .action-icon {
-            width: 40px;
-            height: 40px;
-            background: white;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-        
-        .action-icon:hover {
-            background: var(--accent);
-            color: white;
-        }
-        
-        .product-info {
-            padding: 1.5rem;
-        }
-        
-        .product-category {
-            font-size: 0.75rem;
-            color: var(--accent);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-        }
-        
-        .product-title {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-        
-        .product-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .stars {
-            color: var(--warning);
-            font-size: 0.9rem;
-        }
-        
-        .review-count {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-        
-        .product-price {
-            display: flex;
-            align-items: baseline;
-            gap: 0.75rem;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .current-price {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .original-price {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            text-decoration: line-through;
-        }
-        
-        .installments {
-            font-size: 0.8rem;
-            color: var(--success);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-        
-        /* Size Selector */
-        .size-section {
-            margin-bottom: 1rem;
-        }
-        
-        .size-label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        
-        .size-options {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .size-btn {
-            min-width: 40px;
-            height: 40px;
-            border: 2px solid var(--border);
-            background: var(--surface);
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.3s;
-        }
-        
-        .size-btn:hover:not(:disabled) {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        
-        .size-btn.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
-        }
-        
-        .size-btn:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            text-decoration: line-through;
-        }
-        
-        /* Quantity */
-        .quantity-section {
-            margin-bottom: 1rem;
-        }
-        
-        .quantity-selector {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            width: fit-content;
-            padding: 0.25rem;
-        }
-        
-        .qty-btn {
-            width: 28px;
-            height: 28px;
-            border: none;
-            background: var(--background);
-            border-radius: 6px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s;
-        }
-        
-        .qty-btn:hover {
-            background: var(--border);
-        }
-        
-        .qty-input {
-            width: 40px;
-            text-align: center;
-            border: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            background: transparent;
-        }
-        
-        .min-qty {
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            margin-top: 0.25rem;
-        }
-        
-        /* Buy Button */
-        .buy-btn {
-            width: 100%;
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 0.875rem;
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .buy-btn:hover {
-            background: var(--accent-hover);
-            transform: scale(1.02);
-        }
-        
-        /* Reviews */
-        .reviews-preview {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
-        }
-        
-        .review-item {
-            background: var(--background);
-            padding: 0.75rem;
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
-        }
-        
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.25rem;
-        }
-        
-        .reviewer-name {
-            font-weight: 600;
-            font-size: 0.8rem;
-        }
-        
-        .review-text {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-        
-        .add-review {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px dashed var(--border);
-            background: transparent;
-            color: var(--text-secondary);
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.8rem;
-            margin-top: 0.5rem;
-        }
-        
-        /* Category Banner */
-        .category-banner {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            color: white;
-            padding: 3rem 1.5rem;
-            border-radius: 24px;
-            margin-bottom: 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .category-banner h2 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .category-banner p {
-            opacity: 0.9;
-        }
-        
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            cursor: pointer;
-            z-index: 1000;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 4rem 1.5rem 1.5rem;
-            margin-top: 6rem;
-        }
-        
-        .footer-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .footer-section a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .payment-methods {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .payment-icon {
-            background: rgba(255,255,255,0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-        }
-        
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            color: rgba(255,255,255,0.5);
-            font-size: 0.85rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-cta {
-                justify-content: center;
-            }
-            
-            .hero-shoe {
-                max-width: 400px;
-                margin: 0 auto;
-            }
-            
-            .quick-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .category-item:hover .mega-menu {
-                display: none;
-            }
-            
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header-main {
-                flex-wrap: wrap;
-            }
-            
-            .search-container {
-                order: 3;
-                max-width: 100%;
-                width: 100%;
-            }
-            
-            .nav-categories {
-                display: none;
-            }
-            
-            .hamburger {
-                display: flex;
-            }
-            
-            .mobile-menu-overlay.active {
-                display: block;
-            }
-            
-            .mobile-menu.active {
-                display: block;
-            }
-            
-            .quick-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👟</text></svg>">
+    
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
     <!-- Top Bar -->
-    <div class="top-bar">
-        🚚 Frete Grátis para todo o Brasil em compras acima de R$ 299 | Parcelamento em até 12x sem juros
+    <div class="top-bar" role="banner">
+        👟 Atención personalizada por WhatsApp | Consulta stock y precios en tiempo real
     </div>
 
     <!-- Header -->
-    <header>
+    <header role="banner">
         <div class="header-main">
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <span class="material-icons">directions_run</span>
-                </div>
+            <a href="#" class="logo" aria-label="Gusmar Shoes - Inicio">
                 Gusmar<span>Shoes</span>
             </a>
             
-            <div class="search-container">
-                <span class="material-icons search-icon">search</span>
-                <input type="text" class="search-bar" placeholder="Busque por tênis, sapatos, sandálias...">
+            <div class="search-container" role="search">
+                <span class="material-icons search-icon" aria-hidden="true" onclick="performSearch()">search</span>
+                <input type="search" 
+                       class="search-bar" 
+                       id="searchInput"
+                       placeholder="Buscar zapatos, zapatillas, sandalias..." 
+                       aria-label="Buscar productos"
+                       autocomplete="off"
+                       list="searchSuggestions">
+                <datalist id="searchSuggestions">
+                    <option value="Zapatillas Running">
+                    <option value="Zapatillas Casual">
+                    <option value="Zapatos Vestir">
+                    <option value="Botas Hombre">
+                    <option value="Sandalias Mujer">
+                    <option value="Calzado Niños">
+                </datalist>
             </div>
             
             <div class="header-actions">
-                <button class="action-btn">
-                    <span class="material-icons">person</span>
-                    <span>Entrar</span>
+                <a href="#" class="auth-btn" onclick="openAuthModal(); return false;">
+                    <span class="material-icons" aria-hidden="true">login</span>
+                    <span>Entrar o cadastrarse</span>
+                </a>
+                <button class="action-btn" aria-label="Lista de deseos" onclick="toggleWishlist()">
+                    <span class="material-icons" aria-hidden="true">favorite</span>
+                    <span>Deseos</span>
                 </button>
-                <button class="action-btn">
-                    <span class="material-icons">favorite</span>
-                    <span>Lista</span>
+                <button class="action-btn" aria-label="Carrito de compra" onclick="toggleCart()">
+                    <span class="material-icons" aria-hidden="true">shopping_bag</span>
+                    <span class="cart-badge" id="cartCount" aria-label="0 productos en el carrito">0</span>
+                    <span>Cesta</span>
                 </button>
-                <button class="action-btn">
-                    <span class="material-icons">shopping_bag</span>
-                    <span class="cart-badge">3</span>
-                    <span>Carrinho</span>
-                </button>
-                <button class="hamburger" aria-label="Menu">
+                <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -1155,283 +121,146 @@
             </div>
         </div>
         
+        <!-- Wishlist Dropdown -->
+        <div class="wishlist-dropdown" id="wishlistDropdown">
+            <div class="wishlist-header">Mis Deseos</div>
+            <div id="wishlistItems"></div>
+        </div>
+        
         <!-- Navigation Categories -->
-        <nav class="nav-categories">
+        <nav class="nav-categories" aria-label="Categorías de navegación">
             <div class="nav-container">
-                <ul class="category-menu">
-                    <!-- TÊNIS -->
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            Tênis
-                            <span class="material-icons">expand_more</span>
+                <ul class="category-menu" role="menubar">
+                    <!-- MASCULINO -->
+                    <li class="category-item" role="none">
+                        <a href="#masculino" class="category-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                            Masculino
+                            <span class="material-icons" aria-hidden="true">expand_more</span>
                         </a>
-                        <div class="mega-menu">
+                        <div class="mega-menu" role="menu" aria-label="Subcategorías masculino">
                             <div class="mega-column">
-                                <h4>Esportivos</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Running / Corrida</a></li>
-                                    <li><a href="#">Training / Academia</a></li>
-                                    <li><a href="#">Basquete</a></li>
-                                    <li><a href="#">Futebol / Society</a></li>
-                                    <li><a href="#">Tennis / Padel</a></li>
-                                    <li><a href="#">Skateboarding</a></li>
+                                <h4>Zapatillas Deportivas</h4>
+                                <ul class="mega-list" role="none">
+                                    <li role="none"><a href="#masculino" role="menuitem" onclick="scrollToSection('masculino')">Zapatillas Running</a></li>
+                                    <li role="none"><a href="#masculino" role="menuitem" onclick="scrollToSection('masculino')">Zapatillas Training</a></li>
+                                    <li role="none"><a href="#masculino" role="menuitem" onclick="scrollToSection('masculino')">Zapatillas Baloncesto</a></li>
+                                    <li role="none"><a href="#masculino" role="menuitem" onclick="scrollToSection('masculino')">Zapatillas Fútbol</a></li>
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <h4>Casuais</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Lifestyle / Streetwear</a></li>
-                                    <li><a href="#">Slip-On</a></li>
-                                    <li><a href="#">Chunky / Dad Shoes</a></li>
-                                    <li><a href="#">Retro / Vintage</a></li>
-                                    <li><a href="#">Minimalista</a></li>
+                                <h4>Zapatos y Vestir</h4>
+                                <ul class="mega-list" role="none">
+                                    <li role="none"><a href="#masculino" role="menuitem" onclick="scrollToSection('masculino')">Zapatos Oxford</a></li>
+                                    <li role="none"><a href="#masculino" role="menuitem" onclick="scrollToSection('masculino')">Mocasines</a></li>
+                                    <li role="none"><a href="#masculino" role="menuitem" onclick="scrollToSection('masculino')">Náuticos</a></li>
+                                    <li role="none"><a href="#masculino" role="menuitem" onclick="scrollToSection('masculino')">Zapatos Casual</a></li>
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <h4>Marcas</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Nike</a></li>
-                                    <li><a href="#">Adidas</a></li>
-                                    <li><a href="#">Puma</a></li>
-                                    <li><a href="#">New Balance</a></li>
-                                    <li><a href="#">Asics</a></li>
-                                    <li><a href="#">Mizuno</a></li>
+                                <h4>Botas y Sandalias</h4>
+                                <ul class="mega-list" role="none">
+                                    <li role="none"><a href="#masculino" role="menuitem" onclick="scrollToSection('masculino')">Botas Chelsea</a></li>
+                                    <li role="none"><a href="#masculino" role="menuitem" onclick="scrollToSection('masculino')">Botas Desert</a></li>
+                                    <li role="none"><a href="#masculino" role="menuitem" onclick="scrollToSection('masculino')">Sandalias Hombre</a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
                     
-                    <!-- SAPATOS -->
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            Sapatos
-                            <span class="material-icons">expand_more</span>
+                    <!-- HOMBRE -->
+                    <li class="category-item" role="none">
+                        <a href="#hombre" class="category-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                            Hombre
+                            <span class="material-icons" aria-hidden="true">expand_more</span>
                         </a>
-                        <div class="mega-menu">
+                        <div class="mega-menu" role="menu" aria-label="Subcategorías hombre">
                             <div class="mega-column">
-                                <h4>Sociais</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Oxford</a></li>
-                                    <li><a href="#">Derby</a></li>
-                                    <li><a href="#">Loafer / Mocassim</a></li>
-                                    <li><a href="#">Monk Strap</a></li>
-                                    <li><a href="#">Brogue</a></li>
+                                <h4>Zapatillas Deportivas</h4>
+                                <ul class="mega-list" role="none">
+                                    <li role="none"><a href="#hombre" role="menuitem" onclick="scrollToSection('hombre')">Zapatillas Running</a></li>
+                                    <li role="none"><a href="#hombre" role="menuitem" onclick="scrollToSection('hombre')">Zapatillas Training</a></li>
+                                    <li role="none"><a href="#hombre" role="menuitem" onclick="scrollToSection('hombre')">Zapatillas Baloncesto</a></li>
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <h4>Casuais</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Casual Elegante</a></li>
-                                    <li><a href="#">Dockside / Boat Shoes</a></li>
-                                    <li><a href="#">Chelsea Boot</a></li>
-                                    <li><a href="#">Desert Boot</a></li>
-                                    <li><a href="#">Chukka</a></li>
+                                <h4>Zapatos y Vestir</h4>
+                                <ul class="mega-list" role="none">
+                                    <li role="none"><a href="#hombre" role="menuitem" onclick="scrollToSection('hombre')">Zapatos Oxford</a></li>
+                                    <li role="none"><a href="#hombre" role="menuitem" onclick="scrollToSection('hombre')">Mocasines</a></li>
+                                    <li role="none"><a href="#hombre" role="menuitem" onclick="scrollToSection('hombre')">Náuticos</a></li>
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <h4>Material</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Couro Legítimo</a></li>
-                                    <li><a href="#">Couro Sintético</a></li>
-                                    <li><a href="#">Camurça</a></li>
-                                    <li><a href="#">Verniz</a></li>
-                                    <li><a href="#">Nobuck</a></li>
+                                <h4>Botas y Sandalias</h4>
+                                <ul class="mega-list" role="none">
+                                    <li role="none"><a href="#hombre" role="menuitem" onclick="scrollToSection('hombre')">Botas Chelsea</a></li>
+                                    <li role="none"><a href="#hombre" role="menuitem" onclick="scrollToSection('hombre')">Sandalias Hombre</a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
                     
-                    <!-- SANDÁLIAS -->
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            Sandálias
-                            <span class="material-icons">expand_more</span>
+                    <!-- MUJER -->
+                    <li class="category-item" role="none">
+                        <a href="#mujer" class="category-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                            Mujer
+                            <span class="material-icons" aria-hidden="true">expand_more</span>
                         </a>
-                        <div class="mega-menu">
+                        <div class="mega-menu" role="menu" aria-label="Subcategorías mujer">
                             <div class="mega-column">
-                                <h4>Estilo</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Rasteiras</a></li>
-                                    <li><a href="#">Anabela</a></li>
-                                    <li><a href="#">Plataforma</a></li>
-                                    <li><a href="#">Salto Bloco</a></li>
-                                    <li><a href="#">Flat</a></li>
+                                <h4>Zapatillas Deportivas</h4>
+                                <ul class="mega-list" role="none">
+                                    <li role="none"><a href="#mujer" role="menuitem" onclick="scrollToSection('mujer')">Zapatillas Running Mujer</a></li>
+                                    <li role="none"><a href="#mujer" role="menuitem" onclick="scrollToSection('mujer')">Zapatillas Fitness</a></li>
+                                    <li role="none"><a href="#mujer" role="menuitem" onclick="scrollToSection('mujer')">Zapatillas Plataforma</a></li>
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <h4>Casuais</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Chinelos Slide</a></li>
-                                    <li><a href="#">Flip-Flops</a></li>
-                                    <li><a href="#">Papetes</a></li>
-                                    <li><a href="#">Birken</a></li>
-                                    <li><a href="#">Crocs</a></li>
+                                <h4>Zapatos y Tacones</h4>
+                                <ul class="mega-list" role="none">
+                                    <li role="none"><a href="#mujer" role="menuitem" onclick="scrollToSection('mujer')">Tacones Altos</a></li>
+                                    <li role="none"><a href="#mujer" role="menuitem" onclick="scrollToSection('mujer')">Bailarinas</a></li>
+                                    <li role="none"><a href="#mujer" role="menuitem" onclick="scrollToSection('mujer')">Mocasines Mujer</a></li>
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <h4>Ocasião</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Praia / Piscina</a></li>
-                                    <li><a href="#">Dia a Dia</a></li>
-                                    <li><a href="#">Festas</a></li>
-                                    <li><a href="#">Conforto</a></li>
+                                <h4>Botas y Sandalias</h4>
+                                <ul class="mega-list" role="none">
+                                    <li role="none"><a href="#mujer" role="menuitem" onclick="scrollToSection('mujer')">Botines Mujer</a></li>
+                                    <li role="none"><a href="#mujer" role="menuitem" onclick="scrollToSection('mujer')">Sandalias Planas</a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
                     
-                    <!-- BOTAS -->
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            Botas
-                            <span class="material-icons">expand_more</span>
+                    <!-- NIÑOS -->
+                    <li class="category-item" role="none">
+                        <a href="#ninos" class="category-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                            Niños
+                            <span class="material-icons" aria-hidden="true">expand_more</span>
                         </a>
-                        <div class="mega-menu">
+                        <div class="mega-menu" role="menu" aria-label="Subcategorías niños">
                             <div class="mega-column">
-                                <h4>Estilo</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Coturno / Military</a></li>
-                                    <li><a href="#">Chelsea</a></li>
-                                    <li><a href="#">Worker / Combat</a></li>
-                                    <li><a href="#">Montaria</a></li>
-                                    <li><a href="#">Over The Knee</a></li>
+                                <h4>Por Edad</h4>
+                                <ul class="mega-list" role="none">
+                                    <li role="none"><a href="#ninos" role="menuitem" onclick="scrollToSection('ninos')">Bebé (16-20)</a></li>
+                                    <li role="none"><a href="#ninos" role="menuitem" onclick="scrollToSection('ninos')">Primera Infancia (21-26)</a></li>
+                                    <li role="none"><a href="#ninos" role="menuitem" onclick="scrollToSection('ninos')">Niño (27-32)</a></li>
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <h4>Material</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Couro</a></li>
-                                    <li><a href="#">Sintético</a></li>
-                                    <li><a href="#">Camurça</a></li>
-                                    <li><a href="#">Verniz</a></li>
-                                    <li><a href="#">Tratorado</a></li>
+                                <h4>Zapatillas Niño</h4>
+                                <ul class="mega-list" role="none">
+                                    <li role="none"><a href="#ninos" role="menuitem" onclick="scrollToSection('ninos')">Zapatillas Escolares</a></li>
+                                    <li role="none"><a href="#ninos" role="menuitem" onclick="scrollToSection('ninos')">Zapatillas Deportivas</a></li>
+                                    <li role="none"><a href="#ninos" role="menuitem" onclick="scrollToSection('ninos')">Zapatillas Luces LED</a></li>
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <h4>Altura</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Cano Curto</a></li>
-                                    <li><a href="#">Cano Médio</a></li>
-                                    <li><a href="#">Cano Alto</a></li>
-                                    <li><a href="#">Cano Over</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    
-                    <!-- SAPATILHAS -->
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            Sapatilhas
-                            <span class="material-icons">expand_more</span>
-                        </a>
-                        <div class="mega-menu">
-                            <div class="mega-column">
-                                <h4>Modelos</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Bico Fino</a></li>
-                                    <li><a href="#">Bico Redondo</a></li>
-                                    <li><a href="#">Bico Quadrado</a></li>
-                                    <li><a href="#">Scarpin</a></li>
-                                    <li><a href="#">Peep Toe</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Salto</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Rasteira</a></li>
-                                    <li><a href="#">Baixo (1-3cm)</a></li>
-                                    <li><a href="#">Médio (4-7cm)</a></li>
-                                    <li><a href="#">Alto (8cm+)</a></li>
-                                    <li><a href="#">Grosso / Bloco</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Material</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Verniz</a></li>
-                                    <li><a href="#">Couro</a></li>
-                                    <li><a href="#">Cetim</a></li>
-                                    <li><a href="#">Camurça</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    
-                    <!-- INFANTIL -->
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            Infantil
-                            <span class="material-icons">expand_more</span>
-                        </a>
-                        <div class="mega-menu">
-                            <div class="mega-column">
-                                <h4>Por Idade</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Bebê (16-20)</a></li>
-                                    <li><a href="#">Infantil (21-27)</a></li>
-                                    <li><a href="#">Juvenil (28-35)</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Modelos</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Tênis Escolares</a></li>
-                                    <li><a href="#">Tênis Esportivos</a></li>
-                                    <li><a href="#">Sandálias</a></li>
-                                    <li><a href="#">Botas</a></li>
-                                    <li><a href="#">Sapatilhas</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Personagens</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Disney</a></li>
-                                    <li><a href="#">Marvel</a></li>
-                                    <li><a href="#">Nickelodeon</a></li>
-                                    <li><a href="#">Pixar</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    
-                    <!-- MARCAS -->
-                    <li class="category-item">
-                        <a href="#" class="category-link">
-                            Marcas
-                            <span class="material-icons">expand_more</span>
-                        </a>
-                        <div class="mega-menu">
-                            <div class="mega-column">
-                                <h4>Esportivas</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Nike</a></li>
-                                    <li><a href="#">Adidas</a></li>
-                                    <li><a href="#">Puma</a></li>
-                                    <li><a href="#">Asics</a></li>
-                                    <li><a href="#">Mizuno</a></li>
-                                    <li><a href="#">Olympikus</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Casuais</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Vans</a></li>
-                                    <li><a href="#">Converse</a></li>
-                                    <li><a href="#">New Balance</a></li>
-                                    <li><a href="#">Fila</a></li>
-                                    <li><a href="#">Reserva</a></li>
-                                    <li><a href="#">Osklen</a></li>
-                                </ul>
-                            </div>
-                            <div class="mega-column">
-                                <h4>Luxo</h4>
-                                <ul class="mega-list">
-                                    <li><a href="#">Gucci</a></li>
-                                    <li><a href="#">Prada</a></li>
-                                    <li><a href="#">Balenciaga</a></li>
-                                    <li><a href="#">Louboutin</a></li>
-                                    <li><a href="#">Jimmy Choo</a></li>
+                                <h4>Otros Modelos</h4>
+                                <ul class="mega-list" role="none">
+                                    <li role="none"><a href="#ninos" role="menuitem" onclick="scrollToSection('ninos')">Zapatos Niño</a></li>
+                                    <li role="none"><a href="#ninos" role="menuitem" onclick="scrollToSection('ninos')">Botas Niño</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1441,1481 +270,485 @@
         </nav>
     </header>
 
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Tu Cesta</h3>
+            <button onclick="toggleCart()" style="background: none; border: none; color: white; cursor: pointer;">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <button class="consultar-stock-btn" onclick="consultarStock()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+                </svg>
+                Consultar Stock
+            </button>
+        </div>
+    </div>
+
     <!-- Mobile Menu -->
-    <div class="mobile-menu-overlay" id="mobileOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-overlay" id="mobileOverlay" aria-hidden="true"></div>
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menú móvil" aria-modal="true">
         <div class="mobile-menu-header">
-            <span class="logo" style="color: white;">Gusmar<span style="color: var(--accent);">Shoes</span></span>
-            <button class="mobile-menu-close" id="closeMenu">
+            <span class="logo" style="color: white; font-size: 1.5rem;">Gusmar<span style="color: var(--accent);">Shoes</span></span>
+            <button class="mobile-menu-close" id="closeMenu" aria-label="Cerrar menú">
                 <span class="material-icons">close</span>
             </button>
         </div>
         
-        <div class="mobile-category">
-            <div class="mobile-category-header" onclick="toggleSubmenu(this)">
-                <span>Tênis</span>
-                <span class="material-icons">expand_more</span>
+        <nav aria-label="Navegación móvil">
+            <div class="mobile-category">
+                <div class="mobile-category-header" onclick="toggleSubmenu(this)" role="button" aria-expanded="false">
+                    <span>Masculino</span>
+                    <span class="material-icons">expand_more</span>
+                </div>
+                <div class="mobile-subcategories">
+                    <strong>Zapatillas Deportivas</strong>
+                    <a href="#masculino" onclick="scrollToSection('masculino')">Zapatillas Running</a>
+                    <a href="#masculino" onclick="scrollToSection('masculino')">Zapatillas Training</a>
+                    <a href="#masculino" onclick="scrollToSection('masculino')">Zapatillas Baloncesto</a>
+                    <strong>Zapatos y Vestir</strong>
+                    <a href="#masculino" onclick="scrollToSection('masculino')">Zapatos Oxford</a>
+                    <a href="#masculino" onclick="scrollToSection('masculino')">Mocasines</a>
+                    <strong>Botas y Sandalias</strong>
+                    <a href="#masculino" onclick="scrollToSection('masculino')">Botas Chelsea</a>
+                    <a href="#masculino" onclick="scrollToSection('masculino')">Sandalias Hombre</a>
+                </div>
             </div>
-            <div class="mobile-subcategories">
-                <strong>Esportivos</strong>
-                <a href="#">Running / Corrida</a>
-                <a href="#">Training / Academia</a>
-                <a href="#">Basquete</a>
-                <a href="#">Futebol</a>
-                <strong>Casuais</strong>
-                <a href="#">Lifestyle</a>
-                <a href="#">Slip-On</a>
-                <a href="#">Chunky</a>
+            
+            <div class="mobile-category">
+                <div class="mobile-category-header" onclick="toggleSubmenu(this)" role="button" aria-expanded="false">
+                    <span>Hombre</span>
+                    <span class="material-icons">expand_more</span>
+                </div>
+                <div class="mobile-subcategories">
+                    <strong>Zapatillas Deportivas</strong>
+                    <a href="#hombre" onclick="scrollToSection('hombre')">Zapatillas Running</a>
+                    <a href="#hombre" onclick="scrollToSection('hombre')">Zapatillas Training</a>
+                    <strong>Zapatos y Vestir</strong>
+                    <a href="#hombre" onclick="scrollToSection('hombre')">Zapatos Oxford</a>
+                    <a href="#hombre" onclick="scrollToSection('hombre')">Mocasines</a>
+                </div>
             </div>
-        </div>
-        
-        <div class="mobile-category">
-            <div class="mobile-category-header" onclick="toggleSubmenu(this)">
-                <span>Sapatos</span>
-                <span class="material-icons">expand_more</span>
+            
+            <div class="mobile-category">
+                <div class="mobile-category-header" onclick="toggleSubmenu(this)" role="button" aria-expanded="false">
+                    <span>Mujer</span>
+                    <span class="material-icons">expand_more</span>
+                </div>
+                <div class="mobile-subcategories">
+                    <strong>Zapatillas Deportivas</strong>
+                    <a href="#mujer" onclick="scrollToSection('mujer')">Zapatillas Running Mujer</a>
+                    <a href="#mujer" onclick="scrollToSection('mujer')">Zapatillas Fitness</a>
+                    <strong>Zapatos y Tacones</strong>
+                    <a href="#mujer" onclick="scrollToSection('mujer')">Tacones Altos</a>
+                    <a href="#mujer" onclick="scrollToSection('mujer')">Bailarinas</a>
+                </div>
             </div>
-            <div class="mobile-subcategories">
-                <strong>Sociais</strong>
-                <a href="#">Oxford</a>
-                <a href="#">Derby</a>
-                <a href="#">Loafer</a>
-                <strong>Casuais</strong>
-                <a href="#">Dockside</a>
-                <a href="#">Chelsea Boot</a>
+            
+            <div class="mobile-category">
+                <div class="mobile-category-header" onclick="toggleSubmenu(this)" role="button" aria-expanded="false">
+                    <span>Niños</span>
+                    <span class="material-icons">expand_more</span>
+                </div>
+                <div class="mobile-subcategories">
+                    <strong>Por Edad</strong>
+                    <a href="#ninos" onclick="scrollToSection('ninos')">Bebé (16-20)</a>
+                    <a href="#ninos" onclick="scrollToSection('ninos')">Primera Infancia (21-26)</a>
+                    <strong>Zapatillas</strong>
+                    <a href="#ninos" onclick="scrollToSection('ninos')">Zapatillas Escolares</a>
+                    <a href="#ninos" onclick="scrollToSection('ninos')">Zapatillas Luces LED</a>
+                </div>
             </div>
-        </div>
-        
-        <div class="mobile-category">
-            <div class="mobile-category-header" onclick="toggleSubmenu(this)">
-                <span>Sandálias</span>
-                <span class="material-icons">expand_more</span>
-            </div>
-            <div class="mobile-subcategories">
-                <a href="#">Rasteiras</a>
-                <a href="#">Anabela</a>
-                <a href="#">Plataforma</a>
-                <a href="#">Slides</a>
-                <a href="#">Papetes</a>
-            </div>
-        </div>
-        
-        <div class="mobile-category">
-            <div class="mobile-category-header" onclick="toggleSubmenu(this)">
-                <span>Botas</span>
-                <span class="material-icons">expand_more</span>
-            </div>
-            <div class="mobile-subcategories">
-                <a href="#">Coturno</a>
-                <a href="#">Chelsea</a>
-                <a href="#">Montaria</a>
-                <a href="#">Over The Knee</a>
-            </div>
-        </div>
-        
-        <div class="mobile-category">
-            <div class="mobile-category-header" onclick="toggleSubmenu(this)">
-                <span>Sapatilhas</span>
-                <span class="material-icons">expand_more</span>
-            </div>
-            <div class="mobile-subcategories">
-                <a href="#">Scarpin</a>
-                <a href="#">Bico Fino</a>
-                <a href="#">Salto Bloco</a>
-                <a href="#">Rasteira</a>
-            </div>
-        </div>
-        
-        <div class="mobile-category">
-            <div class="mobile-category-header" onclick="toggleSubmenu(this)">
-                <span>Infantil</span>
-                <span class="material-icons">expand_more</span>
-            </div>
-            <div class="mobile-subcategories">
-                <a href="#">Tênis Escolares</a>
-                <a href="#">Sandálias</a>
-                <a href="#">Botas</a>
-                <a href="#">Personagens</a>
-            </div>
-        </div>
+        </nav>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Nova Coleção de Tênis 2026</h1>
-                <p>Descubra os lançamentos mais esperados do ano. Modelos exclusivos das principais marcas com até 40% de desconto.</p>
-                <div class="hero-cta">
-                    <a href="#" class="btn-primary">
-                        Ver Coleção
-                        <span class="material-icons">arrow_forward</span>
-                    </a>
-                    <a href="#" class="btn-secondary">
-                        <span class="material-icons">play_circle</span>
-                        Ver Vídeo
-                    </a>
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 id="hero-heading">Descubre tu Estilo Único</h1>
+                    <p>Calzado exclusivo seleccionado para ti. Atención personalizada y asesoramiento experto para encontrar el par perfecto.</p>
+                    <div class="hero-cta">
+                        <a href="#colecciones" class="btn-primary">
+                            Ver Colección
+                            <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                        </a>
+                        <button class="btn-secondary" onclick="scrollToSection('ofertas')">
+                            <span class="material-icons" aria-hidden="true">local_offer</span>
+                            Ofertas
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="URL_DA_IMAGEM_HERO_AQUI" 
+                         alt="Colección exclusiva de calzado" 
+                         class="hero-shoe"
+                         loading="lazy">
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop" alt="Tênis Destaque" class="hero-shoe">
+        </section>
+
+        <!-- Quick Categories -->
+        <nav class="quick-categories" aria-label="Categorías rápidas">
+            <div class="quick-grid">
+                <div class="quick-card" onclick="scrollToSection('masculino')">
+                    <div class="quick-icon" aria-hidden="true">👔</div>
+                    <h3>Masculino</h3>
+                    <p>Estilo y confort</p>
+                </div>
+                <div class="quick-card" onclick="scrollToSection('hombre')">
+                    <div class="quick-icon" aria-hidden="true">👞</div>
+                    <h3>Hombre</h3>
+                    <p>Elegancia</p>
+                </div>
+                <div class="quick-card" onclick="scrollToSection('mujer')">
+                    <div class="quick-icon" aria-hidden="true">👠</div>
+                    <h3>Mujer</h3>
+                    <p>Tendencia</p>
+                </div>
+                <div class="quick-card" onclick="scrollToSection('ninos')">
+                    <div class="quick-icon" aria-hidden="true">🧸</div>
+                    <h3>Niños</h3>
+                    <p>Diversión</p>
+                </div>
+                <div class="quick-card" onclick="scrollToSection('deportivo')">
+                    <div class="quick-icon" aria-hidden="true">🏃</div>
+                    <h3>Deportivo</h3>
+                    <p>Rendimiento</p>
+                </div>
+                <div class="quick-card" onclick="scrollToSection('casual')">
+                    <div class="quick-icon" aria-hidden="true">👟</div>
+                    <h3>Casual</h3>
+                    <p>Día a día</p>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Miga de pan">
+            <a href="#">Inicio</a> / <span aria-current="page">Colecciones</span>
+        </nav>
+
+        <!-- Sección Colecciones -->
+        <section class="section" id="colecciones" aria-labelledby="colecciones-heading">
+            <div class="section-header">
+                <h2 id="colecciones-heading" class="section-title">Nuestras Colecciones</h2>
+            </div>
+            
+            <div class="collections-grid">
+                <div class="collection-card" onclick="scrollToSection('masculino')">
+                    <img src="URL_IMAGEN_COLECCION_MASCULINA" 
+                         alt="Colección Masculina" 
+                         loading="lazy">
+                    <div class="collection-overlay">
+                        <h3>Masculino</h3>
+                        <p>Estilo y sofisticación para el hombre moderno</p>
+                        <span class="btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Ver Colección</span>
+                    </div>
+                </div>
+                
+                <div class="collection-card" onclick="scrollToSection('mujer')">
+                    <img src="URL_IMAGEN_COLECCION_MUJER" 
+                         alt="Colección Mujer" 
+                         loading="lazy">
+                    <div class="collection-overlay">
+                        <h3>Mujer</h3>
+                        <p>Elegancia y tendencia en cada paso</p>
+                        <span class="btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Ver Colección</span>
+                    </div>
+                </div>
+                
+                <div class="collection-card" onclick="scrollToSection('ninos')">
+                    <img src="URL_IMAGEN_COLECCION_NINOS" 
+                         alt="Colección Niños" 
+                         loading="lazy">
+                    <div class="collection-overlay">
+                        <h3>Niños</h3>
+                        <p>Comodidad y diversión para los pequeños</p>
+                        <span class="btn-primary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Ver Colección</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Ofertas -->
+        <section class="ofertas-section" id="ofertas" aria-labelledby="ofertas-heading">
+            <h2 id="ofertas-heading">🔥 Ofertas Especiales</h2>
+            <p>Descubre nuestras promociones exclusivas. Stock limitado.</p>
+            <button class="btn-primary" onclick="scrollToSection('masculino')" style="margin-top: 1rem;">
+                Ver Productos en Oferta
+            </button>
+        </section>
+
+        <!-- Productos Masculino -->
+        <section class="section" id="masculino" aria-labelledby="masculino-heading">
+            <div class="category-banner">
+                <div>
+                    <h2 id="masculino-heading">Colección Masculina</h2>
+                    <p>Calzado de alta calidad para el hombre exigente</p>
+                </div>
+                <span class="material-icons" style="font-size: 3rem; opacity: 0.3;" aria-hidden="true">man</span>
+            </div>
+            
+            <div class="section-header">
+                <h3 class="section-title">Destacados Masculinos</h3>
+                <a href="#" class="view-all">Ver todo <span class="material-icons" aria-hidden="true">arrow_forward</span></a>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <article class="product-card">
+                    <div class="product-badges">
+                        <span class="badge badge-new">Nuevo</span>
+                    </div>
+                    <div class="product-image-container">
+                        <img src="URL_IMAGEN_PRODUCTO_1" 
+                             alt="Zapatillas Running Pro" 
+                             class="product-image"
+                             loading="lazy">
+                        <div class="product-actions">
+                            <button class="action-icon" onclick="addToWishlist('Zapatillas Running Pro', 'URL_IMAGEN_PRODUCTO_1')" aria-label="Añadir a favoritos">
+                                <span class="material-icons" aria-hidden="true">favorite_border</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Running Masculino</div>
+                        <h4 class="product-title">Zapatillas Running Pro</h4>
+                        <div class="product-rating">
+                            <span class="stars" aria-label="5 de 5 estrellas">★★★★★</span>
+                            <span class="review-count">(128)</span>
+                        </div>
+                        
+                        <div class="size-section">
+                            <label class="size-label">Talla (EU):</label>
+                            <div class="size-options" role="radiogroup" aria-label="Seleccionar talla">
+                                <button class="size-btn" role="radio" aria-checked="false" onclick="selectSize(this)">40</button>
+                                <button class="size-btn" role="radio" aria-checked="false" onclick="selectSize(this)">41</button>
+                                <button class="size-btn active" role="radio" aria-checked="true" onclick="selectSize(this)">42</button>
+                                <button class="size-btn" role="radio" aria-checked="false" onclick="selectSize(this)">43</button>
+                                <button class="size-btn" role="radio" aria-checked="false" onclick="selectSize(this)">44</button>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="whatsapp-cta" onclick="contactarWhatsApp('Zapatillas Running Pro', '42'); return false;">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+                            </svg>
+                            Llamar al vendedor por WhatsApp
+                        </a>
+                        
+                        <button class="share-btn" onclick="compartirProducto('Zapatillas Running Pro')">
+                            <span class="material-icons" style="font-size: 16px;">share</span>
+                            Compartir
+                        </button>
+                        
+                        <button class="add-review" onclick="addToCart('Zapatillas Running Pro', 'URL_IMAGEN_PRODUCTO_1', '42')">
+                            + Añadir a la cesta
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Features Bar -->
+        <div class="features-bar">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span class="material-icons" aria-hidden="true">support_agent</span>
+                    </div>
+                    <h4>Atención Personalizada</h4>
+                    <p>WhatsApp directo</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span class="material-icons" aria-hidden="true">verified</span>
+                    </div>
+                    <h4>Calidad Garantizada</h4>
+                    <p>Productos seleccionados</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span class="material-icons" aria-hidden="true">local_shipping</span>
+                    </div>
+                    <h4>Consulta de Envío</h4>
+                    <p>Información personalizada</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span class="material-icons" aria-hidden="true">replay</span>
+                    </div>
+                    <h4>Asesoramiento</h4>
+                    <p>Expertos en calzado</p>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Quick Categories -->
-    <div class="quick-categories">
-        <div class="quick-grid">
-            <a href="#" class="quick-card">
-                <div class="quick-icon">👟</div>
-                <h3>Running</h3>
-                <p>Performance</p>
-            </a>
-            <a href="#" class="quick-card">
-                <div class="quick-icon">👞</div>
-                <h3>Sociais</h3>
-                <p>Elegância</p>
-            </a>
-            <a href="#" class="quick-card">
-                <div class="quick-icon">🩴</div>
-                <h3>Sandálias</h3>
-                <p>Conforto</p>
-            </a>
-            <a href="#" class="quick-card">
-                <div class="quick-icon">🥾</div>
-                <h3>Botas</h3>
-                <p>Estilo</p>
-            </a>
-            <a href="#" class="quick-card">
-                <div class="quick-icon">👠</div>
-                <h3>Saltos</h3>
-                <p>Festa</p>
-            </a>
-            <a href="#" class="quick-card">
-                <div class="quick-icon">🧸</div>
-                <h3>Infantil</h3>
-                <p>Diversão</p>
-            </a>
-        </div>
-    </div>
-
-    <!-- Tênis Esportivos -->
-    <section class="section" id="tenis">
-        <div class="category-banner">
-            <div>
-                <h2>Tênis Esportivos</h2>
-                <p>Alta performance para seus treinos</p>
+        <!-- SEO Content -->
+        <section class="seo-content" aria-labelledby="seo-heading">
+            <div class="seo-text">
+                <h2 id="seo-heading">Gusmar Shoes - Tu Tienda de Calzado de Confianza</h2>
+                <p>
+                    En <strong>Gusmar Shoes</strong> encontrarás el mejor <em>calzado</em> para toda la familia. 
+                    Somos especialistas en proporcionar una experiencia de compra personalizada, donde cada cliente 
+                    recibe atención directa y asesoramiento experto.
+                </p>
+                <p>
+                    Nuestra tienda ofrece una amplia selección de <strong>calzado masculino</strong>, 
+                    <strong>calzado femenino</strong> y <strong>calzado infantil</strong>. 
+                    Desde <em>zapatillas deportivas</em> de alta performance hasta <em>zapatos elegantes</em> 
+                    para ocasiones especiales.
+                </p>
+                <p>
+                    Consulta disponibilidad y precios directamente por <strong>WhatsApp</strong>. 
+                    Nuestro equipo está listo para ayudarte a encontrar el par perfecto. 
+                    ¡Compra con confianza en Gusmar Shoes!
+                </p>
             </div>
-            <span class="material-icons" style="font-size: 3rem; opacity: 0.3;">sports</span>
-        </div>
-        
-        <div class="section-header">
-            <h3 class="section-title">Running & Training</h3>
-            <a href="#" class="view-all">Ver todos <span class="material-icons">arrow_forward</span></a>
-        </div>
-        
-        <div class="products-grid">
-            <!-- Product 1 -->
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-discount">-30%</span>
-                    <span class="badge badge-new">Novo</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop" alt="Nike Air Max" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Running</div>
-                    <h4 class="product-title">Nike Air Max 2026</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="review-count">(128)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 599,90</span>
-                        <span class="original-price">R$ 859,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        10x de R$ 59,99 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">37</button>
-                            <button class="size-btn">38</button>
-                            <button class="size-btn active">39</button>
-                            <button class="size-btn">40</button>
-                            <button class="size-btn">41</button>
-                            <button class="size-btn" disabled>42</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Carlos M.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Perfeito para corrida, amortecimento incrível!</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Product 2 -->
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-limited">Esgotando</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop" alt="Adidas Ultraboost" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Training</div>
-                    <h4 class="product-title">Adidas Ultraboost 26</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★☆</span>
-                        <span class="review-count">(89)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 799,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        12x de R$ 66,66 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">38</button>
-                            <button class="size-btn">39</button>
-                            <button class="size-btn">40</button>
-                            <button class="size-btn active">41</button>
-                            <button class="size-btn">42</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Ana P.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Excelente para academia, muito confortável</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Product 3 -->
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-discount">-40%</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=400&fit=crop" alt="Puma RS-X" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Lifestyle</div>
-                    <h4 class="product-title">Puma RS-X Bold</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="review-count">(256)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 449,90</span>
-                        <span class="original-price">R$ 749,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        8x de R$ 56,24 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">34</button>
-                            <button class="size-btn">35</button>
-                            <button class="size-btn active">36</button>
-                            <button class="size-btn">37</button>
-                            <button class="size-btn">38</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Marina S.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Lindo design, uso no dia a dia</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Product 4 -->
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-new">Lançamento</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop" alt="New Balance" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Running</div>
-                    <h4 class="product-title">New Balance Fresh Foam</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★☆</span>
-                        <span class="review-count">(67)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 699,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        10x de R$ 69,99 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">39</button>
-                            <button class="size-btn active">40</button>
-                            <button class="size-btn">41</button>
-                            <button class="size-btn">42</button>
-                            <button class="size-btn">43</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Pedro L.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★☆</span>
-                            </div>
-                            <p class="review-text">Muito bom para longas distâncias</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- Sapatos Sociais -->
-    <section class="section" id="sapatos">
-        <div class="category-banner" style="background: linear-gradient(135deg, #451a03 0%, #78350f 100%);">
-            <div>
-                <h2>Sapatos Sociais</h2>
-                <p>Elegância e sofisticação para cada ocasião</p>
-            </div>
-            <span class="material-icons" style="font-size: 3rem; opacity: 0.3;">business</span>
-        </div>
-        
-        <div class="section-header">
-            <h3 class="section-title">Couro Legítimo</h3>
-            <a href="#" class="view-all">Ver todos <span class="material-icons">arrow_forward</span></a>
-        </div>
-        
-        <div class="products-grid">
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-discount">-25%</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=400&h=400&fit=crop" alt="Oxford Couro" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Social</div>
-                    <h4 class="product-title">Oxford Couro Preto</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="review-count">(45)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 299,90</span>
-                        <span class="original-price">R$ 399,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        5x de R$ 59,98 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">38</button>
-                            <button class="size-btn">39</button>
-                            <button class="size-btn active">40</button>
-                            <button class="size-btn">41</button>
-                            <button class="size-btn">42</button>
-                            <button class="size-btn">43</button>
-                            <button class="size-btn">44</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Ricardo A.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Couro de excelente qualidade</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-new">Novo</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=400&h=400&fit=crop" alt="Loafer" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Casual</div>
-                    <h4 class="product-title">Loafer Camurça Marrom</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★☆</span>
-                        <span class="review-count">(32)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 349,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        6x de R$ 58,32 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">37</button>
-                            <button class="size-btn">38</button>
-                            <button class="size-btn">39</button>
-                            <button class="size-btn active">40</button>
-                            <button class="size-btn">41</button>
-                            <button class="size-btn">42</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Fernando K.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Confortável e elegante</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?w=400&h=400&fit=crop" alt="Derby" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Social</div>
-                    <h4 class="product-title">Derby Verniz Preto</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="review-count">(28)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 279,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        5x de R$ 55,98 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">38</button>
-                            <button class="size-btn">39</button>
-                            <button class="size-btn">40</button>
-                            <button class="size-btn active">41</button>
-                            <button class="size-btn">42</button>
-                            <button class="size-btn">43</button>
-                            <button class="size-btn">44</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Lucas M.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★☆</span>
-                            </div>
-                            <p class="review-text">Brilho perfeito para festas</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-discount">-20%</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1628253747716-0c4f5c90fdda?w=400&h=400&fit=crop" alt="Chelsea Boot" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Bota</div>
-                    <h4 class="product-title">Chelsea Boot Couro</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="review-count">(56)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 399,90</span>
-                        <span class="original-price">R$ 499,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        7x de R$ 57,13 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">38</button>
-                            <button class="size-btn">39</button>
-                            <button class="size-btn active">40</button>
-                            <button class="size-btn">41</button>
-                            <button class="size-btn">42</button>
-                            <button class="size-btn">43</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Gabriel S.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Estilosa e confortável</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- Sandálias -->
-    <section class="section" id="sandalias">
-        <div class="category-banner" style="background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%);">
-            <div>
-                <h2>Sandálias & Papetes</h2>
-                <p>Conforto para o verão com estilo</p>
-            </div>
-            <span class="material-icons" style="font-size: 3rem; opacity: 0.3;">beach_access</span>
-        </div>
-        
-        <div class="section-header">
-            <h3 class="section-title">Verão 2026</h3>
-            <a href="#" class="view-all">Ver todos <span class="material-icons">arrow_forward</span></a>
-        </div>
-        
-        <div class="products-grid">
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-new">Tendência</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop" alt="Papete" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Papete</div>
-                    <h4 class="product-title">Papete Chunky Preto</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="review-count">(189)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 199,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        4x de R$ 49,98 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">33</button>
-                            <button class="size-btn">34</button>
-                            <button class="size-btn active">35</button>
-                            <button class="size-btn">36</button>
-                            <button class="size-btn">37</button>
-                            <button class="size-btn">38</button>
-                            <button class="size-btn">39</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Julia R.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Super na moda, amei!</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-discount">-35%</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400&h=400&fit=crop" alt="Rasteira" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Rasteira</div>
-                    <h4 class="product-title">Rasteira Tiras Metalizadas</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★☆</span>
-                        <span class="review-count">(78)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 89,90</span>
-                        <span class="original-price">R$ 139,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        2x de R$ 44,95 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">33</button>
-                            <button class="size-btn">34</button>
-                            <button class="size-btn">35</button>
-                            <button class="size-btn active">36</button>
-                            <button class="size-btn">37</button>
-                            <button class="size-btn">38</button>
-                            <button class="size-btn">39</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Patricia M.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★☆</span>
-                            </div>
-                            <p class="review-text">Linda e confortável</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop" alt="Slide" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Slide</div>
-                    <h4 class="product-title">Slide Sport Preto</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="review-count">(234)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 149,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        3x de R$ 49,97 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">37</button>
-                            <button class="size-btn">38</button>
-                            <button class="size-btn">39</button>
-                            <button class="size-btn active">40</button>
-                            <button class="size-btn">41</button>
-                            <button class="size-btn">42</button>
-                            <button class="size-btn">43</button>
-                            <button class="size-btn">44</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Roberto C.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Perfeito para o dia a dia</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-limited">Últimas</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1562273138-f46be4ebdf33?w=400&h=400&fit=crop" alt="Anabela" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Anabela</div>
-                    <h4 class="product-title">Anabela Cortiça Natural</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★☆</span>
-                        <span class="review-count">(45)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 179,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        3x de R$ 59,97 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">34</button>
-                            <button class="size-btn">35</button>
-                            <button class="size-btn active">36</button>
-                            <button class="size-btn">37</button>
-                            <button class="size-btn">38</button>
-                            <button class="size-btn">39</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Camila D.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Leve e confortável</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- Botas -->
-    <section class="section" id="botas">
-        <div class="category-banner" style="background: linear-gradient(135deg, #374151 0%, #1f2937 100%);">
-            <div>
-                <h2>Botas & Coturnos</h2>
-                <p>Estilo e resistência para qualquer terreno</p>
-            </div>
-            <span class="material-icons" style="font-size: 3rem; opacity: 0.3;">hiking</span>
-        </div>
-        
-        <div class="section-header">
-            <h3 class="section-title">Coleção Inverno</h3>
-            <a href="#" class="view-all">Ver todos <span class="material-icons">arrow_forward</span></a>
-        </div>
-        
-        <div class="products-grid">
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-discount">-15%</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=400&h=400&fit=crop" alt="Coturno" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Coturno</div>
-                    <h4 class="product-title">Coturno Militar Tratorado</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="review-count">(167)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 299,90</span>
-                        <span class="original-price">R$ 349,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        5x de R$ 59,98 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">34</button>
-                            <button class="size-btn">35</button>
-                            <button class="size-btn">36</button>
-                            <button class="size-btn active">37</button>
-                            <button class="size-btn">38</button>
-                            <button class="size-btn">39</button>
-                            <button class="size-btn">40</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Bruna T.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Resistente e estiloso</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-new">Novo</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop" alt="Bota Cano Alto" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Cano Alto</div>
-                    <h4 class="product-title">Bota Over The Knee</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★☆</span>
-                        <span class="review-count">(89)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 459,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        8x de R$ 57,49 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">33</button>
-                            <button class="size-btn">34</button>
-                            <button class="size-btn">35</button>
-                            <button class="size-btn active">36</button>
-                            <button class="size-btn">37</button>
-                            <button class="size-btn">38</button>
-                            <button class="size-btn">39</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Larissa G.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Elegante e confortável</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1606890658317-7d14490b76fd?w=400&h=400&fit=crop" alt="Bota Worker" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Worker</div>
-                    <h4 class="product-title">Bota Worker Couro</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="review-count">(112)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 379,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        6x de R$ 63,32 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">38</button>
-                            <button class="size-btn">39</button>
-                            <button class="size-btn">40</button>
-                            <button class="size-btn active">41</button>
-                            <button class="size-btn">42</button>
-                            <button class="size-btn">43</button>
-                            <button class="size-btn">44</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Thiago M.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★☆</span>
-                            </div>
-                            <p class="review-text">Resistente e bonita</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-
-            <article class="product-card">
-                <div class="product-badges">
-                    <span class="badge badge-discount">-20%</span>
-                </div>
-                <div class="product-image-container">
-                    <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400&h=400&fit=crop" alt="Bota Chelsea" class="product-image">
-                    <div class="product-actions">
-                        <button class="action-icon"><span class="material-icons">favorite</span></button>
-                        <button class="action-icon"><span class="material-icons">visibility</span></button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-category">Chelsea</div>
-                    <h4 class="product-title">Chelsea Boot Camurça</h4>
-                    <div class="product-rating">
-                        <span class="stars">★★★★★</span>
-                        <span class="review-count">(78)</span>
-                    </div>
-                    <div class="product-price">
-                        <span class="current-price">R$ 329,90</span>
-                        <span class="original-price">R$ 399,90</span>
-                    </div>
-                    <div class="installments">
-                        <span class="material-icons" style="font-size: 14px;">credit_card</span>
-                        6x de R$ 54,98 sem juros
-                    </div>
-                    
-                    <div class="size-section">
-                        <label class="size-label">Numeração (Brasil):</label>
-                        <div class="size-options">
-                            <button class="size-btn">37</button>
-                            <button class="size-btn">38</button>
-                            <button class="size-btn active">39</button>
-                            <button class="size-btn">40</button>
-                            <button class="size-btn">41</button>
-                            <button class="size-btn">42</button>
-                        </div>
-                    </div>
-                    
-                    <div class="quantity-section">
-                        <label class="size-label">Quantidade:</label>
-                        <div class="quantity-selector">
-                            <button class="qty-btn">-</button>
-                            <input type="number" class="qty-input" value="1" min="1">
-                            <button class="qty-btn">+</button>
-                        </div>
-                        <p class="min-qty">Mínimo: 1 par</p>
-                    </div>
-                    
-                    <button class="buy-btn">
-                        <span class="material-icons">shopping_bag</span>
-                        Comprar Agora
-                    </button>
-                    
-                    <div class="reviews-preview">
-                        <div class="review-item">
-                            <div class="review-header">
-                                <span class="reviewer-name">Daniela P.</span>
-                                <span class="stars" style="font-size: 0.7rem;">★★★★★</span>
-                            </div>
-                            <p class="review-text">Clássica e versátil</p>
-                        </div>
-                        <button class="add-review">+ Escrever avaliação</button>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-grid">
             <div class="footer-section">
-                <h3>GusmarShoes</h3>
+                <h3>Gusmar Shoes</h3>
                 <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">
-                    Especialistas em calçados desde 2010. Oferecemos as melhores marcas com preços competitivos e entrega rápida.
+                    Tu zapatería de confianza con atención personalizada. Especialistas en calzado de calidad para toda la familia.
                 </p>
-                <div class="payment-methods">
-                    <span class="payment-icon">Visa</span>
-                    <span class="payment-icon">Master</span>
-                    <span class="payment-icon">Amex</span>
-                    <span class="payment-icon">Pix</span>
-                    <span class="payment-icon">Boleto</span>
-                </div>
             </div>
             
             <div class="footer-section">
-                <h3>Categorias</h3>
+                <h3>Categorías</h3>
                 <ul>
-                    <li><a href="#">Tênis Esportivos</a></li>
-                    <li><a href="#">Sapatos Sociais</a></li>
-                    <li><a href="#">Sandálias</a></li>
-                    <li><a href="#">Botas</a></li>
-                    <li><a href="#">Sapatilhas</a></li>
-                    <li><a href="#">Infantil</a></li>
+                    <li><a href="#masculino">Calzado Masculino</a></li>
+                    <li><a href="#hombre">Zapatillas Hombre</a></li>
+                    <li><a href="#mujer">Zapatos Mujer</a></li>
+                    <li><a href="#ninos">Calzado Niños</a></li>
+                    <li><a href="#ofertas">Ofertas Especiales</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3>Atendimento</h3>
+                <h3>Ayuda</h3>
                 <ul>
-                    <li><a href="#">Central de Ajuda</a></li>
-                    <li><a href="#">Trocas e Devoluções</a></li>
-                    <li><a href="#">Guia de Tamanhos</a></li>
-                    <li><a href="#">Prazo de Entrega</a></li>
-                    <li><a href="#">Rastrear Pedido</a></li>
+                    <li><a href="#">Guía de Tallas</a></li>
+                    <li><a href="#">Cómo Comprar</a></li>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3>Contato</h3>
+                <h3>Contacto</h3>
                 <ul>
-                    <li><a href="tel:+5511999999999">(11) 99999-9999</a></li>
-                    <li><a href="mailto:contato@GusmarShoes.com.br">contato@GusmarShoes.com.br</a></li>
-                    <li><a href="#">Seg - Sex: 9h às 18h</a></li>
-                    <li><a href="#">São Paulo, SP</a></li>
+                    <li><a href="tel:+34912345678">+34 912 345 678</a></li>
+                    <li><a href="mailto:hola@gusmarshoes.es">hola@gusmarshoes.es</a></li>
+                    <li><a href="#">Calle Mayor 123, Madrid</a></li>
+                    <li><a href="#">Lun-Vie: 9:00 - 20:00</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 GusmarShoes. Todos os direitos reservados. | CNPJ: 12.345.678/0001-90</p>
+            <p>&copy; 2026 Gusmar Shoes. Todos los derechos reservados. | <a href="#" style="color: rgba(255,255,255,0.5);">Aviso Legal</a> | <a href="#" style="color: rgba(255,255,255,0.5);">Privacidad</a> | <a href="#" style="color: rgba(255,255,255,0.5);">Cookies</a></p>
         </div>
     </footer>
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20ajuda%20para%20escolher%20um%20calçado." 
-       class="whatsapp-float" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       aria-label="Fale conosco pelo WhatsApp">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-    </a>
+    <!-- Popup de Ofertas -->
+    <div class="popup-overlay" id="leadPopup">
+        <div class="popup">
+            <button class="popup-close" onclick="closeLeadPopup()">
+                <span class="material-icons">close</span>
+            </button>
+            <h3>🎉 ¡Ofertas Especiales!</h3>
+            <p>Recibe las mejores ofertas y novedades directamente en tu WhatsApp y correo.</p>
+            
+            <form id="leadForm" onsubmit="handleLeadSubmit(event)">
+                <div class="form-group">
+                    <label for="leadPhone">Teléfono (WhatsApp)</label>
+                    <input type="tel" 
+                           id="leadPhone" 
+                           placeholder="+34 612 345 678" 
+                           required
+                           maxlength="15"
+                           oninput="formatPhone(this)">
+                    <span class="error-message" id="phoneError">Por favor, introduce un número válido</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="leadEmail">Correo Electrónico</label>
+                    <input type="email" 
+                           id="leadEmail" 
+                           placeholder="tu@email.com" 
+                           required>
+                    <span class="error-message" id="emailError">Por favor, introduce un email válido</span>
+                </div>
+                
+                <div class="consent-group">
+                    <input type="checkbox" id="consent" required>
+                    <label for="consent">
+                        Acepto recibir comunicaciones comerciales y doy mi consentimiento para el tratamiento de mis datos según la 
+                        <a href="#" target="_blank">Política de Privacidad</a>. 
+                        Conforme al RGPD y LOPDGDD.
+                    </label>
+                </div>
+                
+                <button type="submit" class="popup-submit" id="submitLeadBtn">
+                    Recibir Ofertas
+                </button>
+            </form>
+        </div>
+    </div>
 
-    <script>
-        // Mobile Menu
-        const hamburger = document.querySelector('.hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-        const closeMenu = document.getElementById('closeMenu');
-        
-        function openMenu() {
-            mobileMenu.classList.add('active');
-            mobileOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeMenuFn() {
-            mobileMenu.classList.remove('active');
-            mobileOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        
-        hamburger.addEventListener('click', openMenu);
-        closeMenu.addEventListener('click', closeMenuFn);
-        mobileOverlay.addEventListener('click', closeMenuFn);
-        
-        // Toggle Submenu
-        function toggleSubmenu(header) {
-            const submenu = header.nextElementSibling;
-            const icon = header.querySelector('.material-icons');
+    <!-- Popup de Autenticación -->
+    <div class="popup-overlay" id="authPopup">
+        <div class="popup">
+            <button class="popup-close" onclick="closeAuthModal()">
+                <span class="material-icons">close</span>
+            </button>
+            <h3>Entrar o Cadastrarse</h3>
+            <p>Accede a tu cuenta para guardar tus favoritos y consultar tu historial.</p>
             
-            submenu.classList.toggle('active');
-            icon.style.transform = submenu.classList.contains('active') ? 'rotate(180deg)' : '';
-        }
-        
-        // Size Selection
-        document.querySelectorAll('.size-options').forEach(group => {
-            const buttons = group.querySelectorAll('.size-btn');
-            buttons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    if (!btn.disabled) {
-                        buttons.forEach(b => b.classList.remove('active'));
-                        btn.classList.add('active');
-                    }
-                });
-            });
-        });
-        
-        // Quantity Controls
-        document.querySelectorAll('.quantity-selector').forEach(selector => {
-            const minusBtn = selector.querySelector('.qty-btn:first-child');
-            const plusBtn = selector.querySelector('.qty-btn:last-child');
-            const input = selector.querySelector('.qty-input');
-            
-            minusBtn.addEventListener('click', () => {
-                let value = parseInt(input.value);
-                if (value > 1) input.value = value - 1;
-            });
-            
-            plusBtn.addEventListener('click', () => {
-                let value = parseInt(input.value);
-                input.value = value + 1;
-            });
-        });
-        
-        // Buy Button
-        document.querySelectorAll('.buy-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const card = this.closest('.product-card');
-                const title = card.querySelector('.product-title').textContent;
+            <form id="authForm" onsubmit="handleAuthSubmit(event)">
+                <div class="form-group">
+                    <label for="authName">Nombre Completo</label>
+                    <input type="text" id="authName" placeholder="Tu nombre" required>
+                </div>
                 
-                // Notification
-                const notification = document.createElement('div');
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 90px;
-                    right: 20px;
-                    background: var(--success);
-                    color: white;
-                    padding: 1rem 1.5rem;
-                    border-radius: 12px;
-                    box-shadow: var(--shadow-lg);
-                    z-index: 10000;
-                    font-weight: 500;
-                    animation: slideIn 0.3s ease-out;
-                `;
-                notification.innerHTML = `
-                    <span class="material-icons" style="vertical-align: middle; margin-right: 0.5rem;">check_circle</span>
-                    ${title} adicionado ao carrinho!
-                `;
+                <div class="form-group">
+                    <label for="authEmail">Correo Electrónico</label>
+                    <input type="email" id="authEmail" placeholder="tu@email.com" required>
+                    <span class="error-message" id="authEmailError">Email inválido</span>
+                </div>
                 
-                document.body.appendChild(notification);
+                <div class="form-group">
+                    <label for="authPhone">Teléfono</label>
+                    <input type="tel" id="authPhone" placeholder="+34 612 345 678" required oninput="formatPhone(this)">
+                </div>
                 
-                setTimeout(() => {
-                    notification.style.animation = 'slideOut 0.3s ease-out';
-                    setTimeout(() => notification.remove(), 300);
-                }, 3000);
+                <div class="consent-group">
+                    <input type="checkbox" id="authConsent" required>
+                    <label for="authConsent">
+                        Acepto los <a href="#">Términos y Condiciones</a> y la 
+                        <a href="#">Política de Privacidad</a>. Los datos se almacenarán de forma segura.
+                    </label>
+                </div>
                 
-                // Update cart count
-                const cartBadge = document.querySelector('.cart-badge');
-                cartBadge.textContent = parseInt(cartBadge.textContent) + 1;
-            });
-        });
-        
-        // Add animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+                <button type="submit" class="popup-submit" id="authSubmitBtn">
+                    Continuar
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Externo -->
+    <script src="script.js"></script>
 </body>
 </html>
