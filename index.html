@@ -451,8 +451,63 @@
             transform: scale(1.05);
         }
 
+        /* Botones flotantes en la esquina superior izquierda - vertical */
+        .floating-buttons {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .floating-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            border: none;
+            color: var(--text-primary);
+        }
+
+        .floating-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .floating-icon.wishlist-float {
+            background: #fff0f0;
+            color: #e11d48;
+        }
+        .floating-icon.wishlist-float:hover {
+            background: #ffe4e4;
+        }
+        .floating-icon.cart-float {
+            background: #e6f7ff;
+            color: #0891b2;
+        }
+        .floating-icon.cart-float:hover {
+            background: #cffafe;
+        }
+        .floating-icon.share-float {
+            background: #f1f5f9;
+            color: #475569;
+        }
+        .floating-icon.share-float:hover {
+            background: #e2e8f0;
+        }
+
         .product-info {
-            padding: 1.2rem;
+            padding: 1rem;
+            text-align: center;
         }
 
         /* Estilo especial para la sección Outros: sin texto de nombre */
@@ -462,39 +517,46 @@
         }
         
         .product-card.no-text .product-info {
-            padding-top: 0.5rem;
+            padding-top: 0.75rem;
         }
 
         .product-category {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--accent);
             font-weight: 600;
             text-transform: uppercase;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
         .product-title {
-            font-size: 1rem;
-            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
             color: var(--text-primary);
         }
 
-        /* Botones: WhatsApp arriba, luego los tres en fila */
-        .action-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-top: 0.5rem;
+        /* REF label */
+        .product-ref {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-family: monospace;
+            letter-spacing: 0.5px;
+            background: #f8fafc;
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 20px;
         }
-        
-        .whatsapp-full {
+
+        /* Botón WhatsApp debajo de la imagen */
+        .whatsapp-button {
             width: 100%;
             background: var(--accent);
             color: var(--primary);
             border: none;
-            padding: 0.75rem;
+            padding: 0.7rem;
             border-radius: var(--radius);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             cursor: pointer;
             display: flex;
@@ -502,57 +564,65 @@
             justify-content: center;
             gap: 0.5rem;
             transition: all 0.2s;
+            margin-top: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
         }
         
-        .whatsapp-full:hover {
+        .whatsapp-button:hover {
             background: var(--accent-hover);
             color: white;
             transform: scale(1.01);
         }
-        
-        .row-buttons {
+
+        /* Botones horizontales debajo del WhatsApp */
+        .horizontal-buttons {
             display: flex;
             gap: 0.75rem;
-            width: 100%;
+            margin-top: 0.75rem;
+            justify-content: center;
         }
-        
-        .icon-btn {
+
+        .horiz-btn {
             flex: 1;
             background: #f1f5f9;
             border: none;
-            padding: 0.65rem 0;
+            padding: 0.5rem 0.2rem;
             border-radius: var(--radius);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            font-weight: 500;
+            gap: 0.3rem;
+            font-weight: 600;
             transition: all 0.2s;
             color: var(--text-primary);
-            font-size: 0.85rem;
+            font-size: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
         }
         
-        .icon-btn.wishlist-btn {
+        .horiz-btn .material-icons {
+            font-size: 1rem;
+        }
+        
+        .horiz-btn.wishlist-horiz {
             background: #fff0f0;
             color: #e11d48;
         }
-        .icon-btn.wishlist-btn:hover {
+        .horiz-btn.wishlist-horiz:hover {
             background: #ffe4e4;
-            transform: scale(1.02);
         }
-        .icon-btn.cart-btn {
+        .horiz-btn.cart-horiz {
             background: #e6f7ff;
             color: #0891b2;
         }
-        .icon-btn.cart-btn:hover {
+        .horiz-btn.cart-horiz:hover {
             background: #cffafe;
         }
-        .icon-btn.share-btn {
+        .horiz-btn.share-horiz {
             background: #f1f5f9;
             color: #475569;
         }
-        .icon-btn.share-btn:hover {
+        .horiz-btn.share-horiz:hover {
             background: #e2e8f0;
         }
 
@@ -560,9 +630,9 @@
         .fly-animation {
             position: fixed;
             z-index: 10000;
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             background: white;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             transition: all 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
@@ -721,7 +791,7 @@
             right: 20px;
             background: var(--accent);
             color: var(--primary);
-            padding: 1rem 1.5rem;
+            padding: 0.8rem 1.2rem;
             border-radius: 12px;
             z-index: 10000;
             display: flex;
@@ -729,6 +799,7 @@
             gap: 0.5rem;
             box-shadow: var(--shadow-lg);
             animation: slideIn 0.3s ease-out;
+            font-size: 0.85rem;
         }
         @keyframes slideIn {
             from { transform: translateX(100%); opacity: 0; }
@@ -772,8 +843,12 @@
             .hamburger { display: flex; }
             .products-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
             .cart-sidebar, .wishlist-sidebar { width: 100%; right: -100%; }
-            .row-buttons { gap: 0.5rem; }
-            .icon-btn { font-size: 0.7rem; }
+            .floating-icon { width: 34px; height: 34px; }
+            .floating-icon .material-icons { font-size: 18px; }
+            .whatsapp-button { font-size: 0.75rem; padding: 0.5rem; }
+            .horiz-btn { font-size: 0.65rem; padding: 0.4rem 0.1rem; }
+            .horiz-btn .material-icons { font-size: 0.85rem; }
+            .product-ref { font-size: 0.7rem; }
         }
         @media (max-width: 480px) {
             .products-grid { grid-template-columns: 1fr; }
@@ -810,7 +885,6 @@
         <section class="section" id="femenino"><div class="category-banner" style="background: linear-gradient(135deg, #831843 0%, #be185d 100%);"><div><h2>Colección Femenina</h2><p>Elegancia y tendencia para cada ocasión</p></div></div><div class="products-grid" id="femeninoGrid"></div></section>
         <section class="section" id="infantil"><div class="category-banner" style="background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);"><div><h2>Colección Infantil</h2><p>Comodidad y diversión para los más pequeños</p></div></div><div class="products-grid" id="infantilGrid"></div></section>
         
-        <!-- SECCIÓN OUTROS CALÇADOS - texto actualizado, sin botón agregar, botones reorganizados -->
         <section class="section" id="outros">
             <div class="category-banner" style="background: linear-gradient(135deg, #44403c 0%, #78716c 100%);">
                 <div><h2>👟 Outros Calçados</h2><p>Veja outros calçados</p></div>
@@ -831,21 +905,22 @@
     <script>
         // Productos base
         const baseProducts = {
-            masculino: [{ id:1, name:"Zapatillas Running Pro Max", category:"Masculino", image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop", isOffer:false },
-                        { id:2, name:"Zapatillas Training Ultra", category:"Masculino", image:"https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop", isOffer:false },
-                        { id:3, name:"Zapatillas Casual Street", category:"Masculino", image:"https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=400&fit=crop", isOffer:true },
-                        { id:4, name:"Zapatillas Baloncesto Air", category:"Masculino", image:"https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop", isOffer:false }],
-            femenino: [{ id:5, name:"Zapatillas Running Pro Mujer", category:"Femenino", image:"https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop", isOffer:false },
-                       { id:6, name:"Zapatillas Chunky Platform", category:"Femenino", image:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop", isOffer:false },
-                       { id:7, name:"Bailarinas Plegables Soft", category:"Femenino", image:"https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400&h=400&fit=crop", isOffer:true },
-                       { id:8, name:"Botines Chelsea Piel", category:"Femenino", image:"https://images.unsplash.com/photo-1606890658317-7d14490b76fd?w=400&h=400&fit=crop", isOffer:false }],
-            infantil: [{ id:9, name:"Zapatillas LED Intermitentes", category:"Infantil", image:"https://images.unsplash.com/photo-1514989940723-e81e61645e1a?w=400&h=400&fit=crop", isOffer:false },
-                       { id:10, name:"Zapatillas Colegio Resistentes", category:"Infantil", image:"https://images.unsplash.com/photo-1507464098880-e367bc5d2c08?w=400&h=400&fit=crop", isOffer:false },
-                       { id:11, name:"Zapatillas Superhéroes Velcro", category:"Infantil", image:"https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop", isOffer:true }]
+            masculino: [{ id:1, name:"Zapatillas Running Pro Max", category:"Masculino", image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop", isOffer:false, ref:"M001" },
+                        { id:2, name:"Zapatillas Training Ultra", category:"Masculino", image:"https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop", isOffer:false, ref:"M002" },
+                        { id:3, name:"Zapatillas Casual Street", category:"Masculino", image:"https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=400&fit=crop", isOffer:true, ref:"M003" },
+                        { id:4, name:"Zapatillas Baloncesto Air", category:"Masculino", image:"https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop", isOffer:false, ref:"M004" }],
+            femenino: [{ id:5, name:"Zapatillas Running Pro Mujer", category:"Femenino", image:"https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop", isOffer:false, ref:"F001" },
+                       { id:6, name:"Zapatillas Chunky Platform", category:"Femenino", image:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop", isOffer:false, ref:"F002" },
+                       { id:7, name:"Bailarinas Plegables Soft", category:"Femenino", image:"https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400&h=400&fit=crop", isOffer:true, ref:"F003" },
+                       { id:8, name:"Botines Chelsea Piel", category:"Femenino", image:"https://images.unsplash.com/photo-1606890658317-7d14490b76fd?w=400&h=400&fit=crop", isOffer:false, ref:"F004" }],
+            infantil: [{ id:9, name:"Zapatillas LED Intermitentes", category:"Infantil", image:"https://images.unsplash.com/photo-1514989940723-e81e61645e1a?w=400&h=400&fit=crop", isOffer:false, ref:"I001" },
+                       { id:10, name:"Zapatillas Colegio Resistentes", category:"Infantil", image:"https://images.unsplash.com/photo-1507464098880-e367bc5d2c08?w=400&h=400&fit=crop", isOffer:false, ref:"I002" },
+                       { id:11, name:"Zapatillas Superhéroes Velcro", category:"Infantil", image:"https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop", isOffer:true, ref:"I003" }]
         };
+        
         let outrosProdutos = JSON.parse(localStorage.getItem('outrosProdutos')) || [
-            { id:101, name:"Mocasines de Cuero", category:"Outros", image:"https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=400&h=400&fit=crop", isOffer:false},
-            { id:102, name:"Sandalias Tropical", category:"Outros", image:"https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=400&fit=crop", isOffer:false}
+            { id:101, name:"Mocasines de Cuero", category:"Outros", image:"https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=400&h=400&fit=crop", isOffer:false, ref:"REF001" },
+            { id:102, name:"Sandalias Tropical", category:"Outros", image:"https://images.unsplash.com/photo-1560343090-f0409e92791a?w=400&h=400&fit=crop", isOffer:false, ref:"REF002" }
         ];
         
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -857,16 +932,17 @@
         function updateWishlistBadge(){ document.getElementById('wishlistBadge').textContent = wishlist.length; }
         function showNotification(msg){ let n=document.createElement('div'); n.className='notification'; n.innerHTML=`<span class="material-icons">check_circle</span>${msg}`; document.body.appendChild(n); setTimeout(()=>{ n.style.animation='slideOut 0.3s'; setTimeout(()=>n.remove(),300); },3000); }
         
-        function flyToTarget(element, targetId, onComplete){
+        function flyToTarget(element, targetId){
             const rect = element.getBoundingClientRect();
             const clone = element.cloneNode(true);
             clone.style.position = 'fixed';
             clone.style.left = rect.left + 'px';
             clone.style.top = rect.top + 'px';
-            clone.style.width = rect.width + 'px';
-            clone.style.height = rect.height + 'px';
+            clone.style.width = '40px';
+            clone.style.height = '40px';
+            clone.style.borderRadius = '50%';
+            clone.style.objectFit = 'cover';
             clone.style.zIndex = '99999';
-            clone.style.borderRadius = '12px';
             clone.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
             document.body.appendChild(clone);
             const target = document.getElementById(targetId);
@@ -875,11 +951,11 @@
             requestAnimationFrame(()=>{
                 clone.style.left = targetRect.left + targetRect.width/2 - 20 + 'px';
                 clone.style.top = targetRect.top + targetRect.height/2 - 20 + 'px';
-                clone.style.width = '40px';
-                clone.style.height = '40px';
+                clone.style.width = '30px';
+                clone.style.height = '30px';
                 clone.style.opacity = '0.5';
             });
-            setTimeout(()=>{ clone.remove(); if(onComplete) onComplete(); },500);
+            setTimeout(()=>{ clone.remove(); },500);
         }
         
         function addToCart(product, ev){
@@ -887,7 +963,7 @@
                 cart.push({...product, quantity:1});
                 saveCart();
                 showNotification(`Producto añadido a la cesta`);
-                if(ev && ev.target) flyToTarget(ev.target.closest('.product-card') || ev.target, 'cartBtn', ()=>{});
+                if(ev && ev.target) flyToTarget(ev.target, 'cartBtn');
             } else showNotification(`Ya está en la cesta`);
         }
         function addToWishlist(product, ev){
@@ -895,28 +971,37 @@
                 wishlist.push({...product, quantity:1});
                 saveWishlist();
                 showNotification(`Añadido a lista de deseos`);
-                if(ev && ev.target) flyToTarget(ev.target.closest('.product-card') || ev.target, 'wishlistBtn', ()=>{});
+                if(ev && ev.target) flyToTarget(ev.target, 'wishlistBtn');
             } else showNotification(`Ya está en deseos`);
         }
         function shareProduct(product){ if(navigator.share) navigator.share({title:product.name,text:`Mira este calzado en Gusmar Shoes`}); else { navigator.clipboard.writeText(`${product.name} - Gusmar Shoes`); showNotification('Enlace copiado'); } }
-        function sendWhatsAppProduct(product){ const msg = `Hola vendedor, me interesa este calzado: ${product.name}. ¿Podría darme más información? ¡Gracias!`; window.open(`https://wa.me/34912345678?text=${encodeURIComponent(msg)}`,'_blank'); }
+        
+        function sendWhatsAppProduct(product){ 
+            const msg = `Hola vendedor, me interesa este calzado *"${product.ref || product.id}"*. ¿Podría darme más información? ¡Gracias!`;
+            const fullMsg = `${msg} %0A%0A🔗 Vista previa: ${product.image}`;
+            window.open(`https://wa.me/34912345678?text=${fullMsg}`,'_blank');
+        }
         
         function renderProductCard(p, hideText = false){
             const hiddenClass = hideText ? 'no-text' : '';
-            // Nuevo layout: botón WhatsApp arriba + fila con deseos, cesta, compartir
+            const refCode = p.ref ? p.ref : `REF${String(p.id).padStart(3,'0')}`;
             return `<article class="product-card ${hiddenClass}" data-id="${p.id}">
                         <div class="product-image-container" data-product='${JSON.stringify(p)}'>
                             <img data-src="${p.image}" alt="Calzado" class="product-image lazy" loading="lazy">
+                            <div class="floating-buttons">
+                                <button class="floating-icon wishlist-float" data-action="wishlist"><span class="material-icons">favorite_border</span></button>
+                                <button class="floating-icon cart-float" data-action="cart"><span class="material-icons">add_shopping_cart</span></button>
+                                <button class="floating-icon share-float" data-action="share"><span class="material-icons">share</span></button>
+                            </div>
                         </div>
                         <div class="product-info">
-                            ${!hideText ? `<div class="product-category">${p.category} ${p.isOffer ? '🔥 OFERTA' : ''}</div><h4 class="product-title">${p.name}</h4>` : ''}
-                            <div class="action-group">
-                                <button class="whatsapp-full" data-action="whatsapp"><span class="material-icons">whatsapp</span> Chamar vendedor</button>
-                                <div class="row-buttons">
-                                    <button class="icon-btn wishlist-btn" data-action="wishlist"><span class="material-icons">favorite_border</span> Deseo</button>
-                                    <button class="icon-btn cart-btn" data-action="cart"><span class="material-icons">add_shopping_cart</span> Cesta</button>
-                                    <button class="icon-btn share-btn" data-action="share"><span class="material-icons">share</span> Compartir</button>
-                                </div>
+                            ${!hideText ? `<div class="product-category">${p.category} ${p.isOffer ? '🔥 OFERTA' : ''}</div><div class="product-title">${p.name}</div>` : ''}
+                            <div><span class="product-ref">📌 ${refCode}</span></div>
+                            <button class="whatsapp-button" data-action="whatsapp"><span class="material-icons">whatsapp</span> Chamar Vendedor</button>
+                            <div class="horizontal-buttons">
+                                <button class="horiz-btn wishlist-horiz" data-action="wishlist"><span class="material-icons">favorite_border</span> Deseo</button>
+                                <button class="horiz-btn cart-horiz" data-action="cart"><span class="material-icons">add_shopping_cart</span> Cesta</button>
+                                <button class="horiz-btn share-horiz" data-action="share"><span class="material-icons">share</span> Compartir</button>
                             </div>
                         </div>
                     </article>`;
@@ -927,7 +1012,6 @@
                 let container=document.getElementById(`${cat}Grid`);
                 if(container) container.innerHTML = baseProducts[cat].map(p=>renderProductCard(p, false)).join('');
             }
-            // SECCIÓN OUTROS: SIN TEXTO (hideText = true)
             const outrosContainer = document.getElementById('outrosGrid');
             if(outrosContainer) outrosContainer.innerHTML = outrosProdutos.map(p=>renderProductCard(p, true)).join('');
             
@@ -941,12 +1025,12 @@
                 const imgContainer = card.querySelector('.product-image-container');
                 if(!imgContainer) return;
                 const productData = JSON.parse(imgContainer.dataset.product);
-                card.querySelector('[data-action="whatsapp"]').onclick = (e)=>{ e.stopPropagation(); sendWhatsAppProduct(productData); };
-                card.querySelector('[data-action="wishlist"]').onclick = (e)=>{ e.stopPropagation(); addToWishlist(productData, e); };
-                card.querySelector('[data-action="cart"]').onclick = (e)=>{ e.stopPropagation(); addToCart(productData, e); };
-                card.querySelector('[data-action="share"]').onclick = (e)=>{ e.stopPropagation(); shareProduct(productData); };
-                // CTA imagen: al hacer clic en la imagen envía WhatsApp
-                imgContainer.onclick = (e)=>{ e.stopPropagation(); sendWhatsAppProduct(productData); };
+                
+                card.querySelectorAll('[data-action="whatsapp"]').forEach(btn => btn.onclick = (e)=>{ e.stopPropagation(); sendWhatsAppProduct(productData); });
+                card.querySelectorAll('[data-action="wishlist"]').forEach(btn => btn.onclick = (e)=>{ e.stopPropagation(); addToWishlist(productData, e); });
+                card.querySelectorAll('[data-action="cart"]').forEach(btn => btn.onclick = (e)=>{ e.stopPropagation(); addToCart(productData, e); });
+                card.querySelectorAll('[data-action="share"]').forEach(btn => btn.onclick = (e)=>{ e.stopPropagation(); shareProduct(productData); });
+                imgContainer.onclick = (e)=>{ if(e.target === imgContainer || e.target.classList.contains('product-image')) sendWhatsAppProduct(productData); };
             });
             document.querySelectorAll('.lazy').forEach(img=>{
                 if(img.dataset.src && !img.src){ img.src = img.dataset.src; img.classList.add('loaded'); }
@@ -955,30 +1039,30 @@
         
         function renderCartSidebar(){
             const container = document.getElementById('cartItems');
-            if(container) container.innerHTML = cart.length ? cart.map(i=>`<div class="cart-item"><img src="${i.image}" class="cart-item-image"><div><div>${i.name}</div><button class="icon-btn whatsapp" style="margin-top:8px;" data-cart-whatsapp='${i.id}'>WhatsApp</button></div></div>`).join('') : '<p style="text-align:center; padding:2rem;">Vacía</p>';
+            if(container) container.innerHTML = cart.length ? cart.map(i=>`<div class="cart-item"><img src="${i.image}" class="cart-item-image"><div><div>${i.name} (${i.ref || i.id})</div><button class="whatsapp-button" style="margin-top:8px; padding:0.4rem;" data-cart-whatsapp='${i.id}'>WhatsApp</button></div></div>`).join('') : '<p style="text-align:center; padding:2rem;">Vacía</p>';
             document.querySelectorAll('[data-cart-whatsapp]').forEach(btn=>{ btn.onclick = ()=>{ const id = parseInt(btn.dataset.cartWhatsapp); const prod = cart.find(p=>p.id===id); if(prod) sendWhatsAppProduct(prod); }; });
         }
         function renderWishlistSidebar(){
             const container = document.getElementById('wishlistItems');
-            if(container) container.innerHTML = wishlist.length ? wishlist.map(i=>`<div class="wishlist-item"><img src="${i.image}" class="wishlist-item-image"><div><div>${i.name}</div><button class="icon-btn cart-btn" data-wish-to-cart='${i.id}'>Enviar a cesta</button></div></div>`).join('') : '<p style="text-align:center;">Vacía</p>';
+            if(container) container.innerHTML = wishlist.length ? wishlist.map(i=>`<div class="wishlist-item"><img src="${i.image}" class="wishlist-item-image"><div><div>${i.name} (${i.ref || i.id})</div><button class="whatsapp-button" style="margin-top:8px; padding:0.4rem;" data-wish-to-cart='${i.id}'>Enviar a cesta</button></div></div>`).join('') : '<p style="text-align:center;">Vacía</p>';
             document.querySelectorAll('[data-wish-to-cart]').forEach(btn=>{ btn.onclick = ()=>{ const id = parseInt(btn.dataset.wishToCart); const item = wishlist.find(w=>w.id===id); if(item){ addToCart(item); wishlist = wishlist.filter(w=>w.id!==id); saveWishlist(); renderWishlistSidebar(); } }; });
         }
         
-        // Sidebar y eventos comunes
+        // Sidebar
         document.getElementById('cartBtn').onclick = ()=>{ document.getElementById('cartSidebar').classList.add('active'); document.getElementById('cartOverlay').classList.add('active'); renderCartSidebar(); };
         document.querySelector('.close-cart').onclick = ()=>{ document.getElementById('cartSidebar').classList.remove('active'); document.getElementById('cartOverlay').classList.remove('active'); };
         document.getElementById('wishlistBtn').onclick = ()=>{ document.getElementById('wishlistSidebar').classList.add('active'); document.getElementById('cartOverlay').classList.add('active'); renderWishlistSidebar(); };
         document.querySelector('.close-wishlist').onclick = ()=>{ document.getElementById('wishlistSidebar').classList.remove('active'); document.getElementById('cartOverlay').classList.remove('active'); };
         document.getElementById('cartOverlay').onclick = ()=>{ document.getElementById('cartSidebar').classList.remove('active'); document.getElementById('wishlistSidebar').classList.remove('active'); document.getElementById('cartOverlay').classList.remove('active'); };
-        document.getElementById('consultarStockBtn').onclick = ()=>{ if(cart.length){ const msg = cart.map(i=>`- ${i.name}`).join('%0A'); window.open(`https://wa.me/34912345678?text=Hola%20vendedor,%20consulto%20stock%20de:%0A${msg}`, '_blank'); } else showNotification('Cesta vacía'); };
+        document.getElementById('consultarStockBtn').onclick = ()=>{ if(cart.length){ const msg = cart.map(i=>`- ${i.name} (${i.ref || i.id})`).join('%0A'); window.open(`https://wa.me/34912345678?text=Hola%20vendedor,%20consulto%20stock%20de:%0A${msg}`, '_blank'); } else showNotification('Cesta vacía'); };
         
-        // Autenticación simple
+        // Auth
         const authBtn=document.getElementById('authBtn'), authModal=document.getElementById('authModal'), closeModal=document.querySelector('.close-modal');
         authBtn.onclick=()=>authModal.classList.add('active');
         closeModal.onclick=()=>authModal.classList.remove('active');
         document.getElementById('authForm').onsubmit=async(e)=>{ e.preventDefault(); authModal.classList.remove('active'); showNotification('Registro exitoso'); };
         
-        // Popup 30s
+        // Popup
         setTimeout(()=>{ if(!localStorage.getItem('popupShown')){ document.getElementById('offerPopup').classList.add('active'); localStorage.setItem('popupShown','true'); } },30000);
         document.querySelector('.close-popup').onclick=()=>document.getElementById('offerPopup').classList.remove('active');
         document.getElementById('popupForm').onsubmit=(e)=>{ e.preventDefault(); document.getElementById('offerPopup').classList.remove('active'); showNotification('¡Gracias!'); };
@@ -988,11 +1072,11 @@
         const searchInput=document.getElementById('searchInput'), suggestionsDiv=document.getElementById('searchSuggestions');
         searchInput.addEventListener('input',()=>{ let term=searchInput.value.toLowerCase(); if(term.length>0){ let matches=allItems.filter(p=>p.name.toLowerCase().includes(term)||p.category.toLowerCase().includes(term)); suggestionsDiv.innerHTML=matches.map(m=>`<div class="suggestion-item" data-cat="${m.category.toLowerCase()}">${m.name} - ${m.category}</div>`).join(''); suggestionsDiv.classList.add('active'); document.querySelectorAll('.suggestion-item').forEach(el=>{ el.onclick=()=>{ searchInput.value=el.innerText.split(' -')[0]; suggestionsDiv.classList.remove('active'); let target=document.getElementById(el.dataset.cat); if(target) target.scrollIntoView({behavior:'smooth'}); }; }); } else suggestionsDiv.classList.remove('active'); });
         
-        // lazy load
+        // lazy
         const observer = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ let img=e.target; if(img.dataset.src && !img.src){ img.src=img.dataset.src; img.classList.add('loaded'); observer.unobserve(img); } } }); });
         document.querySelectorAll('.lazy').forEach(img=>observer.observe(img));
         
-        // smooth scroll y mobile
+        // smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor=>{ anchor.addEventListener('click',function(e){ let targetId=this.getAttribute('href'); if(targetId&&targetId!=='#'){ let target=document.querySelector(targetId); if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); closeMenuFn(); } } }); });
         const hamburger=document.querySelector('.hamburger'), mobileMenu=document.querySelector('.mobile-menu'), mobileOverlay=document.querySelector('.mobile-menu-overlay'), closeMenuBtn=document.querySelector('.mobile-menu-close');
         function openMenu(){ mobileMenu.classList.add('active'); mobileOverlay.style.display='block'; }
