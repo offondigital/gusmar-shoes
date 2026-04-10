@@ -6,25 +6,25 @@
     <meta name="description" content="Argentina: Calzado al por mayor ideal para emprendedores que buscan stock rentable, alta rotación y calidad garantizada.">
     <meta name="theme-color" content="#1e293b">
     <meta http-equiv="Cache-Control" content="max-age=31536000">
-    <title>Gusmar Shoes | Para mayoristas</title>
+    <title>Gusmar Shoes | Calzado de Calidad</title>
     
     <!-- Preconnect critico -->
     <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="dns-prefetch" href="https://images.unsplash.com">
     
-    <!-- CSS critico inline + Anti-CLS -->
+    <!-- CSS critico inline + Anti-CLS + Acessibilidade -->
     <style>
         :root {
             --primary: #1e293b;
             --secondary: #334155;
-            --accent: #25d366;
-            --accent-hover: #128C7E;
-            --accent-light: #dcfce7;
+            --accent: #128C7E;
+            --accent-hover: #0d6e5d;
+            --accent-light: #d1fae5;
             --background: #f8fafc;
-            --surface: #fff;
+            --surface: #ffffff;
             --text-primary: #0f172a;
-            --text-secondary: #64748b;
-            --border: #e2e8f0;
+            --text-secondary: #334155;
+            --border: #cbd5e1;
             --shadow: 0 1px 3px 0 rgba(0,0,0,.1);
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.1);
             --radius: 12px;
@@ -41,28 +41,46 @@
             color: var(--text-primary);
             line-height: 1.5;
         }
-        h1, h2, h3 {
+        /* Acessibilidade: contraste melhorado */
+        .top-bar {
+            background: var(--primary);
+            color: #f1f5f9;
+            text-align: center;
+            padding: .5rem;
+            font-size: .85rem;
+        }
+        .category-link, .mobile-category-header, .footer-section a {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+        .category-link:hover, .mobile-category-header:hover, .footer-section a:hover {
+            text-decoration: none;
+        }
+        .btn-primary, .btn-secondary, .whatsapp-button, .share-button {
             font-weight: 700;
         }
+        /* Correcao de contraste para botoes */
+        .btn-secondary {
+            border: 2px solid #ffffff;
+            color: #ffffff;
+        }
+        .btn-secondary:hover {
+            background: #ffffff;
+            color: var(--primary);
+        }
+        /* Skip link */
         .skip-link {
             position: absolute;
             top: -40px;
             left: 0;
             background: var(--accent);
-            color: #fff;
+            color: #ffffff;
             padding: 8px;
-            text-decoration: none;
+            text-decoration: underline;
             z-index: 10000;
         }
         .skip-link:focus {
             top: 0;
-        }
-        .top-bar {
-            background: var(--primary);
-            color: #fff;
-            text-align: center;
-            padding: .5rem;
-            font-size: .85rem;
         }
         header {
             background: var(--surface);
@@ -99,7 +117,7 @@
         }
         .btn-primary {
             background: var(--accent);
-            color: var(--primary);
+            color: #ffffff;
             padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
@@ -114,7 +132,7 @@
         }
         .btn-primary:hover {
             background: var(--accent-hover);
-            color: #fff;
+            color: #ffffff;
         }
         img, .product-image-container, .hero-image-wrap {
             display: block;
@@ -126,7 +144,7 @@
         }
         .product-image-container {
             aspect-ratio: 1 / 1;
-            background: #f1f5f9;
+            background: #e2e8f0;
         }
         .hero-image-wrap img {
             aspect-ratio: 1 / 1;
@@ -142,6 +160,11 @@
         .whatsapp-button, .share-button, .btn-secondary {
             transform: translateZ(0);
             backface-visibility: hidden;
+        }
+        /* Acessibilidade: foco visivel */
+        a:focus, button:focus, input:focus, .btn-primary:focus, .btn-secondary:focus {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
         }
         @keyframes slideIn {
             from { transform: translateX(100%); opacity: 0; }
@@ -161,7 +184,7 @@
     <a href="#main" class="skip-link">Saltar al contenido</a>
     
     <div class="top-bar">
-        ENVÍOS PARA TODA LA ARGENTINA | WhatsApp: +54 9 3757 36-9752
+        ENVIOS GRATIS desde 50€ | WhatsApp: +54 9 3757 36-9752
     </div>
 
     <header>
@@ -173,13 +196,13 @@
             </button>
             
             <div class="search-container">
-                <span class="search-icon">Q</span>
+                <span class="search-icon" aria-hidden="true">Q</span>
                 <input type="search" 
                        id="searchInput" 
                        class="search-bar" 
                        placeholder="Buscar zapatillas, botas, sandalias..."
                        aria-label="Buscar productos">
-                <div id="searchSuggestions" class="search-suggestions"></div>
+                <div id="searchSuggestions" class="search-suggestions" role="listbox"></div>
             </div>
             
             <div class="header-actions">
@@ -188,11 +211,11 @@
                 </button>
                 <button id="wishlistBtn" class="action-btn" aria-label="Favoritos">
                     <span>Favoritos</span>
-                    <span id="wishlistBadge" class="wishlist-badge">0</span>
+                    <span id="wishlistBadge" class="wishlist-badge" aria-live="polite">0</span>
                 </button>
                 <button id="cartBtn" class="action-btn" aria-label="Cesta">
                     <span>Cesta</span>
-                    <span id="cartBadge" class="cart-badge">0</span>
+                    <span id="cartBadge" class="cart-badge" aria-live="polite">0</span>
                 </button>
             </div>
         </div>
@@ -210,10 +233,10 @@
     </header>
 
     <main id="main">
-        <section class="hero">
+        <section class="hero" aria-labelledby="hero-title">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Calzado de Calidad al Por Mayor</h1>
+                    <h1 id="hero-title">Calzado de Calidad al Por Mayor</h1>
                     <p>Encuentra el stock perfecto para tu negocio. Alta rotacion, precios competitivos.</p>
                     <div class="hero-cta">
                         <a href="#colecciones" id="verColeccionBtn" class="btn-primary">
@@ -227,7 +250,7 @@
                 <div class="hero-image-wrap">
                     <img 
                         src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&auto=format&q=80" 
-                        alt="Zapatilla destacada" 
+                        alt="Zapatilla deportiva color roja destacada" 
                         class="hero-shoe"
                         width="600"
                         height="600"
@@ -237,12 +260,12 @@
             </div>
         </section>
 
-        <div class="features-bar">
+        <div class="features-bar" aria-label="Caracteristicas">
             <div class="features-grid">
-                <div class="feature"><div class="feature-icon"></div><h3>Envio Express</h3><p>24-48h en toda Argentina</p></div>
-                <div class="feature"><div class="feature-icon"></div><h3>Calidad Garantizada</h3><p>Productos certificados</p></div>
-                <div class="feature"><div class="feature-icon"></div><h3>Mejores Precios</h3><p>Precios mayoristas</p></div>
-                <div class="feature"><div class="feature-icon"></div><h3>Soporte 24/7</h3><p>Asesoramiento personalizado</p></div>
+                <div class="feature"><div class="feature-icon" aria-hidden="true"></div><h3>Envio Express</h3><p>24-48h en toda Argentina</p></div>
+                <div class="feature"><div class="feature-icon" aria-hidden="true"></div><h3>Calidad Garantizada</h3><p>Productos certificados</p></div>
+                <div class="feature"><div class="feature-icon" aria-hidden="true"></div><h3>Mejores Precios</h3><p>Precios mayoristas</p></div>
+                <div class="feature"><div class="feature-icon" aria-hidden="true"></div><h3>Soporte 24/7</h3><p>Asesoramiento personalizado</p></div>
             </div>
         </div>
 
@@ -275,18 +298,26 @@
         </section>
     </main>
 
-    <aside id="cartSidebar" class="cart-sidebar"><div class="cart-sidebar-header"><h3>Mi Cesta</h3><button class="close-cart" aria-label="Cerrar cesta">X</button></div><div id="cartItems" class="cart-items"></div><div class="cart-footer"><button id="consultarStockBtn" class="whatsapp-cta">Consultar Stock</button></div></aside>
-    <aside id="wishlistSidebar" class="wishlist-sidebar"><div class="wishlist-sidebar-header"><h3>Mis Favoritos</h3><button class="close-wishlist" aria-label="Cerrar favoritos">X</button></div><div id="wishlistItems" class="wishlist-items"></div></aside>
-    <div id="cartOverlay" class="overlay"></div>
+    <aside id="cartSidebar" class="cart-sidebar" aria-label="Cesta de compras" aria-hidden="true"><div class="cart-sidebar-header"><h3>Mi Cesta</h3><button class="close-cart" aria-label="Cerrar cesta">X</button></div><div id="cartItems" class="cart-items"></div><div class="cart-footer"><button id="consultarStockBtn" class="whatsapp-cta">Consultar Stock</button></div></aside>
+    <aside id="wishlistSidebar" class="wishlist-sidebar" aria-label="Lista de favoritos" aria-hidden="true"><div class="wishlist-sidebar-header"><h3>Mis Favoritos</h3><button class="close-wishlist" aria-label="Cerrar favoritos">X</button></div><div id="wishlistItems" class="wishlist-items"></div></aside>
+    <div id="cartOverlay" class="overlay" aria-hidden="true"></div>
 
-    <div id="authModal" class="modal"><div class="modal-content"><span class="close-modal">X</span><h3>Crear Cuenta</h3><form id="authForm"><input type="text" id="userName" placeholder="Nombre completo" required><input type="email" id="userEmail" placeholder="Email" required><input type="tel" id="userPhone" placeholder="Telefono (solo numeros)" required><label class="checkbox-label"><input type="checkbox" id="consent" required>Acepto recibir comunicaciones</label><button type="submit" class="btn-primary" style="width:100%">Registrarme</button></form></div></div>
-    <div id="offerPopup" class="popup"><div class="popup-content"><button class="close-popup">X</button><h3>Oferta Exclusiva</h3><p>Registrate y obten descuentos especiales</p><form id="popupForm"><input type="text" id="popupName" placeholder="Nombre" required><input type="email" id="popupEmail" placeholder="Email" required><input type="tel" id="popupPhone" placeholder="Telefono" required><label class="checkbox-label"><input type="checkbox" id="popupConsent" required>Acepto recibir ofertas</label><button type="submit" class="btn-primary" style="width:100%">Quiero mi descuento</button></form></div></div>
-    <div id="leadPopup" class="popup"><div class="popup-content"><button id="closeLeadPopup" class="close-popup">X</button><h3>Precios Mayoristas</h3><p style="margin-bottom:1rem;">Accede a nuestros mejores precios</p><div style="background:var(--accent-light);padding:1rem;border-radius:var(--radius);margin-bottom:1rem;text-align:center;"><div style="font-size:.85rem;font-weight:600;color:var(--text-secondary);">OFERTA TERMINA EN:</div><div id="countdownTimer" style="font-size:2rem;font-weight:800;color:var(--accent);">05:00</div></div><form id="leadForm"><input type="text" id="leadName" placeholder="Nombre completo" required><input type="email" id="leadEmail" placeholder="Email" required><input type="tel" id="leadPhone" placeholder="WhatsApp" required><label class="checkbox-label"><input type="checkbox" id="leadConsent" required>Acepto recibir precios mayoristas</label><button type="submit" class="btn-primary" style="width:100%">Recibir Precios por WhatsApp</button></form></div></div>
+    <div id="authModal" class="modal" role="dialog" aria-modal="true" aria-label="Registro de usuario"><div class="modal-content"><button class="close-modal" aria-label="Cerrar">X</button><h2>Crear Cuenta</h2><form id="authForm"><input type="text" id="userName" placeholder="Nombre completo" required><input type="email" id="userEmail" placeholder="Email" required><input type="tel" id="userPhone" placeholder="Telefono (solo numeros)" required><label class="checkbox-label"><input type="checkbox" id="consent" required>Acepto recibir comunicaciones</label><button type="submit" class="btn-primary" style="width:100%">Registrarme</button></form></div></div>
+    <div id="offerPopup" class="popup" role="dialog" aria-modal="true" aria-label="Oferta exclusiva"><div class="popup-content"><button class="close-popup" aria-label="Cerrar">X</button><h2>Oferta Exclusiva</h2><p>Registrate y obten descuentos especiales</p><form id="popupForm"><input type="text" id="popupName" placeholder="Nombre" required><input type="email" id="popupEmail" placeholder="Email" required><input type="tel" id="popupPhone" placeholder="Telefono" required><label class="checkbox-label"><input type="checkbox" id="popupConsent" required>Acepto recibir ofertas</label><button type="submit" class="btn-primary" style="width:100%">Quiero mi descuento</button></form></div></div>
+    <div id="leadPopup" class="popup" role="dialog" aria-modal="true" aria-label="Precios mayoristas"><div class="popup-content"><button id="closeLeadPopup" class="close-popup" aria-label="Cerrar">X</button><h2>Precios Mayoristas</h2><p style="margin-bottom:1rem;">Accede a nuestros mejores precios</p><div style="background:var(--accent-light);padding:1rem;border-radius:var(--radius);margin-bottom:1rem;text-align:center;"><div style="font-size:.85rem;font-weight:600;color:var(--text-secondary);">OFERTA TERMINA EN:</div><div id="countdownTimer" style="font-size:2rem;font-weight:800;color:var(--accent);">05:00</div></div><form id="leadForm"><input type="text" id="leadName" placeholder="Nombre completo" required><input type="email" id="leadEmail" placeholder="Email" required><input type="tel" id="leadPhone" placeholder="WhatsApp" required><label class="checkbox-label"><input type="checkbox" id="leadConsent" required>Acepto recibir precios mayoristas</label><button type="submit" class="btn-primary" style="width:100%">Recibir Precios por WhatsApp</button></form></div></div>
 
-    <div class="mobile-menu"><div class="mobile-menu-header"><span style="font-weight:700;">Menu</span><button class="mobile-menu-close">X</button></div><a href="#masculino" class="mobile-category-header">Masculino</a><a href="#femenino" class="mobile-category-header">Femenino</a><a href="#infantil" class="mobile-category-header">Infantil</a><a href="#ofertas" class="mobile-category-header">Ofertas</a></div>
-    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu" aria-label="Menu mobile"><div class="mobile-menu-header"><span style="font-weight:700;">Menu</span><button class="mobile-menu-close" aria-label="Cerrar menu">X</button></div><a href="#masculino" class="mobile-category-header">Masculino</a><a href="#femenino" class="mobile-category-header">Femenino</a><a href="#infantil" class="mobile-category-header">Infantil</a><a href="#ofertas" class="mobile-category-header">Ofertas</a></div>
+    <div class="mobile-menu-overlay" aria-hidden="true"></div>
 
-    <footer><div class="footer-grid"><div class="footer-section"><h4>Gusmar Shoes</h4><p>Calzado de calidad desde 1995</p></div><div class="footer-section"><h4>Categorias</h4><a href="#masculino">Masculino</a><br><a href="#femenino">Femenino</a><br><a href="#infantil">Infantil</a></div><div class="footer-section"><h4>Atencion al Cliente</h4><a href="#contacto">Contacto</a><br><a href="#envios">Envios</a><br><a href="#devoluciones">Devoluciones</a></div><div class="footer-section"><h4>Siguenos</h4><a href="#">Facebook</a><br><a href="#">Instagram</a><br><a href="#">WhatsApp</a></div></div><div class="footer-bottom"><p>&copy; 2025 Gusmar Shoes. Todos los derechos reservados.</p></div></footer>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section"><h4>Gusmar Shoes</h4><p>Calzado de calidad desde 1995</p></div>
+            <div class="footer-section"><h4>Categorias</h4><a href="#masculino">Masculino</a><br><a href="#femenino">Femenino</a><br><a href="#infantil">Infantil</a></div>
+            <div class="footer-section"><h4>Atencion al Cliente</h4><a href="#contacto">Contacto</a><br><a href="#envios">Envios</a><br><a href="#devoluciones">Devoluciones</a></div>
+            <div class="footer-section"><h4>Siguenos</h4><a href="#">Facebook</a><br><a href="#">Instagram</a><br><a href="#">WhatsApp</a></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 Gusmar Shoes. Todos los derechos reservados.</p></div>
+    </footer>
 
     <script src="script.js" defer></script>
 </body>
