@@ -2,16 +2,458 @@
 // CÓDIGO ORIGINAL DO SITE (preservado)
 // ============================================
 
-const products={masculino:[{id:1,name:"Zapatillas Running Pro Max",category:"Masculino",image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&auto=format&q=75",isOffer:false},{id:2,name:"Zapatillas Training Ultra",category:"Masculino",image:"https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop&auto=format&q=75",isOffer:false},{id:3,name:"Zapatillas Casual Street",category:"Masculino",image:"https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=400&fit=crop&auto=format&q=75",isOffer:true},{id:4,name:"Zapatillas Baloncesto Air",category:"Masculino",image:"https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&auto=format&q=75",isOffer:false}],femenino:[{id:5,name:"Zapatillas Running Pro Mujer",category:"Femenino",image:"https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&auto=format&q=75",isOffer:false},{id:6,name:"Zapatillas Chunky Platform",category:"Femenino",image:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&auto=format&q=75",isOffer:false},{id:7,name:"Bailarinas Plegables Soft",category:"Femenino",image:"https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400&h=400&fit=crop&auto=format&q=75",isOffer:true},{id:8,name:"Botines Chelsea Piel",category:"Femenino",image:"https://images.unsplash.com/photo-1606890658317-7d14490b76fd?w=400&h=400&fit=crop&auto=format&q=75",isOffer:false}],infantil:[{id:9,name:"Zapatillas LED Intermitentes",category:"Infantil",image:"https://images.unsplash.com/photo-1514989940723-e81e61645e1a?w=400&h=400&fit=crop&auto=format&q=75",isOffer:false},{id:10,name:"Zapatillas Colegio Resistentes",category:"Infantil",image:"https://images.unsplash.com/photo-1507464098880-e367bc5d2c08?w=400&h=400&fit=crop&auto=format&q=75",isOffer:false},{id:11,name:"Zapatillas Superheroes Velcro",category:"Infantil",image:"https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&auto=format&q=75",isOffer:true},{id:12,name:"Botas de Agua Impermeables",category:"Infantil",image:"https://images.unsplash.com/photo-1514989940723-e81e61645e1a?w=400&h=400&fit=crop&auto=format&q=75",isOffer:false}]};let cart=JSON.parse(localStorage.getItem('cart'))||[];let wishlist=JSON.parse(localStorage.getItem('wishlist'))||[];let currentUser=JSON.parse(localStorage.getItem('currentUser'))||null;const WHATSAPP_NUMBER="5493757369752";const POPUP_DELAY_SECONDS=15;const COUNTDOWN_SECONDS=300;let countdownInterval=null;let isPopupVisible=false;function saveCart(){localStorage.setItem('cart',JSON.stringify(cart));updateCartBadge()}function saveWishlist(){localStorage.setItem('wishlist',JSON.stringify(wishlist));updateWishlistBadge()}function updateCartBadge(){const b=document.getElementById('cartBadge');if(b)b.textContent=cart.length}function updateWishlistBadge(){const b=document.getElementById('wishlistBadge');if(b)b.textContent=wishlist.length}function generateWhatsAppMessage(items,type){if(type==='stock'){const pl=items.map(i=>`- ${i.name}`).join('%0A');return`Hola vendedor, coloque estos items en la cesta:%0A${pl}%0A%0APodria confirmar si tienen stock disponible? Tambien me gustaria saber el valor total y el costo de envio hasta mi direccion. Gracias!`}else{return`Hola! Me interesa este producto: ${items.name}. Podria darme mas informacion? Gracias!`}}function sendWhatsApp(m){window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${m}`,'_blank')}function addToCart(p){if(!cart.find(i=>i.id===p.id)){cart.push({...p,quantity:1});saveCart();showNotification(`${p.name} anadido a la cesta`);renderCartSidebar()}else{showNotification(`${p.name} ya esta en la cesta`)}}function removeFromCart(pid){cart=cart.filter(i=>i.id!==pid);saveCart();renderCartSidebar()}function addToWishlist(p){if(!wishlist.find(i=>i.id===p.id)){wishlist.push({...p,quantity:1});saveWishlist();showNotification(`${p.name} anadido a favoritos`);renderWishlistSidebar()}}function removeFromWishlist(pid){wishlist=wishlist.filter(i=>i.id!==pid);saveWishlist();renderWishlistSidebar()}function updateWishlistQuantity(pid,change){const i=wishlist.find(i=>i.id===pid);if(i){i.quantity=Math.max(1,i.quantity+change);saveWishlist();renderWishlistSidebar()}}function sendWishlistToCart(pid){const i=wishlist.find(i=>i.id===pid);if(i){if(!cart.find(c=>c.id===i.id)){cart.push({...i});saveCart();showNotification(`${i.name} enviado a la cesta`);renderCartSidebar()}removeFromWishlist(pid)}}function shareProduct(p){const text=`Mira este producto increible! ${p.name} - Gusmar Shoes`;const url=window.location.href;if(navigator.share){navigator.share({title:p.name,text:text,url:url})}else{navigator.clipboard.writeText(`${text} ${url}`);showNotification('Enlace copiado al portapapeles')}}function showNotification(m){const n=document.createElement('div');n.className='notification';n.innerHTML=`OK ${m}`;document.body.appendChild(n);setTimeout(()=>{n.style.animation='slideOut .3s ease-out';setTimeout(()=>n.remove(),300)},3000)}function renderProducts(){for(const[cat,items]of Object.entries(products)){const c=document.getElementById(`${cat}Grid`);if(c){c.innerHTML=items.map(p=>`<article class="product-card"><div class="product-image-container"><img data-src="${p.image}" alt="${p.name}" class="product-image lazy" loading="lazy" width="400" height="400"></div><div class="product-info"><div class="product-category">${p.category}</div><h3 class="product-title">${p.name}</h3><button class="whatsapp-button" data-product='${JSON.stringify(p)}'>Llamar al vendedor</button><button class="share-button" data-product='${JSON.stringify(p)}'>Compartir</button></div></article>`).join('')}}const ofertasContainer=document.getElementById('ofertasGrid');if(ofertasContainer){const allProducts=[...products.masculino,...products.femenino,...products.infantil];const offers=allProducts.filter(p=>p.isOffer);ofertasContainer.innerHTML=offers.map(p=>`<article class="product-card"><div class="product-image-container"><img data-src="${p.image}" alt="${p.name}" class="product-image lazy" loading="lazy" width="400" height="400"></div><div class="product-info"><div class="product-category">${p.category} OFERTA</div><h3 class="product-title">${p.name}</h3><button class="whatsapp-button" data-product='${JSON.stringify(p)}'>Llamar al vendedor</button><button class="share-button" data-product='${JSON.stringify(p)}'>Compartir</button></div></article>`).join('')}setupProductButtons();setupLazyLoading()}function setupProductButtons(){document.querySelectorAll('.whatsapp-button').forEach(btn=>{btn.addEventListener('click',()=>{const p=JSON.parse(btn.dataset.product);sendWhatsApp(generateWhatsAppMessage(p,'product'))})});document.querySelectorAll('.share-button').forEach(btn=>{btn.addEventListener('click',()=>{const p=JSON.parse(btn.dataset.product);shareProduct(p)})})}function renderCartSidebar(){const c=document.getElementById('cartItems');if(!c)return;if(cart.length===0){c.innerHTML='<p style="text-align:center;padding:2rem;color:var(--text-secondary);">Tu cesta esta vacia</p>';return}c.innerHTML=cart.map(i=>`<div class="cart-item"><img src="${i.image}" alt="${i.name}" class="cart-item-image" width="80" height="80"><div class="cart-item-info"><div class="cart-item-title">${i.name}</div><div style="color:var(--text-secondary);font-size:.85rem;">${i.category}</div></div><button class="remove-item" data-id="${i.id}" aria-label="Eliminar producto">X</button></div>`).join('');document.querySelectorAll('.remove-item').forEach(btn=>{btn.addEventListener('click',()=>{removeFromCart(parseInt(btn.dataset.id))})})}function renderWishlistSidebar(){const c=document.getElementById('wishlistItems');if(!c)return;if(wishlist.length===0){c.innerHTML='<p style="text-align:center;padding:2rem;color:var(--text-secondary);">Sin favoritos</p>';return}c.innerHTML=wishlist.map(i=>`<div class="wishlist-item"><img src="${i.image}" alt="${i.name}" class="wishlist-item-image" width="80" height="80"><div class="wishlist-item-info"><div class="wishlist-item-title">${i.name}</div><div class="wishlist-quantity"><button class="wishlist-qty-btn" data-id="${i.id}" data-change="-1" aria-label="Disminuir cantidad">-</button><span>${i.quantity}</span><button class="wishlist-qty-btn" data-id="${i.id}" data-change="1" aria-label="Aumentar cantidad">+</button></div><button class="send-to-cart" data-id="${i.id}">Enviar a cesta</button></div><button class="remove-wishlist-item" data-id="${i.id}" aria-label="Eliminar de favoritos">X</button></div>`).join('');document.querySelectorAll('.wishlist-qty-btn').forEach(btn=>{btn.addEventListener('click',()=>{updateWishlistQuantity(parseInt(btn.dataset.id),parseInt(btn.dataset.change))})});document.querySelectorAll('.send-to-cart').forEach(btn=>{btn.addEventListener('click',()=>{sendWishlistToCart(parseInt(btn.dataset.id))})});document.querySelectorAll('.remove-wishlist-item').forEach(btn=>{btn.addEventListener('click',()=>{removeFromWishlist(parseInt(btn.dataset.id))})})}function reserveSpaceForProducts(){document.querySelectorAll('.products-grid').forEach(grid=>{if(grid.children.length===0)grid.style.minHeight='400px'})}const cartBtn=document.getElementById('cartBtn'),cartSidebar=document.getElementById('cartSidebar'),closeCart=document.querySelector('.close-cart'),cartOverlay=document.getElementById('cartOverlay');if(cartBtn)cartBtn.addEventListener('click',()=>{cartSidebar.classList.add('active');cartOverlay.classList.add('active');renderCartSidebar()});if(closeCart)closeCart.addEventListener('click',()=>{cartSidebar.classList.remove('active');cartOverlay.classList.remove('active')});if(cartOverlay)cartOverlay.addEventListener('click',()=>{cartSidebar.classList.remove('active');wishlistSidebar.classList.remove('active');cartOverlay.classList.remove('active')});const wishlistBtn=document.getElementById('wishlistBtn'),wishlistSidebar=document.getElementById('wishlistSidebar'),closeWishlist=document.querySelector('.close-wishlist');if(wishlistBtn)wishlistBtn.addEventListener('click',()=>{wishlistSidebar.classList.add('active');cartOverlay.classList.add('active');renderWishlistSidebar()});if(closeWishlist)closeWishlist.addEventListener('click',()=>{wishlistSidebar.classList.remove('active');cartOverlay.classList.remove('active')});const consultarStockBtn=document.getElementById('consultarStockBtn');if(consultarStockBtn)consultarStockBtn.addEventListener('click',()=>{if(cart.length>0){sendWhatsApp(generateWhatsAppMessage(cart,'stock'))}else{showNotification('Agrega productos a la cesta primero')}});const hamburger=document.querySelector('.hamburger'),mobileMenu=document.querySelector('.mobile-menu'),mobileOverlay=document.querySelector('.mobile-menu-overlay'),closeMenu=document.querySelector('.mobile-menu-close');function openMenu(){mobileMenu?.classList.add('active');if(mobileOverlay)mobileOverlay.style.display='block'}function closeMenuFn(){mobileMenu?.classList.remove('active');if(mobileOverlay)mobileOverlay.style.display='none'}if(hamburger)hamburger.addEventListener('click',openMenu);if(closeMenu)closeMenu.addEventListener('click',closeMenuFn);if(mobileOverlay)mobileOverlay.addEventListener('click',closeMenuFn);document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener('click',function(e){const t=this.getAttribute('href');if(t&&t!=='#'){const target=document.querySelector(t);if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});closeMenuFn()}}})});const authBtn=document.getElementById('authBtn'),authModal=document.getElementById('authModal'),closeModal=document.querySelector('.close-modal');if(authBtn)authBtn.addEventListener('click',()=>{authModal?.classList.add('active')});if(closeModal)closeModal.addEventListener('click',()=>{authModal?.classList.remove('active')});document.getElementById('authForm')?.addEventListener('submit',(e)=>{e.preventDefault();const userData={name:document.getElementById('userName').value,email:document.getElementById('userEmail').value,phone:document.getElementById('userPhone').value,userId:Date.now().toString(),timestamp:new Date().toISOString()};currentUser=userData;localStorage.setItem('currentUser',JSON.stringify(currentUser));if(authBtn)authBtn.innerHTML=`Cuenta ${userData.name.split(' ')[0]}`;authModal.classList.remove('active');showNotification('Registro exitoso! Bienvenido a Gusmar Shoes')});setTimeout(()=>{if(!localStorage.getItem('popupShown')){document.getElementById('offerPopup')?.classList.add('active');localStorage.setItem('popupShown','true')}},30000);document.querySelector('.close-popup')?.addEventListener('click',()=>{document.getElementById('offerPopup')?.classList.remove('active')});document.getElementById('popupForm')?.addEventListener('submit',(e)=>{e.preventDefault();document.getElementById('offerPopup')?.classList.remove('active');showNotification('Gracias! Recibiras nuestras ofertas')});function phoneMask(i){if(!i)return;i.addEventListener('input',(e)=>{let v=e.target.value.replace(/\D/g,'');if(v.length>15)v=v.slice(0,15);e.target.value=v})}phoneMask(document.getElementById('userPhone'));phoneMask(document.getElementById('popupPhone'));const allItems=[...products.masculino,...products.femenino,...products.infantil];const searchInput=document.getElementById('searchInput');const suggestionsDiv=document.getElementById('searchSuggestions');if(searchInput)searchInput.addEventListener('input',()=>{const t=searchInput.value.toLowerCase();if(t.length>0){const m=allItems.filter(p=>p.name.toLowerCase().includes(t)||p.category.toLowerCase().includes(t));suggestionsDiv.innerHTML=m.slice(0,5).map(m=>`<div class="suggestion-item" data-cat="${m.category.toLowerCase()}" role="option">${m.name} - ${m.category}</div>`).join('');suggestionsDiv.classList.add('active');document.querySelectorAll('.suggestion-item').forEach(el=>{el.onclick=()=>{searchInput.value=el.innerText.split(' -')[0];suggestionsDiv.classList.remove('active');const target=document.getElementById(el.dataset.cat);if(target)target.scrollIntoView({behavior:'smooth'})}})}else{suggestionsDiv.classList.remove('active')}});function setupLazyLoading(){const obs=new IntersectionObserver((entries,observer)=>{entries.forEach(e=>{if(e.isIntersecting){const img=e.target;if(img.dataset.src&&!img.src.includes(img.dataset.src)){img.src=img.dataset.src;img.classList.add('loaded');observer.unobserve(img)}}})},{rootMargin:'50px'});document.querySelectorAll('.lazy').forEach(img=>obs.observe(img))}
+const products = {
+    masculino: [
+        { id: 1, name: "Zapatillas Running Pro Max", category: "Masculino", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&auto=format&q=75", isOffer: false },
+        { id: 2, name: "Zapatillas Training Ultra", category: "Masculino", image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop&auto=format&q=75", isOffer: false },
+        { id: 3, name: "Zapatillas Casual Street", category: "Masculino", image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&h=400&fit=crop&auto=format&q=75", isOffer: true },
+        { id: 4, name: "Zapatillas Baloncesto Air", category: "Masculino", image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&auto=format&q=75", isOffer: false }
+    ],
+    femenino: [
+        { id: 5, name: "Zapatillas Running Pro Mujer", category: "Femenino", image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&auto=format&q=75", isOffer: false },
+        { id: 6, name: "Zapatillas Chunky Platform", category: "Femenino", image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&auto=format&q=75", isOffer: false },
+        { id: 7, name: "Bailarinas Plegables Soft", category: "Femenino", image: "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=400&h=400&fit=crop&auto=format&q=75", isOffer: true },
+        { id: 8, name: "Botines Chelsea Piel", category: "Femenino", image: "https://images.unsplash.com/photo-1606890658317-7d14490b76fd?w=400&h=400&fit=crop&auto=format&q=75", isOffer: false }
+    ],
+    infantil: [
+        { id: 9, name: "Zapatillas LED Intermitentes", category: "Infantil", image: "https://images.unsplash.com/photo-1514989940723-e81e61645e1a?w=400&h=400&fit=crop&auto=format&q=75", isOffer: false },
+        { id: 10, name: "Zapatillas Colegio Resistentes", category: "Infantil", image: "https://images.unsplash.com/photo-1507464098880-e367bc5d2c08?w=400&h=400&fit=crop&auto=format&q=75", isOffer: false },
+        { id: 11, name: "Zapatillas Superheroes Velcro", category: "Infantil", image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&auto=format&q=75", isOffer: true },
+        { id: 12, name: "Botas de Agua Impermeables", category: "Infantil", image: "https://images.unsplash.com/photo-1514989940723-e81e61645e1a?w=400&h=400&fit=crop&auto=format&q=75", isOffer: false }
+    ]
+};
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+const WHATSAPP_NUMBER = "5493757369752";
+
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartBadge();
+}
+
+function saveWishlist() {
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    updateWishlistBadge();
+}
+
+function updateCartBadge() {
+    const b = document.getElementById('cartBadge');
+    if (b) b.textContent = cart.length;
+}
+
+function updateWishlistBadge() {
+    const b = document.getElementById('wishlistBadge');
+    if (b) b.textContent = wishlist.length;
+}
+
+function generateWhatsAppMessage(items, type) {
+    if (type === 'stock') {
+        const pl = items.map(i => `- ${i.name}`).join('%0A');
+        return `Hola vendedor, coloque estos items en la cesta:%0A${pl}%0A%0APodria confirmar si tienen stock disponible? Tambien me gustaria saber el valor total y el costo de envio hasta mi direccion. Gracias!`;
+    } else {
+        return `Hola! Me interesa este producto: ${items.name}. Podria darme mas informacion? Gracias!`;
+    }
+}
+
+function sendWhatsApp(m) {
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${m}`, '_blank');
+}
+
+function addToCart(p) {
+    if (!cart.find(i => i.id === p.id)) {
+        cart.push({ ...p, quantity: 1 });
+        saveCart();
+        showNotification(`${p.name} anadido a la cesta`);
+        renderCartSidebar();
+    } else {
+        showNotification(`${p.name} ya esta en la cesta`);
+    }
+}
+
+function removeFromCart(pid) {
+    cart = cart.filter(i => i.id !== pid);
+    saveCart();
+    renderCartSidebar();
+}
+
+function addToWishlist(p) {
+    if (!wishlist.find(i => i.id === p.id)) {
+        wishlist.push({ ...p, quantity: 1 });
+        saveWishlist();
+        showNotification(`${p.name} anadido a favoritos`);
+        renderWishlistSidebar();
+    }
+}
+
+function removeFromWishlist(pid) {
+    wishlist = wishlist.filter(i => i.id !== pid);
+    saveWishlist();
+    renderWishlistSidebar();
+}
+
+function updateWishlistQuantity(pid, change) {
+    const i = wishlist.find(i => i.id === pid);
+    if (i) {
+        i.quantity = Math.max(1, i.quantity + change);
+        saveWishlist();
+        renderWishlistSidebar();
+    }
+}
+
+function sendWishlistToCart(pid) {
+    const i = wishlist.find(i => i.id === pid);
+    if (i) {
+        if (!cart.find(c => c.id === i.id)) {
+            cart.push({ ...i });
+            saveCart();
+            showNotification(`${i.name} enviado a la cesta`);
+            renderCartSidebar();
+        }
+        removeFromWishlist(pid);
+    }
+}
+
+function shareProduct(p) {
+    const text = `Mira este producto increible! ${p.name} - Gusmar Shoes`;
+    const url = window.location.href;
+    if (navigator.share) {
+        navigator.share({ title: p.name, text: text, url: url });
+    } else {
+        navigator.clipboard.writeText(`${text} ${url}`);
+        showNotification('Enlace copiado al portapapeles');
+    }
+}
+
+function showNotification(m) {
+    const n = document.createElement('div');
+    n.className = 'notification';
+    n.innerHTML = `OK ${m}`;
+    document.body.appendChild(n);
+    setTimeout(() => {
+        n.style.animation = 'slideOut .3s ease-out';
+        setTimeout(() => n.remove(), 300);
+    }, 3000);
+}
+
+function renderProducts() {
+    for (const [cat, items] of Object.entries(products)) {
+        const c = document.getElementById(`${cat}Grid`);
+        if (c) {
+            c.innerHTML = items.map(p => `
+                <article class="product-card">
+                    <div class="product-image-container">
+                        <img data-src="${p.image}" alt="${p.name}" class="product-image lazy" loading="lazy" width="400" height="400">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${p.category}</div>
+                        <h3 class="product-title">${p.name}</h3>
+                        <button class="whatsapp-button" data-product='${JSON.stringify(p)}'>Llamar al vendedor</button>
+                        <button class="share-button" data-product='${JSON.stringify(p)}'>Compartir</button>
+                    </div>
+                </article>
+            `).join('');
+        }
+    }
+    const ofertasContainer = document.getElementById('ofertasGrid');
+    if (ofertasContainer) {
+        const allProducts = [...products.masculino, ...products.femenino, ...products.infantil];
+        const offers = allProducts.filter(p => p.isOffer);
+        ofertasContainer.innerHTML = offers.map(p => `
+            <article class="product-card">
+                <div class="product-image-container">
+                    <img data-src="${p.image}" alt="${p.name}" class="product-image lazy" loading="lazy" width="400" height="400">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">${p.category} OFERTA</div>
+                    <h3 class="product-title">${p.name}</h3>
+                    <button class="whatsapp-button" data-product='${JSON.stringify(p)}'>Llamar al vendedor</button>
+                    <button class="share-button" data-product='${JSON.stringify(p)}'>Compartir</button>
+                </div>
+            </article>
+        `).join('');
+    }
+    setupProductButtons();
+    setupLazyLoading();
+}
+
+function setupProductButtons() {
+    document.querySelectorAll('.whatsapp-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const p = JSON.parse(btn.dataset.product);
+            sendWhatsApp(generateWhatsAppMessage(p, 'product'));
+        });
+    });
+    document.querySelectorAll('.share-button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const p = JSON.parse(btn.dataset.product);
+            shareProduct(p);
+        });
+    });
+}
+
+function renderCartSidebar() {
+    const c = document.getElementById('cartItems');
+    if (!c) return;
+    if (cart.length === 0) {
+        c.innerHTML = '<p style="text-align:center;padding:2rem;color:var(--text-secondary);">Tu cesta esta vacia</p>';
+        return;
+    }
+    c.innerHTML = cart.map(i => `
+        <div class="cart-item">
+            <img src="${i.image}" alt="${i.name}" class="cart-item-image" width="80" height="80">
+            <div class="cart-item-info">
+                <div class="cart-item-title">${i.name}</div>
+                <div style="color:var(--text-secondary);font-size:.85rem;">${i.category}</div>
+            </div>
+            <button class="remove-item" data-id="${i.id}" aria-label="Eliminar producto">X</button>
+        </div>
+    `).join('');
+    document.querySelectorAll('.remove-item').forEach(btn => {
+        btn.addEventListener('click', () => {
+            removeFromCart(parseInt(btn.dataset.id));
+        });
+    });
+}
+
+function renderWishlistSidebar() {
+    const c = document.getElementById('wishlistItems');
+    if (!c) return;
+    if (wishlist.length === 0) {
+        c.innerHTML = '<p style="text-align:center;padding:2rem;color:var(--text-secondary);">Sin favoritos</p>';
+        return;
+    }
+    c.innerHTML = wishlist.map(i => `
+        <div class="wishlist-item">
+            <img src="${i.image}" alt="${i.name}" class="wishlist-item-image" width="80" height="80">
+            <div class="wishlist-item-info">
+                <div class="wishlist-item-title">${i.name}</div>
+                <div class="wishlist-quantity">
+                    <button class="wishlist-qty-btn" data-id="${i.id}" data-change="-1" aria-label="Disminuir cantidad">-</button>
+                    <span>${i.quantity}</span>
+                    <button class="wishlist-qty-btn" data-id="${i.id}" data-change="1" aria-label="Aumentar cantidad">+</button>
+                </div>
+                <button class="send-to-cart" data-id="${i.id}">Enviar a cesta</button>
+            </div>
+            <button class="remove-wishlist-item" data-id="${i.id}" aria-label="Eliminar de favoritos">X</button>
+        </div>
+    `).join('');
+    document.querySelectorAll('.wishlist-qty-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            updateWishlistQuantity(parseInt(btn.dataset.id), parseInt(btn.dataset.change));
+        });
+    });
+    document.querySelectorAll('.send-to-cart').forEach(btn => {
+        btn.addEventListener('click', () => {
+            sendWishlistToCart(parseInt(btn.dataset.id));
+        });
+    });
+    document.querySelectorAll('.remove-wishlist-item').forEach(btn => {
+        btn.addEventListener('click', () => {
+            removeFromWishlist(parseInt(btn.dataset.id));
+        });
+    });
+}
+
+function reserveSpaceForProducts() {
+    document.querySelectorAll('.products-grid').forEach(grid => {
+        if (grid.children.length === 0) grid.style.minHeight = '400px';
+    });
+}
+
+const cartBtn = document.getElementById('cartBtn');
+const cartSidebar = document.getElementById('cartSidebar');
+const closeCart = document.querySelector('.close-cart');
+const cartOverlay = document.getElementById('cartOverlay');
+
+if (cartBtn) {
+    cartBtn.addEventListener('click', () => {
+        cartSidebar.classList.add('active');
+        cartOverlay.classList.add('active');
+        renderCartSidebar();
+    });
+}
+if (closeCart) {
+    closeCart.addEventListener('click', () => {
+        cartSidebar.classList.remove('active');
+        cartOverlay.classList.remove('active');
+    });
+}
+if (cartOverlay) {
+    cartOverlay.addEventListener('click', () => {
+        cartSidebar.classList.remove('active');
+        wishlistSidebar.classList.remove('active');
+        cartOverlay.classList.remove('active');
+    });
+}
+
+const wishlistBtn = document.getElementById('wishlistBtn');
+const wishlistSidebar = document.getElementById('wishlistSidebar');
+const closeWishlist = document.querySelector('.close-wishlist');
+
+if (wishlistBtn) {
+    wishlistBtn.addEventListener('click', () => {
+        wishlistSidebar.classList.add('active');
+        cartOverlay.classList.add('active');
+        renderWishlistSidebar();
+    });
+}
+if (closeWishlist) {
+    closeWishlist.addEventListener('click', () => {
+        wishlistSidebar.classList.remove('active');
+        cartOverlay.classList.remove('active');
+    });
+}
+
+const consultarStockBtn = document.getElementById('consultarStockBtn');
+if (consultarStockBtn) {
+    consultarStockBtn.addEventListener('click', () => {
+        if (cart.length > 0) {
+            sendWhatsApp(generateWhatsAppMessage(cart, 'stock'));
+        } else {
+            showNotification('Agrega productos a la cesta primero');
+        }
+    });
+}
+
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileOverlay = document.querySelector('.mobile-menu-overlay');
+const closeMenu = document.querySelector('.mobile-menu-close');
+
+function openMenu() {
+    mobileMenu?.classList.add('active');
+    if (mobileOverlay) mobileOverlay.style.display = 'block';
+}
+function closeMenuFn() {
+    mobileMenu?.classList.remove('active');
+    if (mobileOverlay) mobileOverlay.style.display = 'none';
+}
+if (hamburger) hamburger.addEventListener('click', openMenu);
+if (closeMenu) closeMenu.addEventListener('click', closeMenuFn);
+if (mobileOverlay) mobileOverlay.addEventListener('click', closeMenuFn);
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const t = this.getAttribute('href');
+        if (t && t !== '#') {
+            const target = document.querySelector(t);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                closeMenuFn();
+            }
+        }
+    });
+});
+
+const authBtn = document.getElementById('authBtn');
+const authModal = document.getElementById('authModal');
+const closeModal = document.querySelector('.close-modal');
+
+if (authBtn) {
+    authBtn.addEventListener('click', () => {
+        authModal?.classList.add('active');
+    });
+}
+if (closeModal) {
+    closeModal.addEventListener('click', () => {
+        authModal?.classList.remove('active');
+    });
+}
+
+document.getElementById('authForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const userData = {
+        name: document.getElementById('userName').value,
+        email: document.getElementById('userEmail').value,
+        phone: document.getElementById('userPhone').value,
+        userId: Date.now().toString(),
+        timestamp: new Date().toISOString()
+    };
+    currentUser = userData;
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    if (authBtn) authBtn.innerHTML = `Cuenta ${userData.name.split(' ')[0]}`;
+    authModal.classList.remove('active');
+    showNotification('Registro exitoso! Bienvenido a Gusmar Shoes');
+});
+
+setTimeout(() => {
+    if (!localStorage.getItem('popupShown')) {
+        document.getElementById('offerPopup')?.classList.add('active');
+        localStorage.setItem('popupShown', 'true');
+    }
+}, 30000);
+
+document.querySelector('.close-popup')?.addEventListener('click', () => {
+    document.getElementById('offerPopup')?.classList.remove('active');
+});
+
+document.getElementById('popupForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('offerPopup')?.classList.remove('active');
+    showNotification('Gracias! Recibiras nuestras ofertas');
+});
+
+function phoneMask(i) {
+    if (!i) return;
+    i.addEventListener('input', (e) => {
+        let v = e.target.value.replace(/\D/g, '');
+        if (v.length > 15) v = v.slice(0, 15);
+        e.target.value = v;
+    });
+}
+phoneMask(document.getElementById('userPhone'));
+phoneMask(document.getElementById('popupPhone'));
+
+const allItems = [...products.masculino, ...products.femenino, ...products.infantil];
+const searchInput = document.getElementById('searchInput');
+const suggestionsDiv = document.getElementById('searchSuggestions');
+
+if (searchInput) {
+    searchInput.addEventListener('input', () => {
+        const t = searchInput.value.toLowerCase();
+        if (t.length > 0) {
+            const m = allItems.filter(p => p.name.toLowerCase().includes(t) || p.category.toLowerCase().includes(t));
+            suggestionsDiv.innerHTML = m.slice(0, 5).map(m => `<div class="suggestion-item" data-cat="${m.category.toLowerCase()}" role="option">${m.name} - ${m.category}</div>`).join('');
+            suggestionsDiv.classList.add('active');
+            document.querySelectorAll('.suggestion-item').forEach(el => {
+                el.onclick = () => {
+                    searchInput.value = el.innerText.split(' -')[0];
+                    suggestionsDiv.classList.remove('active');
+                    const target = document.getElementById(el.dataset.cat);
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                };
+            });
+        } else {
+            suggestionsDiv.classList.remove('active');
+        }
+    });
+}
+
+function setupLazyLoading() {
+    const obs = new IntersectionObserver((entries, observer) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                const img = e.target;
+                if (img.dataset.src && !img.src.includes(img.dataset.src)) {
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            }
+        });
+    }, { rootMargin: '50px' });
+    document.querySelectorAll('.lazy').forEach(img => obs.observe(img));
+}
 
 // ============================================
 // NOVA FUNCIONALIDADE: POPUP DE LEAD (ALTA CONVERSÃO)
 // ============================================
 
-// Configuração do WhatsApp (número para onde os leads serão enviados)
 const LEAD_WHATSAPP_NUMBER = "5493757369752";
 
-// Salvar leads no localStorage
 function saveLeadToLocalStorage(leadData) {
     const existingLeads = JSON.parse(localStorage.getItem('gusmarWholesaleLeads')) || [];
     existingLeads.push({
@@ -22,22 +464,24 @@ function saveLeadToLocalStorage(leadData) {
     localStorage.setItem('gusmarWholesaleLeads', JSON.stringify(existingLeads));
 }
 
-// Enviar lead para WhatsApp
 function sendLeadToWhatsApp(leadData) {
     const message = `Hola, quiero comprar al por mayor 👇%0A%0A📌 DATOS DEL REVENDEDOR:%0A👤 Nombre: ${encodeURIComponent(leadData.nome)}%0A📧 Email: ${encodeURIComponent(leadData.email)}%0A📱 WhatsApp: ${encodeURIComponent(leadData.phone)}%0A%0A🔥 INTERESADO EN PRECIOS MAYORISTAS%0A%0A¡Contactar lo antes posible! 🚀`;
     window.open(`https://wa.me/${LEAD_WHATSAPP_NUMBER}?text=${message}`, '_blank');
 }
 
-// Disparar evento do Facebook Pixel
 function trackFacebookLead() {
-    if (typeof fbq !== 'undefined' && FACEBOOK_PIXEL_ID && FACEBOOK_PIXEL_ID !== 'YOUR_PIXEL_ID_HERE') {
-        fbq('track', 'Lead');
-        console.log('Facebook Pixel: Lead event tracked');
+    if (typeof fbq !== 'undefined') {
+        try {
+            fbq('track', 'Lead');
+            console.log('Facebook Pixel: Lead event tracked');
+        } catch(e) {
+            console.log('Facebook Pixel not initialized yet');
+        }
     }
 }
 
-// Contador regressivo do popup
 let leadPopupCountdownInterval = null;
+
 function startLeadPopupCountdown(seconds, displayElement) {
     let remainingSeconds = seconds;
     if (leadPopupCountdownInterval) clearInterval(leadPopupCountdownInterval);
@@ -60,13 +504,11 @@ function startLeadPopupCountdown(seconds, displayElement) {
     }, 1000);
 }
 
-// Verificar se o popup já foi mostrado
 function shouldShowLeadPopup() {
     const popupShown = localStorage.getItem('leadWholesalePopupShown');
     const popupShownAt = localStorage.getItem('leadWholesalePopupShownAt');
     
     if (!popupShown) return true;
-    // Mostrar novamente após 7 dias
     if (popupShownAt && (Date.now() - parseInt(popupShownAt)) > 7 * 24 * 60 * 60 * 1000) {
         localStorage.removeItem('leadWholesalePopupShown');
         localStorage.removeItem('leadWholesalePopupShownAt');
@@ -75,7 +517,6 @@ function shouldShowLeadPopup() {
     return false;
 }
 
-// Fechar popup
 function closeLeadPopup() {
     const popup = document.getElementById('leadConversionPopup');
     if (popup) {
@@ -84,7 +525,6 @@ function closeLeadPopup() {
     }
 }
 
-// Mostrar popup
 function showLeadPopup() {
     if (!shouldShowLeadPopup()) return;
     
@@ -100,12 +540,10 @@ function showLeadPopup() {
     }
 }
 
-// Setup do formulário do popup
 function setupLeadConversionForm() {
     const form = document.getElementById('leadConversionForm');
     if (!form) return;
     
-    // Máscara para telefone
     const phoneInput = document.getElementById('leadPhone');
     if (phoneInput) {
         phoneInput.addEventListener('input', (e) => {
@@ -123,7 +561,6 @@ function setupLeadConversionForm() {
         const phone = document.getElementById('leadPhone')?.value.trim() || '';
         const consent = document.getElementById('leadConsent')?.checked || false;
         
-        // Validações
         if (!nome || !email || !phone) {
             alert('Por favor, completa todos los campos.');
             return;
@@ -140,28 +577,16 @@ function setupLeadConversionForm() {
             return;
         }
         
-        // Salvar lead
         const leadData = { nome, email, phone, consent };
         saveLeadToLocalStorage(leadData);
-        
-        // Enviar para WhatsApp
         sendLeadToWhatsApp(leadData);
-        
-        // Track Facebook Pixel
         trackFacebookLead();
-        
-        // Fechar popup
         closeLeadPopup();
-        
-        // Mostrar notificação de sucesso
         showNotification('✅ ¡Gracias! En breve recibirás los precios mayoristas.');
-        
-        // Reset do formulário
         form.reset();
     });
 }
 
-// Exit Intent (detectar quando usuário tenta sair do site)
 function setupExitIntent() {
     let mouseLeaveTimer = null;
     document.addEventListener('mouseleave', (event) => {
@@ -174,7 +599,6 @@ function setupExitIntent() {
     });
 }
 
-// Popup atrasado (15 segundos)
 function setupDelayedLeadPopup() {
     setTimeout(() => {
         if (shouldShowLeadPopup()) {
@@ -183,19 +607,16 @@ function setupDelayedLeadPopup() {
     }, 15000);
 }
 
-// Inicializar popup de lead
 function initLeadConversionPopup() {
     setupLeadConversionForm();
     setupDelayedLeadPopup();
     setupExitIntent();
     
-    // Botão de fechar
     const closeBtn = document.querySelector('.lead-popup-close');
     if (closeBtn) {
         closeBtn.addEventListener('click', closeLeadPopup);
     }
     
-    // Fechar ao clicar no overlay
     const overlay = document.getElementById('leadConversionPopup');
     if (overlay) {
         overlay.addEventListener('click', (e) => {
@@ -216,5 +637,5 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCartSidebar();
     renderWishlistSidebar();
     setupLazyLoading();
-    initLeadConversionPopup(); // NOVO: Inicializa popup de alta conversão
+    initLeadConversionPopup();
 });
