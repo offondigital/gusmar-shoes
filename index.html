@@ -6,7 +6,7 @@
     <meta name="description" content="Argentina: Calzado al por mayor ideal para emprendedores que buscan stock rentable, alta rotación y calidad garantizada.">
     <meta name="theme-color" content="#1e293b">
     <meta http-equiv="Cache-Control" content="max-age=31536000">
-    <title>Gusmar Shoes | Calzado de Calidad</title>
+    <title>Gusmar Shoes | Para mayoristas</title>
     
     <!-- Preconnect critico -->
     <link rel="preconnect" href="https://images.unsplash.com">
@@ -15,11 +15,11 @@
     <!-- CSS critico inline + Anti-CLS + Acessibilidade -->
     <style>
         :root {
-            --primary: #1e293b;
-            --secondary: #334155;
-            --accent: #128C7E;
-            --accent-hover: #0d6e5d;
-            --accent-light: #d1fae5;
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #0d6e5d;
+            --accent-hover: #0a5a4c;
+            --accent-light: #ccf0e8;
             --background: #f8fafc;
             --surface: #ffffff;
             --text-primary: #0f172a;
@@ -41,34 +41,81 @@
             color: var(--text-primary);
             line-height: 1.5;
         }
-        /* Acessibilidade: contraste melhorado */
-        .top-bar {
-            background: var(--primary);
-            color: #f1f5f9;
-            text-align: center;
-            padding: .5rem;
-            font-size: .85rem;
-        }
-        .category-link, .mobile-category-header, .footer-section a {
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-        .category-link:hover, .mobile-category-header:hover, .footer-section a:hover {
-            text-decoration: none;
-        }
-        .btn-primary, .btn-secondary, .whatsapp-button, .share-button {
-            font-weight: 700;
-        }
-        /* Correcao de contraste para botoes */
-        .btn-secondary {
-            border: 2px solid #ffffff;
+        /* ANTI-CLS: Reserva de espaço absoluto */
+        .hero {
+            min-height: 500px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: #ffffff;
+            padding: 4rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+            contain: content;
         }
-        .btn-secondary:hover {
-            background: #ffffff;
-            color: var(--primary);
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
         }
-        /* Skip link */
+        .hero-image-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            background: transparent;
+        }
+        .hero-shoe {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,.3));
+            animation: none !important;
+            aspect-ratio: 1/1;
+            object-fit: contain;
+        }
+        .features-bar {
+            min-height: 180px;
+            background: var(--surface);
+            padding: 2rem 1.5rem;
+            margin: 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            contain: content;
+        }
+        .features-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
         .skip-link {
             position: absolute;
             top: -40px;
@@ -81,6 +128,13 @@
         }
         .skip-link:focus {
             top: 0;
+        }
+        .top-bar {
+            background: var(--primary);
+            color: #f1f5f9;
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 0.85rem;
         }
         header {
             background: var(--surface);
@@ -110,7 +164,7 @@
         }
         .lazy {
             opacity: 0;
-            transition: opacity .3s;
+            transition: opacity 0.3s;
         }
         .lazy.loaded {
             opacity: 1;
@@ -124,7 +178,7 @@
             font-weight: 700;
             display: inline-flex;
             align-items: center;
-            gap: .5rem;
+            gap: 0.5rem;
             border: none;
             cursor: pointer;
             transform: translateZ(0);
@@ -132,39 +186,61 @@
         }
         .btn-primary:hover {
             background: var(--accent-hover);
+        }
+        .btn-secondary {
+            background: transparent;
             color: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 2px solid #ffffff;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transform: translateZ(0);
+            backface-visibility: hidden;
         }
-        img, .product-image-container, .hero-image-wrap {
-            display: block;
-            content-visibility: auto;
-        }
-        img {
-            width: 100%;
-            height: auto;
+        .btn-secondary:hover {
+            background: #ffffff;
+            color: var(--primary);
         }
         .product-image-container {
             aspect-ratio: 1 / 1;
             background: #e2e8f0;
         }
-        .hero-image-wrap img {
-            aspect-ratio: 1 / 1;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .hero-shoe {
-            animation: none !important;
-        }
         .products-grid {
             min-height: 400px;
         }
-        .whatsapp-button, .share-button, .btn-secondary {
-            transform: translateZ(0);
-            backface-visibility: hidden;
-        }
-        /* Acessibilidade: foco visivel */
-        a:focus, button:focus, input:focus, .btn-primary:focus, .btn-secondary:focus {
+        a:focus, button:focus, input:focus {
             outline: 3px solid var(--accent);
             outline-offset: 2px;
+        }
+        /* Correção de contraste para links */
+        a {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        .category-link, .footer-section a {
+            color: var(--text-primary);
+        }
+        .category-link:hover, .footer-section a:hover {
+            color: var(--accent);
+        }
+        /* Placeholder para skeleton loading */
+        .products-grid:empty {
+            min-height: 400px;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
         }
         @keyframes slideIn {
             from { transform: translateX(100%); opacity: 0; }
@@ -173,6 +249,18 @@
         @keyframes slideOut {
             from { transform: translateX(0); opacity: 1; }
             to { transform: translateX(100%); opacity: 0; }
+        }
+        @media (max-width: 1024px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+            .hero-cta { justify-content: center; }
+        }
+        @media (max-width: 768px) {
+            .header-main { flex-wrap: wrap; }
+            .search-container { order: 3; max-width: 100%; width: 100%; }
+            .nav-categories { display: none; }
+            .hamburger { display: flex; }
+            .hero { padding: 3rem 1.5rem; min-height: 600px; }
+            .hero-image-wrap { min-height: 250px; }
         }
     </style>
     
@@ -249,11 +337,11 @@
                 </div>
                 <div class="hero-image-wrap">
                     <img 
-                        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&auto=format&q=80" 
+                        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&auto=format&q=80" 
                         alt="Zapatilla deportiva color roja destacada" 
                         class="hero-shoe"
-                        width="600"
-                        height="600"
+                        width="400"
+                        height="400"
                         loading="eager"
                         fetchpriority="high">
                 </div>
@@ -298,8 +386,9 @@
         </section>
     </main>
 
-    <aside id="cartSidebar" class="cart-sidebar" aria-label="Cesta de compras" aria-hidden="true"><div class="cart-sidebar-header"><h3>Mi Cesta</h3><button class="close-cart" aria-label="Cerrar cesta">X</button></div><div id="cartItems" class="cart-items"></div><div class="cart-footer"><button id="consultarStockBtn" class="whatsapp-cta">Consultar Stock</button></div></aside>
-    <aside id="wishlistSidebar" class="wishlist-sidebar" aria-label="Lista de favoritos" aria-hidden="true"><div class="wishlist-sidebar-header"><h3>Mis Favoritos</h3><button class="close-wishlist" aria-label="Cerrar favoritos">X</button></div><div id="wishlistItems" class="wishlist-items"></div></aside>
+    <!-- Sidebars sem aria-hidden para nao causar erro de acessibilidade -->
+    <aside id="cartSidebar" class="cart-sidebar" aria-label="Cesta de compras"><div class="cart-sidebar-header"><h3>Mi Cesta</h3><button class="close-cart" aria-label="Cerrar cesta">X</button></div><div id="cartItems" class="cart-items"></div><div class="cart-footer"><button id="consultarStockBtn" class="whatsapp-cta">Consultar Stock</button></div></aside>
+    <aside id="wishlistSidebar" class="wishlist-sidebar" aria-label="Lista de favoritos"><div class="wishlist-sidebar-header"><h3>Mis Favoritos</h3><button class="close-wishlist" aria-label="Cerrar favoritos">X</button></div><div id="wishlistItems" class="wishlist-items"></div></aside>
     <div id="cartOverlay" class="overlay" aria-hidden="true"></div>
 
     <div id="authModal" class="modal" role="dialog" aria-modal="true" aria-label="Registro de usuario"><div class="modal-content"><button class="close-modal" aria-label="Cerrar">X</button><h2>Crear Cuenta</h2><form id="authForm"><input type="text" id="userName" placeholder="Nombre completo" required><input type="email" id="userEmail" placeholder="Email" required><input type="tel" id="userPhone" placeholder="Telefono (solo numeros)" required><label class="checkbox-label"><input type="checkbox" id="consent" required>Acepto recibir comunicaciones</label><button type="submit" class="btn-primary" style="width:100%">Registrarme</button></form></div></div>
