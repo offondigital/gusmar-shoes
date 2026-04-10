@@ -6,7 +6,31 @@
     <meta name="description" content="Argentina: Calzado al por mayor ideal para emprendedores que buscan stock rentable, alta rotación y calidad garantizada.">
     <meta name="theme-color" content="#1e293b">
     <meta http-equiv="Cache-Control" content="max-age=31536000">
-    <title>Gusmar Shoes | Para mayoristas</title>
+    <title>Gusmar Shoes | Calzado de Calidad al Por Mayor</title>
+    
+    <!-- Facebook Pixel Base Code - Colocar seu ID no lugar do placeholder -->
+    <script>
+        // !!! COLOQUE SEU PIXEL ID AQUI !!!
+        const FACEBOOK_PIXEL_ID = 'YOUR_PIXEL_ID_HERE';
+        
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        if(FACEBOOK_PIXEL_ID !== 'YOUR_PIXEL_ID_HERE') {
+            fbq('init', FACEBOOK_PIXEL_ID);
+            fbq('track', 'PageView');
+        }
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+             src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"/>
+    </noscript>
     
     <!-- Preconnect critico -->
     <link rel="preconnect" href="https://images.unsplash.com">
@@ -41,81 +65,6 @@
             color: var(--text-primary);
             line-height: 1.5;
         }
-        /* ANTI-CLS: Reserva de espaço absoluto */
-        .hero {
-            min-height: 500px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: #ffffff;
-            padding: 4rem 1.5rem;
-            position: relative;
-            overflow: hidden;
-            contain: content;
-        }
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-        .hero-image-wrap {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 400px;
-            background: transparent;
-        }
-        .hero-shoe {
-            max-width: 100%;
-            height: auto;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,.3));
-            animation: none !important;
-            aspect-ratio: 1/1;
-            object-fit: contain;
-        }
-        .features-bar {
-            min-height: 180px;
-            background: var(--surface);
-            padding: 2rem 1.5rem;
-            margin: 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            contain: content;
-        }
-        .features-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-        h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 1rem;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-        h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
         .skip-link {
             position: absolute;
             top: -40px;
@@ -133,8 +82,8 @@
             background: var(--primary);
             color: #f1f5f9;
             text-align: center;
-            padding: 0.5rem;
-            font-size: 0.85rem;
+            padding: .5rem;
+            font-size: .85rem;
         }
         header {
             background: var(--surface);
@@ -164,7 +113,7 @@
         }
         .lazy {
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity .3s;
         }
         .lazy.loaded {
             opacity: 1;
@@ -178,7 +127,7 @@
             font-weight: 700;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: .5rem;
             border: none;
             cursor: pointer;
             transform: translateZ(0);
@@ -197,7 +146,7 @@
             border: 2px solid #ffffff;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: .5rem;
             transform: translateZ(0);
             backface-visibility: hidden;
         }
@@ -205,9 +154,20 @@
             background: #ffffff;
             color: var(--primary);
         }
-        .product-image-container {
-            aspect-ratio: 1 / 1;
-            background: #e2e8f0;
+        .hero-image-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            background: transparent;
+        }
+        .hero-shoe {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,.3));
+            animation: none !important;
+            aspect-ratio: 1/1;
+            object-fit: contain;
         }
         .products-grid {
             min-height: 400px;
@@ -216,22 +176,6 @@
             outline: 3px solid var(--accent);
             outline-offset: 2px;
         }
-        /* Correção de contraste para links */
-        a {
-            color: var(--accent);
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-        a:hover {
-            text-decoration: none;
-        }
-        .category-link, .footer-section a {
-            color: var(--text-primary);
-        }
-        .category-link:hover, .footer-section a:hover {
-            color: var(--accent);
-        }
-        /* Placeholder para skeleton loading */
         .products-grid:empty {
             min-height: 400px;
             background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
@@ -267,6 +211,191 @@
     <!-- CSS completo carregado de forma nao bloqueante -->
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
+    
+    <!-- CSS do Popup (adicional) -->
+    <style>
+        /* Popup de Lead - Alta Conversão */
+        .lead-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lead-popup-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lead-popup {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 32px;
+            max-width: 520px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: popupSlideIn 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
+            overflow: hidden;
+        }
+        @keyframes popupSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        .lead-popup-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 32px 28px;
+            text-align: center;
+            position: relative;
+        }
+        .lead-popup-header h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .lead-popup-header p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 14px;
+        }
+        .lead-popup-social-proof {
+            background: rgba(255, 255, 255, 0.12);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+        .lead-popup-body {
+            padding: 32px 28px;
+        }
+        .lead-popup-timer {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 28px;
+            border: 1px solid #fcd34d;
+        }
+        .lead-popup-timer-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #92400e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .lead-popup-timer-clock {
+            font-size: 52px;
+            font-weight: 800;
+            font-family: monospace;
+            color: #b45309;
+            letter-spacing: 4px;
+            line-height: 1;
+        }
+        .lead-popup-form-group {
+            margin-bottom: 18px;
+        }
+        .lead-popup-form-group input {
+            width: 100%;
+            padding: 16px 18px;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            background: var(--surface);
+        }
+        .lead-popup-form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-light);
+        }
+        .lead-popup-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .lead-popup-checkbox input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--accent);
+        }
+        .lead-popup-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #128C7E 0%, #075e54 100%);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .lead-popup-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px -5px rgba(18, 140, 126, 0.4);
+        }
+        .lead-popup-security {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .lead-popup-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .lead-popup-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        @media (max-width: 480px) {
+            .lead-popup-header h2 { font-size: 22px; }
+            .lead-popup-timer-clock { font-size: 40px; }
+            .lead-popup-body { padding: 24px 20px; }
+            .lead-popup-header { padding: 24px 20px; }
+        }
+    </style>
 </head>
 <body>
     <a href="#main" class="skip-link">Saltar al contenido</a>
@@ -386,14 +515,53 @@
         </section>
     </main>
 
-    <!-- Sidebars sem aria-hidden para nao causar erro de acessibilidade -->
+    <!-- Sidebars existentes -->
     <aside id="cartSidebar" class="cart-sidebar" aria-label="Cesta de compras"><div class="cart-sidebar-header"><h3>Mi Cesta</h3><button class="close-cart" aria-label="Cerrar cesta">X</button></div><div id="cartItems" class="cart-items"></div><div class="cart-footer"><button id="consultarStockBtn" class="whatsapp-cta">Consultar Stock</button></div></aside>
     <aside id="wishlistSidebar" class="wishlist-sidebar" aria-label="Lista de favoritos"><div class="wishlist-sidebar-header"><h3>Mis Favoritos</h3><button class="close-wishlist" aria-label="Cerrar favoritos">X</button></div><div id="wishlistItems" class="wishlist-items"></div></aside>
     <div id="cartOverlay" class="overlay" aria-hidden="true"></div>
 
     <div id="authModal" class="modal" role="dialog" aria-modal="true" aria-label="Registro de usuario"><div class="modal-content"><button class="close-modal" aria-label="Cerrar">X</button><h2>Crear Cuenta</h2><form id="authForm"><input type="text" id="userName" placeholder="Nombre completo" required><input type="email" id="userEmail" placeholder="Email" required><input type="tel" id="userPhone" placeholder="Telefono (solo numeros)" required><label class="checkbox-label"><input type="checkbox" id="consent" required>Acepto recibir comunicaciones</label><button type="submit" class="btn-primary" style="width:100%">Registrarme</button></form></div></div>
     <div id="offerPopup" class="popup" role="dialog" aria-modal="true" aria-label="Oferta exclusiva"><div class="popup-content"><button class="close-popup" aria-label="Cerrar">X</button><h2>Oferta Exclusiva</h2><p>Registrate y obten descuentos especiales</p><form id="popupForm"><input type="text" id="popupName" placeholder="Nombre" required><input type="email" id="popupEmail" placeholder="Email" required><input type="tel" id="popupPhone" placeholder="Telefono" required><label class="checkbox-label"><input type="checkbox" id="popupConsent" required>Acepto recibir ofertas</label><button type="submit" class="btn-primary" style="width:100%">Quiero mi descuento</button></form></div></div>
-    <div id="leadPopup" class="popup" role="dialog" aria-modal="true" aria-label="Precios mayoristas"><div class="popup-content"><button id="closeLeadPopup" class="close-popup" aria-label="Cerrar">X</button><h2>Precios Mayoristas</h2><p style="margin-bottom:1rem;">Accede a nuestros mejores precios</p><div style="background:var(--accent-light);padding:1rem;border-radius:var(--radius);margin-bottom:1rem;text-align:center;"><div style="font-size:.85rem;font-weight:600;color:var(--text-secondary);">OFERTA TERMINA EN:</div><div id="countdownTimer" style="font-size:2rem;font-weight:800;color:var(--accent);">05:00</div></div><form id="leadForm"><input type="text" id="leadName" placeholder="Nombre completo" required><input type="email" id="leadEmail" placeholder="Email" required><input type="tel" id="leadPhone" placeholder="WhatsApp" required><label class="checkbox-label"><input type="checkbox" id="leadConsent" required>Acepto recibir precios mayoristas</label><button type="submit" class="btn-primary" style="width:100%">Recibir Precios por WhatsApp</button></form></div></div>
+
+    <!-- NOVO POPUP DE LEAD - ALTA CONVERSAO -->
+    <div id="leadConversionPopup" class="lead-popup-overlay">
+        <div class="lead-popup">
+            <button class="lead-popup-close" aria-label="Cerrar">✕</button>
+            <div class="lead-popup-header">
+                <h2>🔥 SOLO HOY: ACCESO MAYORISTA</h2>
+                <div class="lead-popup-social-proof">
+                    ✅ +1.200 revendedores ya compran con nosotros
+                </div>
+            </div>
+            <div class="lead-popup-body">
+                <div class="lead-popup-timer">
+                    <div class="lead-popup-timer-label">OFERTA ESPECIAL TERMINA EN</div>
+                    <div id="leadPopupTimer" class="lead-popup-timer-clock">05:00</div>
+                </div>
+                <form id="leadConversionForm">
+                    <div class="lead-popup-form-group">
+                        <input type="text" id="leadName" placeholder="Tu nombre completo" required>
+                    </div>
+                    <div class="lead-popup-form-group">
+                        <input type="email" id="leadEmail" placeholder="Tu email" required>
+                    </div>
+                    <div class="lead-popup-form-group">
+                        <input type="tel" id="leadPhone" placeholder="Tu WhatsApp" required>
+                    </div>
+                    <label class="lead-popup-checkbox">
+                        <input type="checkbox" id="leadConsent" required>
+                        <span>Acepto recibir información sobre precios mayoristas y promociones exclusivas</span>
+                    </label>
+                    <button type="submit" class="lead-popup-btn">
+                        🚀 QUIERO PRECIOS MAYORISTAS
+                    </button>
+                    <div class="lead-popup-security">
+                        🔒 Tus datos están 100% seguros
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <div class="mobile-menu" aria-label="Menu mobile"><div class="mobile-menu-header"><span style="font-weight:700;">Menu</span><button class="mobile-menu-close" aria-label="Cerrar menu">X</button></div><a href="#masculino" class="mobile-category-header">Masculino</a><a href="#femenino" class="mobile-category-header">Femenino</a><a href="#infantil" class="mobile-category-header">Infantil</a><a href="#ofertas" class="mobile-category-header">Ofertas</a></div>
     <div class="mobile-menu-overlay" aria-hidden="true"></div>
