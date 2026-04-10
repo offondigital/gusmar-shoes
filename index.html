@@ -2,1210 +2,304 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Calzado al por mayor en Argentina. Precios mayoristas para revendedores. Envíos a todo el país. Calidad garantizada.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Argentina: Calzado al por mayor ideal para emprendedores que buscan stock rentable, alta rotación y calidad garantizada.">
     <meta name="theme-color" content="#1e293b">
-    <meta name="format-detection" content="telephone=no">
+    <title>Gusmar Shoes | Calzado de Calidad</title>
     
-    <title>Gusmar Shoes | Mayorista de Calzado en Argentina</title>
-    
-    <!-- Preconnect para fonts e CDNs -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <!-- Preconnect crítico -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
     
-    <!-- Preload de fonts críticas -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap">
+    <!-- CSS inline crítico -->
+    <style>:root{--primary:#1e293b;--secondary:#334155;--accent:#25d366;--accent-hover:#128C7E;--accent-light:#dcfce7;--background:#f8fafc;--surface:#fff;--text-primary:#0f172a;--text-secondary:#64748b;--border:#e2e8f0;--shadow:0 1px 3px 0 rgba(0,0,0,.1);--shadow-lg:0 10px 15px -3px rgba(0,0,0,.1);--radius:12px;--radius-lg:16px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,-apple-system,sans-serif;background-color:var(--background);color:var(--text-primary);line-height:1.6}h1,h2,h3,h4,h5,h6{font-weight:700}.skip-link{position:absolute;top:-40px;left:0;background:var(--accent);color:#fff;padding:8px;text-decoration:none;z-index:10000}.skip-link:focus{top:0}.top-bar{background:var(--primary);color:#fff;text-align:center;padding:.5rem;font-size:.85rem}header{background:var(--surface);box-shadow:var(--shadow);position:sticky;top:0;z-index:1000}.header-main{max-width:1400px;margin:0 auto;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:2rem}.logo{font-size:1.75rem;font-weight:800;color:var(--primary);text-decoration:none}.logo span{color:var(--accent)}.lazy{opacity:0;transition:opacity .3s}.lazy.loaded{opacity:1}</style>
     
-    <!-- Otimização para cache -->
-    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
+    <!-- CSS externo diferido -->
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
     
-    <style>
-        /* CRÍTICO - Estilos essenciais para first paint */
-        :root {
-            --primary: #1e293b;
-            --accent: #25d366;
-            --bg: #f8fafc;
-            --surface: #ffffff;
-            --text: #0f172a;
-            --text-sec: #64748b;
-            --border: #e2e8f0;
-            --shadow: 0 1px 3px rgba(0,0,0,0.1);
-            --radius: 12px;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        /* CRÍTICO - Layout base sem imagens */
-        body {
-            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.5;
-            overflow-x: hidden;
-            font-size: 16px;
-        }
-        
-        h1, h2, h3, h4, .logo, .btn {
-            font-family: 'Montserrat', system-ui, sans-serif;
-        }
-        
-        /* SKIP LINK - Acessibilidade */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent);
-            color: #000;
-            padding: 8px;
-            text-decoration: none;
-            z-index: 10000;
-        }
-        .skip-link:focus { top: 0; }
-        
-        /* TOP BAR */
-        .top-bar {
-            background: var(--primary);
-            color: white;
-            text-align: center;
-            padding: 0.5rem;
-            font-size: 0.75rem;
-        }
-        
-        /* HEADER RESPONSIVO */
-        header {
-            background: var(--surface);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0.75rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            white-space: nowrap;
-        }
-        .logo span { color: var(--accent); }
-        
-        /* SEARCH - Otimizado */
-        .search-container {
-            flex: 1;
-            max-width: 400px;
-            position: relative;
-        }
-        
-        .search-bar {
-            width: 100%;
-            padding: 0.6rem 1rem 0.6rem 2.5rem;
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            background: var(--bg);
-        }
-        
-        .search-bar:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-        
-        .search-icon {
-            position: absolute;
-            left: 0.8rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1rem;
-            color: var(--text-sec);
-        }
-        
-        /* AÇÕES HEADER */
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        
-        .action-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--text);
-            font-size: 0.7rem;
-            text-align: center;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.2rem;
-        }
-        
-        .action-btn .material-icons { font-size: 1.2rem; }
-        
-        .cart-badge, .wishlist-badge {
-            position: absolute;
-            top: -5px;
-            right: -8px;
-            background: var(--accent);
-            color: #000;
-            font-size: 0.6rem;
-            font-weight: 700;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* NAV CATEGORIAS */
-        .nav-categories {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-        }
-        
-        .nav-categories::-webkit-scrollbar { display: none; }
-        
-        .category-menu {
-            display: flex;
-            list-style: none;
-            padding: 0 0.5rem;
-            white-space: nowrap;
-        }
-        
-        .category-link {
-            display: inline-block;
-            padding: 0.7rem 1rem;
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 600;
-            font-size: 0.8rem;
-        }
-        
-        /* HAMBURGER */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        .hamburger span {
-            width: 22px;
-            height: 2px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-        
-        /* HERO - Otimizado sem fontes pesadas */
-        .hero {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-            color: white;
-            padding: 2rem 1rem;
-        }
-        
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 2rem;
-        }
-        
-        .hero-text { flex: 1; min-width: 250px; }
-        .hero-text h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-        .hero-text p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 1rem; }
-        
-        .hero-cta {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn-primary, .btn-secondary {
-            padding: 0.7rem 1.2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.85rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        
-        .btn-primary {
-            background: var(--accent);
-            color: #000;
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 1px solid white;
-        }
-        
-        .hero-image {
-            flex: 1;
-            min-width: 200px;
-            text-align: center;
-        }
-        
-        .hero-shoe {
-            max-width: 100%;
-            height: auto;
-            max-height: 200px;
-            object-fit: contain;
-        }
-        
-        /* PRODUCTS GRID - Responsivo */
-        .section {
-            max-width: 1400px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        
-        .category-banner {
-            background: linear-gradient(135deg, var(--primary) 0%, #334155 100%);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: var(--radius);
-            margin-bottom: 1.5rem;
-        }
-        
-        .category-banner h2 { font-size: 1.4rem; }
-        .category-banner p { font-size: 0.8rem; opacity: 0.9; }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1rem;
-        }
-        
-        .product-card {
-            background: var(--surface);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.2s;
-        }
-        
-        .product-card:hover { transform: translateY(-3px); }
-        
-        .product-image-container {
-            position: relative;
-            aspect-ratio: 1;
-            background: #f1f5f9;
-            cursor: pointer;
-        }
-        
-        .product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* Botões flutuantes - Mobile first */
-        .floating-buttons {
-            position: absolute;
-            top: 8px;
-            left: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        
-        .floating-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-        
-        .product-info {
-            padding: 0.75rem;
-            text-align: center;
-        }
-        
-        .product-category {
-            font-size: 0.65rem;
-            color: var(--accent);
-            font-weight: 600;
-        }
-        
-        .product-title {
-            font-size: 0.8rem;
-            margin: 0.25rem 0;
-        }
-        
-        .product-ref {
-            font-size: 0.7rem;
-            background: #f1f5f9;
-            display: inline-block;
-            padding: 0.15rem 0.5rem;
-            border-radius: 20px;
-        }
-        
-        .whatsapp-button {
-            width: 100%;
-            background: var(--accent);
-            border: none;
-            padding: 0.5rem;
-            border-radius: 8px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.3rem;
-            margin-top: 0.5rem;
-        }
-        
-        .horizontal-buttons {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-        
-        .horiz-btn {
-            flex: 1;
-            background: #f1f5f9;
-            border: none;
-            padding: 0.4rem;
-            border-radius: 8px;
-            font-size: 0.65rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.2rem;
-        }
-        
-        /* FEATURES */
-        .features-bar {
-            background: var(--surface);
-            padding: 1.5rem 1rem;
-            margin: 2rem 0;
-        }
-        
-        .features-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            text-align: center;
-        }
-        
-        .feature-icon {
-            width: 40px;
-            height: 40px;
-            background: #dcfce7;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 0.3rem;
-        }
-        
-        .feature-icon .material-icons { font-size: 1.2rem; }
-        
-        /* SIDEBARS */
-        .cart-sidebar, .wishlist-sidebar {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 85%;
-            max-width: 350px;
-            height: 100vh;
-            background: white;
-            z-index: 2000;
-            transition: right 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .cart-sidebar.active, .wishlist-sidebar.active { right: 0; }
-        
-        /* POPUP LEAD */
-        .popup-lead {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            z-index: 5000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .popup-lead.active { display: flex; }
-        
-        .popup-lead-content {
-            background: white;
-            border-radius: 24px;
-            max-width: 90%;
-            width: 400px;
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        
-        .popup-lead-header {
-            background: linear-gradient(135deg, #1e293b, #334155);
-            padding: 1.2rem;
-            text-align: center;
-            border-radius: 24px 24px 0 0;
-        }
-        
-        .popup-lead-header h2 { font-size: 1.3rem; color: white; }
-        
-        .timer-container {
-            text-align: center;
-            padding: 0.8rem;
-            background: linear-gradient(135deg, #FF6B00, #FF8C32);
-            margin: 0.8rem;
-            border-radius: 40px;
-        }
-        
-        .timer {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: white;
-            font-family: monospace;
-        }
-        
-        .social-proof {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.5rem;
-            margin: 0.5rem;
-            background: #f1f5f9;
-            border-radius: 40px;
-        }
-        
-        .popup-lead-body { padding: 1rem; }
-        
-        .popup-lead-body input {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 0.8rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 0.85rem;
-        }
-        
-        .popup-checkbox {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin: 1rem 0;
-            font-size: 0.75rem;
-        }
-        
-        .btn-lead {
-            width: 100%;
-            background: linear-gradient(135deg, #25d366, #128C7E);
-            color: white;
-            border: none;
-            padding: 0.8rem;
-            border-radius: 40px;
-            font-weight: 800;
-            cursor: pointer;
-        }
-        
-        .security-text {
-            text-align: center;
-            font-size: 0.65rem;
-            color: #94a3b8;
-            margin-top: 0.8rem;
-        }
-        
-        /* FOOTER */
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 2rem 1rem 1rem;
-            margin-top: 2rem;
-        }
-        
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .footer-section h3 { font-size: 1rem; margin-bottom: 0.5rem; }
-        .footer-section a, .footer-section li {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            font-size: 0.8rem;
-            list-style: none;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 1.5rem;
-            font-size: 0.7rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 1rem;
-        }
-        
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: #000;
-            padding: 0.8rem;
-            border-radius: 12px;
-            z-index: 10000;
-            text-align: center;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        /* ANIMAÇÕES LEVES */
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        /* MEDIA QUERIES */
-        @media (min-width: 768px) {
-            .header-main { padding: 1rem 2rem; }
-            .logo { font-size: 1.8rem; }
-            .hero-text h1 { font-size: 2.5rem; }
-            .hero-text p { font-size: 1rem; }
-            .products-grid { gap: 1.5rem; }
-            .features-grid { grid-template-columns: repeat(4, 1fr); }
-            .cart-sidebar, .wishlist-sidebar { width: 350px; }
-        }
-        
-        @media (min-width: 1024px) {
-            .hero { padding: 3rem 2rem; }
-            .hero-text h1 { font-size: 3rem; }
-            .category-menu { justify-content: center; }
-            .hamburger { display: none; }
-            .nav-categories { display: block; }
-            .products-grid { gap: 2rem; }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-categories { display: none; }
-            .hamburger { display: flex; }
-            .search-container { order: 3; width: 100%; max-width: 100%; margin-top: 0.5rem; }
-            .header-main { flex-wrap: wrap; }
-            .hero-content { flex-direction: column; text-align: center; }
-            .hero-cta { justify-content: center; }
-            .floating-icon { width: 28px; height: 28px; }
-            .floating-icon .material-icons { font-size: 0.9rem; }
-            .whatsapp-button { font-size: 0.7rem; padding: 0.4rem; }
-            .horiz-btn { font-size: 0.6rem; }
-            .product-title { font-size: 0.75rem; }
-        }
-        
-        @media (max-width: 480px) {
-            .products-grid { grid-template-columns: 1fr; }
-            .popup-lead-header h2 { font-size: 1.1rem; }
-            .timer { font-size: 1.2rem; }
-            .btn-lead { font-size: 0.85rem; }
-        }
-        
-        /* LAZY LOADING */
-        .lazy { opacity: 0; transition: opacity 0.2s; }
-        .lazy.loaded { opacity: 1; }
-        
-        /* UTILITÁRIOS */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1999;
-            display: none;
-        }
-        .overlay.active { display: block; }
-        
-        .modal, .popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 3000;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal.active, .popup.active { display: flex; }
-        .modal-content, .popup-content {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 16px;
-            max-width: 400px;
-            width: 90%;
-            position: relative;
-        }
-        .close-modal, .close-popup {
-            position: absolute;
-            top: 0.8rem;
-            right: 1rem;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-        
-        .mobile-menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 998;
-        }
-        
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 80%;
-            max-width: 300px;
-            background: white;
-            z-index: 999;
-            transform: translateX(-100%);
-            transition: transform 0.3s;
-        }
-        
-        .mobile-menu.active {
-            display: block;
-            transform: translateX(0);
-        }
-        
-        .mobile-menu-header {
-            background: var(--primary);
-            color: white;
-            padding: 1rem;
-        }
-        
-        .mobile-category-header {
-            display: block;
-            padding: 0.8rem 1rem;
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 600;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .close-popup-lead {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: white;
-        }
-        
-        .search-suggestions {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            z-index: 1000;
-            display: none;
-        }
-        
-        .search-suggestions.active { display: block; }
-        .suggestion-item {
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-        .suggestion-item:hover { background: #dcfce7; }
-    </style>
-    
-    <!-- Fontes com fallback e display swap -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    </noscript>
+    <!-- Fonts otimizadas -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet" media="print" onload="this.media='all'">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
-    <div class="top-bar">🌟 Los mejores precios para mayoristas | 🌟 Gusmar Shoes</div>
+    <a href="#main" class="skip-link">Saltar al contenido</a>
     
+    <div class="top-bar">
+        🚀 ENVÍOS GRATIS desde 50€ | 📱 WhatsApp: +54 9 375 732-6174
+    </div>
+
     <header>
         <div class="header-main">
             <a href="#" class="logo">Gusmar<span>Shoes</span></a>
+            
+            <button class="hamburger" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+            
             <div class="search-container">
                 <span class="material-icons search-icon">search</span>
-                <input type="search" id="searchInput" class="search-bar" placeholder="Buscar..." autocomplete="off">
+                <input type="search" 
+                       id="searchInput" 
+                       class="search-bar" 
+                       placeholder="Buscar zapatillas, botas, sandalias..."
+                       aria-label="Buscar productos">
                 <div id="searchSuggestions" class="search-suggestions"></div>
             </div>
+            
             <div class="header-actions">
-                <button class="action-btn" id="wishlistBtn"><span class="material-icons">favorite</span><span>Deseos</span><span id="wishlistBadge" class="wishlist-badge">0</span></button>
-                <button class="action-btn" id="cartBtn"><span class="material-icons">shopping_bag</span><span>Cesta</span><span id="cartBadge" class="cart-badge">0</span></button>
-                <button class="action-btn" id="authBtn"><span class="material-icons">person</span><span>Entrar</span></button>
-                <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+                <button id="authBtn" class="action-btn" aria-label="Cuenta">
+                    <span class="material-icons">person</span>
+                    <span>Cuenta</span>
+                </button>
+                <button id="wishlistBtn" class="action-btn" aria-label="Favoritos">
+                    <span class="material-icons">favorite_border</span>
+                    <span>Favoritos</span>
+                    <span id="wishlistBadge" class="wishlist-badge">0</span>
+                </button>
+                <button id="cartBtn" class="action-btn" aria-label="Cesta">
+                    <span class="material-icons">shopping_cart</span>
+                    <span>Cesta</span>
+                    <span id="cartBadge" class="cart-badge">0</span>
+                </button>
             </div>
         </div>
-        <nav class="nav-categories">
+        
+        <nav class="nav-categories" aria-label="Categorías">
             <div class="nav-container">
                 <ul class="category-menu">
-                    <li><a href="#masculino" class="category-link">Masculino</a></li>
-                    <li><a href="#femenino" class="category-link">Femenino</a></li>
-                    <li><a href="#infantil" class="category-link">Infantil</a></li>
-                    <li><a href="#outros" class="category-link">Outros</a></li>
-                    <li><a href="#ofertas" class="category-link">Ofertas</a></li>
+                    <li><a href="#masculino" class="category-link"><span class="material-icons">man</span>Masculino</a></li>
+                    <li><a href="#femenino" class="category-link"><span class="material-icons">woman</span>Femenino</a></li>
+                    <li><a href="#infantil" class="category-link"><span class="material-icons">child_care</span>Infantil</a></li>
+                    <li><a href="#ofertas" class="category-link"><span class="material-icons">local_offer</span>Ofertas</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-    
-    <div class="mobile-menu-overlay"></div>
-    <div class="mobile-menu">
-        <div class="mobile-menu-header">
-            <span class="logo" style="color:white;">Gusmar<span style="color:#25d366;">Shoes</span></span>
-            <button class="mobile-menu-close" style="background:none; border:none; color:white; font-size:1.5rem;">&times;</button>
-        </div>
-        <nav>
-            <a href="#masculino" class="mobile-category-header">Masculino</a>
-            <a href="#femenino" class="mobile-category-header">Femenino</a>
-            <a href="#infantil" class="mobile-category-header">Infantil</a>
-            <a href="#outros" class="mobile-category-header">Outros</a>
-            <a href="#ofertas" class="mobile-category-header">Ofertas</a>
-        </nav>
-    </div>
-    
-    <main id="main-content">
-                <section class="hero">
+
+    <main id="main">
+        <section class="hero">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Descubre tu Estilo Único</h1>
-                    <p>Calzado al por mayor para revendedores. Stock rentable, alta rotación y calidad garantizada.</p>
+                    <h1>Calzado de Calidad al Por Mayor</h1>
+                    <p>Encuentra el stock perfecto para tu negocio. Alta rotación, precios competitivos.</p>
                     <div class="hero-cta">
-                        <a href="#colecciones" class="btn-primary" id="verColeccionBtn">Ver Colección <span class="material-icons">arrow_forward</span></a>
-                        <a href="#ofertas" class="btn-secondary" id="ofertasBtn"><span class="material-icons">local_offer</span> Ofertas</a>
+                        <a href="#colecciones" id="verColeccionBtn" class="btn-primary">
+                            <span class="material-icons">storefront</span>
+                            Ver Colección
+                        </a>
+                        <a href="#ofertas" id="ofertasBtn" class="btn-secondary">
+                            <span class="material-icons">local_offer</span>
+                            Ofertas Especiales
+                        </a>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&q=80" alt="Zapatilla destacada" class="hero-shoe" width="280" height="280" loading="eager" fetchpriority="high">
+                <div class="hero-image-wrap">
+                    <img 
+                        data-src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&h=600&fit=crop&auto=format&q=80" 
+                        alt="Zapatilla destacada" 
+                        class="hero-shoe lazy"
+                        width="600"
+                        height="600"
+                        loading="eager">
                 </div>
             </div>
         </section>
-        
-        <div id="colecciones" class="section-anchor"></div>
-        
-        <section class="section" id="masculino">
-            <div class="category-banner"><div><h2>Colección Masculina</h2><p>Estilo y confort para el hombre moderno</p></div></div>
-            <div class="products-grid" id="masculinoGrid"></div>
-        </section>
-        
-        <section class="section" id="femenino">
-            <div class="category-banner" style="background: linear-gradient(135deg, #831843 0%, #be185d 100%);"><div><h2>Colección Femenina</h2><p>Elegancia y tendencia para cada ocasión</p></div></div>
-            <div class="products-grid" id="femeninoGrid"></div>
-        </section>
-        
-        <section class="section" id="infantil">
-            <div class="category-banner" style="background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 100%);"><div><h2>Colección Infantil</h2><p>Comodidad y diversión para los más pequeños</p></div></div>
-            <div class="products-grid" id="infantilGrid"></div>
-        </section>
-        
-        <section class="section" id="outros">
-            <div class="category-banner" style="background: linear-gradient(135deg, #44403c 0%, #78716c 100%);"><div><h2>👟 Outros Calçados</h2><p>Veja outros calçados</p></div></div>
-            <div class="products-grid" id="outrosGrid"></div>
-        </section>
-        
-        <section class="section" id="ofertas">
-            <div class="category-banner" style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);"><div><h2>🔥 Ofertas Especiales</h2><p>¡Precios increíbles por tiempo limitado!</p></div></div>
-            <div class="products-grid" id="ofertasGrid"></div>
-        </section>
-        
+
         <div class="features-bar">
             <div class="features-grid">
-                <div class="feature-item"><div class="feature-icon"><span class="material-icons">stars</span></div><h4>Calidad Premium</h4><p>Materiales seleccionados</p></div>
-                <div class="feature-item"><div class="feature-icon"><span class="material-icons">trending_up</span></div><h4>Tendencias 2026</h4><p>Lo último en moda</p></div>
-                <div class="feature-item"><div class="feature-icon"><span class="material-icons">support_agent</span></div><h4>Atención Personalizada</h4><p>WhatsApp directo</p></div>
-                <div class="feature-item"><div class="feature-icon"><span class="material-icons">verified</span></div><h4>Garantía de Calidad</h4><p>Productos originales</p></div>
+                <div class="feature">
+                    <div class="feature-icon"><span class="material-icons">local_shipping</span></div>
+                    <h3>Envío Express</h3>
+                    <p>24-48h en toda Argentina</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><span class="material-icons">verified</span></div>
+                    <h3>Calidad Garantizada</h3>
+                    <p>Productos certificados</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><span class="material-icons">payments</span></div>
+                    <h3>Mejores Precios</h3>
+                    <p>Precios mayoristas</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><span class="material-icons">support_agent</span></div>
+                    <h3>Soporte 24/7</h3>
+                    <p>Asesoramiento personalizado</p>
+                </div>
             </div>
         </div>
+
+        <section id="colecciones" class="section section-anchor">
+            <div id="masculino" class="section-anchor">
+                <div class="category-banner">
+                    <h2>Colección Masculino</h2>
+                    <p>Zapatillas y calzado deportivo de alta performance</p>
+                </div>
+                <div id="masculinoGrid" class="products-grid"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div id="femenino" class="section-anchor">
+                <div class="category-banner">
+                    <h2>Colección Femenino</h2>
+                    <p>Estilo y comodidad en cada paso</p>
+                </div>
+                <div id="femeninoGrid" class="products-grid"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div id="infantil" class="section-anchor">
+                <div class="category-banner">
+                    <h2>Colección Infantil</h2>
+                    <p>Diversión y seguridad para los más pequeños</p>
+                </div>
+                <div id="infantilGrid" class="products-grid"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div id="ofertas" class="section-anchor">
+                <div class="category-banner" style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);">
+                    <h2>🔥 Ofertas Especiales</h2>
+                    <p>Aprovecha los mejores descuentos</p>
+                </div>
+                <div id="ofertasGrid" class="products-grid"></div>
+            </div>
+        </section>
     </main>
-    
-    <!-- SIDEBARS -->
-    <div id="cartSidebar" class="cart-sidebar"><div class="cart-sidebar-header"><h3>Mi Cesta</h3><button class="close-cart">&times;</button></div><div id="cartItems" class="cart-items"></div><div class="cart-footer"><button id="consultarStockBtn" class="whatsapp-cta"><span class="material-icons">whatsapp</span>Consultar Estoque</button></div></div>
-    <div id="wishlistSidebar" class="wishlist-sidebar"><div class="wishlist-sidebar-header"><h3>Mis Deseos</h3><button class="close-wishlist">&times;</button></div><div id="wishlistItems" class="wishlist-items"></div></div>
+
+    <aside id="cartSidebar" class="cart-sidebar">
+        <div class="cart-sidebar-header">
+            <h3>Mi Cesta</h3>
+            <button class="close-cart material-icons" aria-label="Cerrar cesta">close</button>
+        </div>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-footer">
+            <button id="consultarStockBtn" class="whatsapp-cta">
+                <span class="material-icons">whatsapp</span>
+                Consultar Stock
+            </button>
+        </div>
+    </aside>
+
+    <aside id="wishlistSidebar" class="wishlist-sidebar">
+        <div class="wishlist-sidebar-header">
+            <h3>Mis Favoritos</h3>
+            <button class="close-wishlist material-icons" aria-label="Cerrar favoritos">close</button>
+        </div>
+        <div id="wishlistItems" class="wishlist-items"></div>
+    </aside>
+
     <div id="cartOverlay" class="overlay"></div>
-    
-    <!-- MODAL AUTENTICAÇÃO -->
-    <div id="authModal" class="modal"><div class="modal-content"><span class="close-modal">&times;</span><h2>Entrar o Registrarse</h2><form id="authForm"><input type="text" id="userName" placeholder="Nombre completo" required><input type="email" id="userEmail" placeholder="Correo electrónico" required><input type="tel" id="userPhone" placeholder="Teléfono" required><label class="checkbox-label"><input type="checkbox" id="consent" required>Acepto el tratamiento de mis datos</label><button type="submit" class="btn-primary">Registrarse</button></form></div></div>
-    
-    <!-- POPUP OFERTAS -->
-    <div id="offerPopup" class="popup"><div class="popup-content"><button class="close-popup">&times;</button><h3>🎁 ¡Ofertas Exclusivas!</h3><p>Recibe descuentos especiales en WhatsApp</p><form id="popupForm"><input type="text" id="popupName" placeholder="Nombre"><input type="email" id="popupEmail" placeholder="Email"><input type="tel" id="popupPhone" placeholder="WhatsApp"><label class="checkbox-label"><input type="checkbox" id="popupConsent" required>Acepto recibir comunicaciones</label><button type="submit" class="btn-primary">Enviar</button></form></div></div>
-    
-    <!-- POPUP LEAD CONVERSÃO -->
-    <div id="leadPopup" class="popup-lead">
-        <div class="popup-lead-content">
-            <button class="close-popup-lead" id="closeLeadPopup">×</button>
-            <div class="popup-lead-header">
-                <div class="popup-badge">🔥 OFERTA EXCLUSIVA</div>
-                <h2>SOLO HOY:<br>ACCESO MAYORISTA</h2>
-            </div>
-            <div class="timer-container">
-                <div class="timer-label">⏰ OFERTA EXPIRA EN</div>
-                <div class="timer" id="countdownTimer">05:00</div>
-            </div>
-            <div class="social-proof">
-                <span class="stars">★★★★★</span>
-                <span>+1.200 revendedores ya compran</span>
-            </div>
-            <div class="popup-lead-body">
-                <form id="leadForm">
-                    <input type="text" id="leadName" placeholder="👤 Tu nombre completo" required>
-                    <input type="email" id="leadEmail" placeholder="📧 Tu mejor email" required>
-                    <input type="tel" id="leadPhone" placeholder="📱 WhatsApp" required>
-                    <label class="popup-checkbox"><input type="checkbox" id="leadConsent" required><span>✅ Acepto recibir información sobre precios mayoristas</span></label>
-                    <button type="submit" class="btn-lead">🚀 QUIERO PRECIOS MAYORISTAS</button>
-                    <div class="security-text">🔒 Tus datos están 100% seguros</div>
-                </form>
-            </div>
+
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal material-icons">close</span>
+            <h3>Crear Cuenta</h3>
+            <form id="authForm">
+                <input type="text" id="userName" placeholder="Nombre completo" required>
+                <input type="email" id="userEmail" placeholder="Email" required>
+                <input type="tel" id="userPhone" placeholder="Teléfono (solo números)" required>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="consent" required>
+                    Acepto recibir comunicaciones
+                </label>
+                <button type="submit" class="btn-primary" style="width:100%">Registrarme</button>
+            </form>
         </div>
     </div>
-    
+
+    <div id="offerPopup" class="popup">
+        <div class="popup-content">
+            <button class="close-popup material-icons">close</button>
+            <h3>🎁 ¡Oferta Exclusiva!</h3>
+            <p>Regístrate y obtén descuentos especiales</p>
+            <form id="popupForm">
+                <input type="text" id="popupName" placeholder="Nombre" required>
+                <input type="email" id="popupEmail" placeholder="Email" required>
+                <input type="tel" id="popupPhone" placeholder="Teléfono" required>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="popupConsent" required>
+                    Acepto recibir ofertas
+                </label>
+                <button type="submit" class="btn-primary" style="width:100%">Quiero mi descuento</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="leadPopup" class="popup">
+        <div class="popup-content">
+            <button id="closeLeadPopup" class="close-popup material-icons">close</button>
+            <h3>🔥 ¡Precios Mayoristas!</h3>
+            <p style="margin-bottom:1rem;">Accede a nuestros mejores precios</p>
+            <div style="background:var(--accent-light);padding:1rem;border-radius:var(--radius);margin-bottom:1rem;text-align:center;">
+                <div style="font-size:0.85rem;font-weight:600;color:var(--text-secondary);">OFERTA TERMINA EN:</div>
+                <div id="countdownTimer" style="font-size:2rem;font-weight:800;color:var(--accent);">05:00</div>
+            </div>
+            <form id="leadForm">
+                <input type="text" id="leadName" placeholder="Nombre completo" required>
+                <input type="email" id="leadEmail" placeholder="Email" required>
+                <input type="tel" id="leadPhone" placeholder="WhatsApp" required>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="leadConsent" required>
+                    Acepto recibir precios mayoristas
+                </label>
+                <button type="submit" class="btn-primary" style="width:100%">
+                    <span class="material-icons">whatsapp</span>
+                    Recibir Precios por WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span style="font-weight:700;">Menú</span>
+            <button class="mobile-menu-close material-icons">close</button>
+        </div>
+        <a href="#masculino" class="mobile-category-header">Masculino</a>
+        <a href="#femenino" class="mobile-category-header">Femenino</a>
+        <a href="#infantil" class="mobile-category-header">Infantil</a>
+        <a href="#ofertas" class="mobile-category-header">Ofertas</a>
+    </div>
+    <div class="mobile-menu-overlay"></div>
+
     <footer>
         <div class="footer-grid">
-            <div class="footer-section"><h3>Gusmar Shoes</h3><p>Tu zapatería de confianza</p></div>
-            <div class="footer-section"><h3>Categorías</h3><ul><li><a href="#masculino">Masculino</a></li><li><a href="#femenino">Femenino</a></li><li><a href="#infantil">Infantil</a></li><li><a href="#outros">Outros</a></li></ul></div>
-            <div class="footer-section"><h3>Contacto</h3><ul><li><a href="tel:+5493757326174">+54 9 3757 326174</a></li><li><a href="mailto:gusmarshoes@gmail.com">gusmarshoes@gmail.com</a></li></ul></div>
+            <div class="footer-section">
+                <h4>Gusmar Shoes</h4>
+                <p>Calzado de calidad desde 1995</p>
+            </div>
+            <div class="footer-section">
+                <h4>Categorías</h4>
+                <a href="#masculino">Masculino</a><br>
+                <a href="#femenino">Femenino</a><br>
+                <a href="#infantil">Infantil</a>
+            </div>
+            <div class="footer-section">
+                <h4>Atención al Cliente</h4>
+                <a href="#contacto">Contacto</a><br>
+                <a href="#envios">Envíos</a><br>
+                <a href="#devoluciones">Devoluciones</a>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <a href="#">Facebook</a><br>
+                <a href="#">Instagram</a><br>
+                <a href="#">WhatsApp</a>
+            </div>
         </div>
-        <div class="footer-bottom"><p>&copy; 2026 Gusmar Shoes. Todos los derechos reservados.</p></div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Gusmar Shoes. Todos los derechos reservados.</p>
+        </div>
     </footer>
-    
-    <script>
-        // ============================================
-        // PRODUCTOS
-        // ============================================
-        const baseProducts = {
-            masculino: [
-                { id: 1, name: "Zapatillas Running Pro Max", category: "Masculino", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&h=300&fit=crop&q=80", isOffer: false, ref: "M001" },
-                { id: 2, name: "Zapatillas Training Ultra", category: "Masculino", image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&h=300&fit=crop&q=80", isOffer: false, ref: "M002" },
-                { id: 3, name: "Zapatillas Casual Street", category: "Masculino", image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=300&h=300&fit=crop&q=80", isOffer: true, ref: "M003" },
-                { id: 4, name: "Zapatillas Baloncesto Air", category: "Masculino", image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=300&h=300&fit=crop&q=80", isOffer: false, ref: "M004" }
-            ],
-            femenino: [
-                { id: 5, name: "Zapatillas Running Pro Mujer", category: "Femenino", image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=300&h=300&fit=crop&q=80", isOffer: false, ref: "F001" },
-                { id: 6, name: "Zapatillas Chunky Platform", category: "Femenino", image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=300&h=300&fit=crop&q=80", isOffer: false, ref: "F002" },
-                { id: 7, name: "Bailarinas Plegables Soft", category: "Femenino", image: "https://images.unsplash.com/photo-1603487742131-4160ec999306?w=300&h=300&fit=crop&q=80", isOffer: true, ref: "F003" },
-                { id: 8, name: "Botines Chelsea Piel", category: "Femenino", image: "https://images.unsplash.com/photo-1606890658317-7d14490b76fd?w=300&h=300&fit=crop&q=80", isOffer: false, ref: "F004" }
-            ],
-            infantil: [
-                { id: 9, name: "Zapatillas LED Intermitentes", category: "Infantil", image: "https://images.unsplash.com/photo-1514989940723-e81e61645e1a?w=300&h=300&fit=crop&q=80", isOffer: false, ref: "I001" },
-                { id: 10, name: "Zapatillas Colegio Resistentes", category: "Infantil", image: "https://images.unsplash.com/photo-1507464098880-e367bc5d2c08?w=300&h=300&fit=crop&q=80", isOffer: false, ref: "I002" },
-                { id: 11, name: "Zapatillas Superhéroes Velcro", category: "Infantil", image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=300&h=300&fit=crop&q=80", isOffer: true, ref: "I003" }
-            ]
-        };
 
-        let outrosProdutos = JSON.parse(localStorage.getItem('outrosProdutos')) || [
-            { id: 101, name: "Mocasines de Cuero", category: "Outros", image: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=300&h=300&fit=crop&q=80", isOffer: false, ref: "REF001" },
-            { id: 102, name: "Sandalias Tropical", category: "Outros", image: "https://images.unsplash.com/photo-1560343090-f0409e92791a?w=300&h=300&fit=crop&q=80", isOffer: false, ref: "REF002" }
-        ];
-
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-
-        function saveCart() { localStorage.setItem('cart', JSON.stringify(cart)); updateCartBadge(); renderCartSidebar(); }
-        function saveWishlist() { localStorage.setItem('wishlist', JSON.stringify(wishlist)); updateWishlistBadge(); renderWishlistSidebar(); }
-        function updateCartBadge() { document.getElementById('cartBadge').textContent = cart.length; }
-        function updateWishlistBadge() { document.getElementById('wishlistBadge').textContent = wishlist.length; }
-        
-        function showNotification(msg) {
-            let n = document.createElement('div');
-            n.className = 'notification';
-            n.innerHTML = `<span class="material-icons">check_circle</span>${msg}`;
-            document.body.appendChild(n);
-            setTimeout(() => n.remove(), 3000);
-        }
-
-        function flyToTarget(element, targetId) {
-            const rect = element.getBoundingClientRect();
-            const clone = element.cloneNode(true);
-            clone.style.cssText = `position:fixed; left:${rect.left}px; top:${rect.top}px; width:30px; height:30px; border-radius:50%; object-fit:cover; z-index:99999; transition:all 0.5s cubic-bezier(0.2,0.9,0.4,1.1);`;
-            document.body.appendChild(clone);
-            const target = document.getElementById(targetId);
-            const targetRect = target.getBoundingClientRect();
-            requestAnimationFrame(() => {
-                clone.style.left = targetRect.left + targetRect.width/2 - 15 + 'px';
-                clone.style.top = targetRect.top + targetRect.height/2 - 15 + 'px';
-                clone.style.opacity = '0.5';
-            });
-            setTimeout(() => clone.remove(), 500);
-        }
-
-        function addToCart(product, ev) {
-            if (!cart.find(i => i.id === product.id)) {
-                cart.push({ ...product, quantity: 1 });
-                saveCart();
-                showNotification(`✓ ${product.name} añadido`);
-                if (ev && ev.target) flyToTarget(ev.target, 'cartBtn');
-            } else showNotification(`Ya está en la cesta`);
-        }
-
-        function addToWishlist(product, ev) {
-            if (!wishlist.find(i => i.id === product.id)) {
-                wishlist.push({ ...product, quantity: 1 });
-                saveWishlist();
-                showNotification(`❤️ ${product.name} añadido a deseos`);
-                if (ev && ev.target) flyToTarget(ev.target, 'wishlistBtn');
-            } else showNotification(`Ya está en deseos`);
-        }
-
-        function shareProduct(product) {
-            if (navigator.share) navigator.share({ title: product.name, text: `Mira este calzado en Gusmar Shoes` });
-            else { navigator.clipboard.writeText(`${product.name} - Gusmar Shoes`); showNotification('Enlace copiado'); }
-        }
-
-        function sendWhatsAppProduct(product) {
-            const msg = `Hola, me interesa *"${product.ref || product.id}"*. ¿Puede darme más información? ¡Gracias!`;
-            window.open(`https://wa.me/5493757326174?text=${encodeURIComponent(msg)}`, '_blank');
-        }
-
-        function renderProductCard(p, hideText = false) {
-            const hiddenClass = hideText ? 'no-text' : '';
-            const refCode = p.ref || `REF${String(p.id).padStart(3,'0')}`;
-            return `<article class="product-card ${hiddenClass}" data-id="${p.id}">
-                        <div class="product-image-container" data-product='${JSON.stringify(p)}'>
-                            <img src="${p.image}" alt="${p.name}" class="product-image" width="300" height="300" loading="lazy">
-                            <div class="floating-buttons">
-                                <button class="floating-icon wishlist-float" data-action="wishlist"><span class="material-icons">favorite_border</span></button>
-                                <button class="floating-icon cart-float" data-action="cart"><span class="material-icons">add_shopping_cart</span></button>
-                                <button class="floating-icon share-float" data-action="share"><span class="material-icons">share</span></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            ${!hideText ? `<div class="product-category">${p.category} ${p.isOffer ? '🔥 OFERTA' : ''}</div><div class="product-title">${p.name}</div>` : ''}
-                            <div><span class="product-ref">📌 ${refCode}</span></div>
-                            <button class="whatsapp-button" data-action="whatsapp"><span class="material-icons">whatsapp</span> Consultar</button>
-                            <div class="horizontal-buttons">
-                                <button class="horiz-btn wishlist-horiz" data-action="wishlist"><span class="material-icons">favorite_border</span> Deseo</button>
-                                <button class="horiz-btn cart-horiz" data-action="cart"><span class="material-icons">add_shopping_cart</span> Cesta</button>
-                                <button class="horiz-btn share-horiz" data-action="share"><span class="material-icons">share</span></button>
-                            </div>
-                        </div>
-                    </article>`;
-        }
-
-        function renderProducts() {
-            for (let cat of ['masculino', 'femenino', 'infantil']) {
-                let container = document.getElementById(`${cat}Grid`);
-                if (container) container.innerHTML = baseProducts[cat].map(p => renderProductCard(p, false)).join('');
-            }
-            const outrosContainer = document.getElementById('outrosGrid');
-            if (outrosContainer) outrosContainer.innerHTML = outrosProdutos.map(p => renderProductCard(p, true)).join('');
-            const allOffers = [...baseProducts.masculino, ...baseProducts.femenino, ...baseProducts.infantil, ...outrosProdutos].filter(p => p.isOffer);
-            document.getElementById('ofertasGrid').innerHTML = allOffers.map(p => renderProductCard(p, false)).join('');
-            attachEvents();
-        }
-
-        function attachEvents() {
-            document.querySelectorAll('.product-card').forEach(card => {
-                const imgContainer = card.querySelector('.product-image-container');
-                if (!imgContainer) return;
-                const productData = JSON.parse(imgContainer.dataset.product);
-                card.querySelectorAll('[data-action="whatsapp"]').forEach(btn => btn.onclick = (e) => { e.stopPropagation(); sendWhatsAppProduct(productData); });
-                card.querySelectorAll('[data-action="wishlist"]').forEach(btn => btn.onclick = (e) => { e.stopPropagation(); addToWishlist(productData, e); });
-                card.querySelectorAll('[data-action="cart"]').forEach(btn => btn.onclick = (e) => { e.stopPropagation(); addToCart(productData, e); });
-                card.querySelectorAll('[data-action="share"]').forEach(btn => btn.onclick = (e) => { e.stopPropagation(); shareProduct(productData); });
-            });
-        }
-
-        function renderCartSidebar() {
-            const container = document.getElementById('cartItems');
-            if (container) container.innerHTML = cart.length ? cart.map(i => `<div class="cart-item"><img src="${i.image}" width="60" height="60"><div><div>${i.name}</div><button class="whatsapp-button" data-cart-whatsapp='${i.id}'>WhatsApp</button></div></div>`).join('') : '<p style="text-align:center;padding:1rem;">Vacía</p>';
-            document.querySelectorAll('[data-cart-whatsapp]').forEach(btn => btn.onclick = () => { const prod = cart.find(p => p.id == btn.dataset.cartWhatsapp); if(prod) sendWhatsAppProduct(prod); });
-        }
-
-        function renderWishlistSidebar() {
-            const container = document.getElementById('wishlistItems');
-            if (container) container.innerHTML = wishlist.length ? wishlist.map(i => `<div class="wishlist-item"><img src="${i.image}" width="60" height="60"><div><div>${i.name}</div><button class="whatsapp-button" data-wish-to-cart='${i.id}'>Enviar a cesta</button></div></div>`).join('') : '<p style="text-align:center;padding:1rem;">Vacía</p>';
-            document.querySelectorAll('[data-wish-to-cart]').forEach(btn => btn.onclick = () => { const item = wishlist.find(w => w.id == btn.dataset.wishToCart); if(item){ addToCart(item); wishlist = wishlist.filter(w => w.id != item.id); saveWishlist(); renderWishlistSidebar(); } });
-        }
-
-        // Eventos Sidebar
-        document.getElementById('cartBtn').onclick = () => { document.getElementById('cartSidebar').classList.add('active'); document.getElementById('cartOverlay').classList.add('active'); renderCartSidebar(); };
-        document.querySelector('.close-cart').onclick = () => { document.getElementById('cartSidebar').classList.remove('active'); document.getElementById('cartOverlay').classList.remove('active'); };
-        document.getElementById('wishlistBtn').onclick = () => { document.getElementById('wishlistSidebar').classList.add('active'); document.getElementById('cartOverlay').classList.add('active'); renderWishlistSidebar(); };
-        document.querySelector('.close-wishlist').onclick = () => { document.getElementById('wishlistSidebar').classList.remove('active'); document.getElementById('cartOverlay').classList.remove('active'); };
-        document.getElementById('cartOverlay').onclick = () => { document.getElementById('cartSidebar').classList.remove('active'); document.getElementById('wishlistSidebar').classList.remove('active'); document.getElementById('cartOverlay').classList.remove('active'); };
-        document.getElementById('consultarStockBtn').onclick = () => { if(cart.length){ const msg = cart.map(i => `- ${i.name}`).join('%0A'); window.open(`https://wa.me/5493757326174?text=Hola%2C%20consulto%20stock%20de:%0A${msg}`, '_blank'); } else showNotification('Cesta vacía'); };
-
-        // Autenticação
-        const authBtn = document.getElementById('authBtn'), authModal = document.getElementById('authModal'), closeModal = document.querySelector('.close-modal');
-        authBtn.onclick = () => authModal.classList.add('active');
-        closeModal.onclick = () => authModal.classList.remove('active');
-        document.getElementById('authForm').onsubmit = (e) => { e.preventDefault(); authModal.classList.remove('active'); showNotification('Registro exitoso'); };
-
-        // Popup ofertas
-        setTimeout(() => { if(!localStorage.getItem('popupShown')){ document.getElementById('offerPopup').classList.add('active'); localStorage.setItem('popupShown','true'); } }, 30000);
-        document.querySelector('.close-popup').onclick = () => document.getElementById('offerPopup').classList.remove('active');
-        document.getElementById('popupForm').onsubmit = (e) => { e.preventDefault(); document.getElementById('offerPopup').classList.remove('active'); showNotification('¡Gracias!'); };
-
-        // Buscador
-        const allItems = [...baseProducts.masculino, ...baseProducts.femenino, ...baseProducts.infantil, ...outrosProdutos];
-        const searchInput = document.getElementById('searchInput'), suggestionsDiv = document.getElementById('searchSuggestions');
-        searchInput.addEventListener('input', () => {
-            let term = searchInput.value.toLowerCase();
-            if(term.length > 0){
-                let matches = allItems.filter(p => p.name.toLowerCase().includes(term));
-                suggestionsDiv.innerHTML = matches.map(m => `<div class="suggestion-item" data-cat="${m.category.toLowerCase()}">${m.name}</div>`).join('');
-                suggestionsDiv.classList.add('active');
-                document.querySelectorAll('.suggestion-item').forEach(el => {
-                    el.onclick = () => { searchInput.value = el.innerText; suggestionsDiv.classList.remove('active'); let target = document.getElementById(el.dataset.cat); if(target) target.scrollIntoView({behavior:'smooth'}); };
-                });
-            } else suggestionsDiv.classList.remove('active');
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e){
-                let targetId = this.getAttribute('href');
-                if(targetId && targetId !== '#'){
-                    let target = document.querySelector(targetId);
-                    if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); closeMenuFn(); }
-                }
-            });
-        });
-
-        // Mobile menu
-        const hamburger = document.querySelector('.hamburger'), mobileMenu = document.querySelector('.mobile-menu'), mobileOverlay = document.querySelector('.mobile-menu-overlay'), closeMenuBtn = document.querySelector('.mobile-menu-close');
-        function openMenu(){ mobileMenu.classList.add('active'); mobileOverlay.style.display = 'block'; }
-        function closeMenuFn(){ mobileMenu.classList.remove('active'); mobileOverlay.style.display = 'none'; }
-        if(hamburger) hamburger.addEventListener('click', openMenu);
-        if(closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenuFn);
-        if(mobileOverlay) mobileOverlay.addEventListener('click', closeMenuFn);
-
-        // ============================================
-        // POPUP LEAD CONVERSÃO
-        // ============================================
-        const WHATSAPP_NUMBER = "5493757326174";
-        let countdownInterval = null;
-        let isPopupVisible = false;
-
-        function saveLead(leadData) {
-            const leads = JSON.parse(localStorage.getItem('gusmarLeads')) || [];
-            leads.push({ ...leadData, id: Date.now(), timestamp: new Date().toISOString() });
-            localStorage.setItem('gusmarLeads', JSON.stringify(leads));
-        }
-
-        function sendLead(leadData) {
-            const msg = `Hola, quiero comprar al por mayor 👇%0A%0A📌 DATOS:%0A👤 ${encodeURIComponent(leadData.nome)}%0A📧 ${encodeURIComponent(leadData.email)}%0A📱 ${encodeURIComponent(leadData.phone)}`;
-            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
-        }
-
-        function startCountdown(seconds) {
-            const timerEl = document.getElementById('countdownTimer');
-            if(!timerEl) return;
-            let remaining = seconds;
-            if(countdownInterval) clearInterval(countdownInterval);
-            const update = () => { const m = Math.floor(remaining/60); const s = remaining%60; timerEl.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`; };
-            update();
-            countdownInterval = setInterval(() => { if(remaining > 0){ remaining--; update(); } else { clearInterval(countdownInterval); } }, 1000);
-        }
-
-        function showLeadPopup() {
-            if(isPopupVisible) return;
-            const popup = document.getElementById('leadPopup');
-            if(popup){ popup.classList.add('active'); isPopupVisible = true; startCountdown(300); localStorage.setItem('leadPopupShown','true'); }
-        }
-
-        function closeLeadPopup() {
-            const popup = document.getElementById('leadPopup');
-            if(popup){ popup.classList.remove('active'); isPopupVisible = false; if(countdownInterval) clearInterval(countdownInterval); }
-        }
-
-        function shouldShowPopup() {
-            const shown = localStorage.getItem('leadPopupShown');
-            const shownAt = localStorage.getItem('leadPopupShownAt');
-            if(!shown) return true;
-            if(shownAt && (Date.now() - parseInt(shownAt)) > 7*24*60*60*1000){
-                localStorage.removeItem('leadPopupShown');
-                localStorage.removeItem('leadPopupShownAt');
-                return true;
-            }
-            return false;
-        }
-
-        document.addEventListener('mouseleave', (e) => { if(e.clientY <= 0 && !isPopupVisible && shouldShowPopup()) setTimeout(showLeadPopup, 100); });
-        setTimeout(() => { if(shouldShowPopup() && !isPopupVisible) showLeadPopup(); }, 15000);
-
-        document.getElementById('leadForm')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const nome = document.getElementById('leadName')?.value.trim();
-            const email = document.getElementById('leadEmail')?.value.trim();
-            const phone = document.getElementById('leadPhone')?.value.trim();
-            const consent = document.getElementById('leadConsent')?.checked;
-            if(!nome || !email || !phone){ alert('Completa todos los campos'); return; }
-            if(!consent){ alert('Debes aceptar recibir comunicaciones'); return; }
-            saveLead({ nome, email, phone, consent });
-            sendLead({ nome, email, phone });
-            closeLeadPopup();
-            showNotification('✅ ¡Gracias! En breve recibirás los precios');
-        });
-
-        document.getElementById('closeLeadPopup')?.addEventListener('click', closeLeadPopup);
-        document.getElementById('leadPopup')?.addEventListener('click', (e) => { if(e.target === e.currentTarget) closeLeadPopup(); });
-
-        // Inicializar
-        renderProducts();
-        updateCartBadge();
-        updateWishlistBadge();
-        renderCartSidebar();
-        renderWishlistSidebar();
-    </script>
+    <!-- JavaScript diferido -->
+    <script src="script.js" defer></script>
 </body>
 </html>
