@@ -24,7 +24,7 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
 
-const WHATSAPP_NUMBER = "5493757326174";
+const WHATSAPP_NUMBER = "5493757369752";
 const POPUP_DELAY_SECONDS = 15;
 const COUNTDOWN_SECONDS = 300;
 
