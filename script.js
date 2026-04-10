@@ -639,3 +639,28 @@ document.addEventListener('DOMContentLoaded', () => {
     setupLazyLoading();
     initLeadConversionPopup();
 });
+// ============================================
+// EFEITO PARALLAX NA SEÇÃO HERO
+// ============================================
+function initParallax() {
+    const parallaxBg = document.querySelector('.hero-parallax-bg');
+    if (!parallaxBg) return;
+    
+    let ticking = false;
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset;
+                // Move a imagem a 40% da velocidade do scroll
+                const yPos = scrolled * 0.4;
+                parallaxBg.style.transform = `translate3d(0, ${yPos}px, 0)`;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
+
+// Inicializar parallax quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', initParallax);
